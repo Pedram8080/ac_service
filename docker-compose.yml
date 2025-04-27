@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: ac_db
+      POSTGRES_USER: ac_user
+      POSTGRES_PASSWORD: ac_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - .:/code
+
+  web:
+    build: ./backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      POSTGRES_DB: ac_db
+      POSTGRES_USER: ac_user
+      POSTGRES_PASSWORD: ac_pass
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+
+volumes:
+  postgres_data:

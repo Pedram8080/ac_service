@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <script src="{% static 'js/all.js' %}"></script>
+     <title>نصب و تعمیر کولرگازی | نصب فیکس</title>
+    <meta name="description" content="نصب فیکس، ارائه خدمات تخصصی نصب و تعمیر کولرگازی با قیمت مناسب و گارانتی">
+    <meta name="keywords" content="نصب کولرگازی، تعمیر کولرگازی، خدمات کولرگازی، نصب فیکس">
+    <meta name="robots" content="index , follow">
+    <link rel="canonical" href="https://www.nasbfix.ir">
+    <meta property="og:title" content="نصاب فیکس | نصب و تعمیر کولر گازی">
+    <meta property="og:description" content="نصب و تعمیر کولر گازی در تهران با تیم تخصصی نصاب فیکس.">
+    <meta property="og:image" content="https://www.nasbfix.ir/img/logo-icon.jpg">
+    <meta property="og:url" content="https://www.nasbfix.ir/">
+    <meta property="og:type" content="website">
+    <link rel="shortcut icon" type="jpg" href="{% static 'img/logo-icon.jpg' %}"/>
+</head>
+<body>
+    <header class="header">
+        <section class="meno">
+            <div class="meno-berger d-none">
+                <button class="meno-berger-btn navbar-toggler" type="button" data-toggle="collapse" data-target="#berger" aria-controls="berger" aria-expanded="false" aria-label="toggle nav">
+                    <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
+                </button>
+            </div>
+            <nav class="meno-nav navbar navbar-expand nav-pills d-flex justify-content-between">
+                <div class="meno-nav-khali d-none"></div>
+                <div class="meno-nav-logo">
+                    <a href="#" class="navbar-brand d-block">نصب فیکس</a>
+                </div>
+                <div class="meno-nav-item d-flex">
+                    <a href="#darkhast" class="nav-link nav-item d-block meno-nav-item">درخواست نصب و تعمیر</a>
+                    <a href="#darbarema" class="nav-link nav-item d-block meno-nav-item">درباره ما</a>
+                    <a href="#tekrar" class="nav-link nav-item d-block meno-nav-item">سوالات پر تکرار</a>
+                    <a href="#" class="nav-link nav-item d-block meno-nav-item disabled">مقالات</a>
+                </div>
+                <div class="meno-nav-tamas">
+                    <button type="button" class="d-flex">
+                        <a href="tel:{{ phone_number }}">09122343204 {{ phone_number }}</a>
+                        <span><i class="fa-solid fa-phone"></i></span>
+                    </button>
+                </div>
+            </nav>
+            <div class="meno-berger-box collapse navbar-collapse" id="berger">
+                <div class="navbar-nav">
+                    <a href="#darkhast" class="nav-link nav-item">درخواست نصب و تعمیر</a>
+                    <a href="#darbarema" class="nav-link nav-item">درباره ما</a>
+                    <a href="#tekrar" class="nav-link nav-item">سوالات پر تکرار</a>
+                    <a href="#" class="nav-link nav-item disabled">مقالات</a>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <main class="main">
+        <section class="main-banner w-100 d-flex flex-column">
+            <div class="main-banner-title align-self-center d-block">
+                <h1>نصب و تعمیر کولرگازی</h1>
+                <h2>نمایندگی رسمی ایران رادیاتور</h2>
+            </div>
+            <div class="main-banner-amar d-flex justify-content-center">
+                <div class="main-banner-amar-box text-center">
+                    <p><i class="fa-solid fa-clock-rotate-left"></i></p>
+                    <p>10+</p>
+                    <p>سال سابقه</p>
+                </div>
+                <div class="main-banner-amar-box text-center">
+                    <p><i class="fa-solid fa-list-check"></i></p>
+                    <p>2,000+</p>
+                    <p>پروژه انجام شده</p>
+                </div>
+                <div class="main-banner-amar-box text-center">
+                    <p><i class="fa-regular fa-face-smile"></i></p>
+                    <p>95%</p>
+                    <p>رضایت مشتری</p>
+                </div>
+            </div>
+        </section>
+        <section class="main-chera">
+            <h2>چرا نصب فیکس را انتخاب کنیم؟</h2>
+            <div class="main-chera-box">
+                <div class="main-chera-box-item1">
+                    <span><i class="fa-solid fa-award"></i></span>
+                    <p>گارانتی نصب </p>
+                </div>
+                <div class="main-chera-box-item2">
+                    <span><i class="fa-solid fa-hand-holding-dollar"></i></span>
+                    <p>قیمت منصفانه</p>
+                </div>
+                <div class="main-chera-box-item3">
+                    <span><i class="fa-regular fa-clock"></i></span>
+                    <p>کمترین زمان</p>
+                </div>
+                <div class="main-chera-box-item4">
+                    <span><i class="fa-solid fa-house-circle-check"></i></span>
+                    <p>نمایندگی رسمی</p>
+                </div>
+            </div>
+        </section>
+        <section class="main-darkhast" id="darkhast">
+            <form class="form-group main-darkhast-box">
+                <h2 class="form-group">فرم درخواست سریع متخصص</h2>
+                <div class="form-group">
+                    <label class="form-control-lable main-darkhast-box-label">نام و نام خانوادگی:</label>
+                    <input class="form-control main-darkhast-box-input" type="text" placeholder="لطفا نام و نام خانوادگی خود را وارد کنید">
+                    <label class="form-control-lable main-darkhast-box-label">شماره تماس:</label>
+                    <input class="form-control main-darkhast-box-input" type="tel" placeholder="لطفا شماره تماس خود را وارد کنید">
+                </div>
+                <label class="form-group-label main-darkhast-box-label">نوع سرویس خود را انتخاب کنید:</label>
+                <div class="form-check">
+                    <label class="form-check-label main-darkhast-box-label-radio">
+                        <input class="form-check-input" type="radio" name="darkhast">نصب
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label main-darkhast-box-label-radio">
+                        <input class="form-check-input" type="radio" name="darkhast">تعمیر
+                    </label>
+                </div>
+                <button type="submit" class="main-darkhast-box-sabt">ثبت درخواست</button>
+            </form>
+        </section>
+        <section class="main-khadamat" id="khadamat">
+            <h2>ما چه خدماتی ارائه میدیم؟</h2>
+            <div class="main-khadamat-box">
+                <div class="main-khadamat-box-khedmat1">
+                    <div class="main-khadamat-box-img">
+                        <img src="{% static 'img/kolergazi.jpg' %}" alt="کولرگازی،نصب کولرگازی،کولرگازی دیواری" loading="lazy">
+                    </div>
+                    <h3 class="main-khadamat-box-titr">نصب کولرگازی دیواری</h3>
+                    <p class="main-khadamat-box-matn">کولرگازی دیواری یکی از رایج‌ترین سیستم‌های سرمایشی و گرمایشی برای منازل، دفاتر کار و فضاهای کوچک تا متوسط هست که با عملکرد کم‌صدا و مصرف بهینه، هوای مطلوب رو در کمترین زمان فراهم می‌کنه</p>
+                </div>
+                <div class="main-khadamat-box-khedmat2">
+                    <div class="main-khadamat-box-img">
+                        <img src="{% static 'img/daktespilet.jpg' %}" alt="داکت اسپیلت،نصب داکت اسپیلت" loading="lazy">
+                    </div>
+                    <h3 class="main-khadamat-box-titr">نصب داکت اسپیلت</h3>
+                    <p class="main-khadamat-box-matn">داکت اسپیلت مناسب برای سرمایش و گرمایش چندین فضا به صورت هم‌زمانه، معمولاً در خانه‌های بزرگ، ویلاها یا دفاتر با چند اتاق استفاده می‌شه. این سیستم ظاهری یکپارچه داره و بدون نیاز به پنل‌های متعدد، کل فضا رو تحت پوشش قرار می‌ده</p>
+                </div>
+                <div class="main-khadamat-box-khedmat3">
+                    <div class="main-khadamat-box-img">
+                        <img src="{% static 'img/tamir.jpg' %}" alt="تعمیر کولرگازی،تعمیر کمپرسور کولرگازی،تعمیر پنل کولرگازی،تعمیر کولرگازی ایستاده،تعمیر داکت اسپیلت" loading="lazy">
+                    </div>
+                    <h3 class="main-khadamat-box-titr">تعمیر انواع کولرگازی</h3>
+                    <p class="main-khadamat-box-matn">کولرهای گازی در اثر کارکرد مداوم یا نصب غیراصولی دچار خرابی می‌شن؛ با تعمیر اصولی، می‌شه عمر مفید دستگاه رو افزایش داد و از هزینه‌های اضافی جلوگیری کرد</p>
+                </div>
+                <div class="main-khadamat-box-khedmat4">
+                    <div class="main-khadamat-box-img">
+                        <img src="{% static 'img/istade.jpg' %}" alt="نصب کولرگازی ایستاده،کولرگازی ایستاده" loading="lazy">
+                    </div>
+                    <h3 class="main-khadamat-box-titr">نصب کولرگازی ایستاده</h3>
+                    <p class="main-khadamat-box-matn">کولرهای ایستاده بیشتر در سالن‌ها، فروشگاه‌ها، مساجد، یا مکان‌هایی با نیاز به سرمایش قوی استفاده می‌شن. قدرت بالا و پوشش‌دهی وسیع از ویژگی‌های مهم این دستگاه‌هاست</p>
+                </div>
+                </div>
+            </div>
+        </section>
+        <section class="main-berand w-100" id="brand">
+            <h2>ما به چه برند ها و شرکت هایی خدمات میدیم؟</h2>
+            <div class="main-berand-box">
+                <div class="main-berand-box-item1">
+                    <img src="{% static 'img/logo-kochak (1).png' %}" alt="گری،کولرگازی گری-نصب کولرگازی گری،تعمیر کولرگازی گری" loading="lazy">
+                </div>
+                <div class="main-berand-box-item2">
+                    <img src="{% static 'img/logo-kochak (2).png' %}" alt="کولرگازی ایران رادیاتور،نصب کولرگازی ایران رادیاتور،ایران رادیاتور،تعمیر کولرگازی ایران رادیاتور" loading="lazy">
+                </div>
+                <div class="main-berand-box-item3">
+                    <img src="{% static 'img/logo-kochak (3).png' %}" alt="کولرگازی هایسنس،نصب کولرگازی هایسنس،هایسنس،تعمیر کولرگازی هایسنس" loading="lazy">
+                </div>
+                <div class="main-berand-box-item4">
+                    <img src="{% static 'img/logo-kochak (4).png' %}" alt="گرین،کولرگازی گرین،نصب کولرگازی گرین،تعمیر کولرگازی گرین" loading="lazy">
+                </div>
+                <div class="main-berand-box-item5">
+                    <img src="{% static 'img/logo-kochak (5).png' %}" alt="الجی،کولرگازی الجی،نصب کولرگازی الجی،تعمیر کولرگازی الجی" loading="lazy">
+                </div>
+                <div class="main-berand-box-item6">
+                    <img src="{% static 'img/logo-kochak (6).png' %}" alt="ایوایکس،کولرگازی ایوایکس،نصب کولرگازی ایوایکس،تعمیر کولرگازی ایوایکس" loading="lazy">
+                </div>
+                <div class="main-berand-box-item7">
+                    <img src="{% static 'img/logo-kochak (7).png' %}" alt="سامسونگ،کولرگازی سامسونگ،نصب کولرگازی سامسونگ،تعمیر کولرگازی سامسونگ" loading="lazy">
+                </div>
+            </div>
+        </section>
+        <section class="main-soal d-flex flex-column" id="tekrar">
+            <h2>سوالات پرتکرار:</h2>
+            <div class="main-soal-box align-self-center">
+                <button class="navbar-toggler d-flex justify-content-between" type="button" data-toggle="collapse" data-target="#soal1" aria-controls="soal1" aria-expanded="false" aria-label="toggle nav">
+                    <p class="d-block">آیا شارژ گاز کولرگازی باید هر سال انجام شود؟</p>
+                    <p class="d-block"><i class="fa-solid fa-plus"></i></p>
+                </button>
+                <div class="collapse navbar-collapse javab" id="soal1">
+                    <div class="navbar-nav">
+                        <p class="nav-item nav-link">خیر،اگر نصب به صورت اصولی انجام شود و نشتی نداشته باشد شما چندین سال میتوانین از همان گاز زده شده در دستگاه استفاده کنین</p>
+                    </div>
+                </div>
+                <button class="navbar-toggler d-flex justify-content-between" type="button" data-toggle="collapse" data-target="#soal2" aria-controls="soal2" aria-expanded="false" aria-label="toggle nav">
+                    <p>کولرگازی در چه جاهایی نباید نصب شود؟</p>
+                    <p><i class="fa-solid fa-plus"></i></p>
+                </button>
+                <div class="collapse navbar-collapse javab" id="soal2">
+                    <div class="navbar-nav">
+                        <p class="nav-item nav-link">پیدا کردن جای مناسب برای نصب کولرگازی ارتباط مستقیمی با میزان تنظیم دمای هوا در محیط شما دارد که در مکان هایی مانند آشپزخانه، زیر رادیات و شوفاژ نباید نصب شود.</p>
+                    </div>
+                </div>
+                <button class="navbar-toggler d-flex justify-content-between" type="button" data-toggle="collapse" data-target="#soal3" aria-controls="soal3" aria-expanded="false" aria-label="toggle nav">
+                    <p>هر کولرگازی مناسب چه متراژی است؟</p>
+                    <p><i class="fa-solid fa-plus"></i></p>
+                </button>
+                <div class="collapse navbar-collapse javab" id="soal3">
+                    <div class="navbar-nav">
+                        <p class="nav-item nav-link">کولر 12 هزار - 25 متری</p>
+                        <p class="nav-item nav-link">کولر 18 هزار - 40 متری</p>
+                        <p class="nav-item nav-link">کولر 24 هزار - 75 متری</p>
+                        <p class="nav-item nav-link">کولر 30 هزار - 90 متری</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <section class="footer-darbare" id="darbarema">
+            <div class="footer-darbare-ma">
+                <h3>درباره ما:</h3>
+                <p>ما یه تیم فنی هستیم که حدود 10 سال در حوضه کولرگازی در حال فعالیت هستیم که الان به صورت رسمی نمایندگی ایران رادیاتور را داریم و به شرکت ها و برند های دیگه هم خدمات میدیم</p>
+            </div>
+            <div class="footer-darbare-tamas">
+                <h3>ارتباط با ما:</h3>
+                <p>شماره تماس: 9956061-0938</p>
+                <p>شماره تماس: 2343204-0912</p>
+            </div>
+            <div class="footer-darbare-dastresy">
+                <h3>دسترسی سریع:</h3>
+                <ul>
+                    <li>
+                        <a href="#darkhast">درخواست نصب و تعمیر</a>
+                    </li>
+                    <li>
+                        <a href="#khadamat">خدمات ما</a>
+                    </li>
+                    <li>
+                        <a href="#brand">برند های تحت پوشش</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-darbare-mojavez">
+                <h3>مجوزها:</h3>
+                <img src="{% static 'img/logo (1).png' %}" alt="نمایندگی ایران رادیاتور-کولرگازی ایران رادیاتور" loading="lazy">
+            </div>
+        </section>
+        <section class="footer-houghough">
+            <p>تمامی حقوق این سایت متعلق به <span>نمایندگی نصب فیکس</span> است</p>
+            <p>این سایت توسط <span>تیم برنامه نویسی روموساپ</span> ساخته شده است</p>
+        </section>
+    </footer>
+    
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/all.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
