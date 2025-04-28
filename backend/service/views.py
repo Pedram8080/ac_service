@@ -12,6 +12,7 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import ServiceRequest
 from .utils import send_sms
+import re
 
 
 class CreateRequestView(APIView):
@@ -35,6 +36,10 @@ def send_request_view(request):
 
         if not name or not phone or not service_type:
             return JsonResponse({'status': 'error', 'message': 'لطفاً همه فیلدها را پر کنید.'})
+
+        if not re.fullmatch(r'09\d{9}', phone):
+            return JsonResponse({'status': 'error', 'message': 'شماره موبایل نامعتبر است. لطفاً یک شماره صحیح وارد کنید.'})
+
         # ذخیره درخواست در دیتابیس
         service_request = ServiceRequest.objects.create(
             name=name,
