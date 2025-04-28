@@ -103,27 +103,64 @@
             </div>
         </section>
         <section class="main-darkhast" id="darkhast">
-            <form class="form-group main-darkhast-box">
+            <form id="request-form" method="POST" class="form-group main-darkhast-box">
+                {% csrf_token %}
                 <h2 class="form-group">فرم درخواست سریع متخصص</h2>
                 <div class="form-group">
                     <label class="form-control-lable main-darkhast-box-label">نام و نام خانوادگی:</label>
-                    <input class="form-control main-darkhast-box-input" type="text" placeholder="لطفا نام و نام خانوادگی خود را وارد کنید">
+                    <input class="form-control main-darkhast-box-input" type="text" placeholder="لطفا نام و نام خانوادگی خود را وارد کنید" required>
                     <label class="form-control-lable main-darkhast-box-label">شماره تماس:</label>
-                    <input class="form-control main-darkhast-box-input" type="tel" placeholder="لطفا شماره تماس خود را وارد کنید">
+                    <input class="form-control main-darkhast-box-input" type="tel" placeholder="لطفا شماره تماس خود را وارد کنید" required>
                 </div>
                 <label class="form-group-label main-darkhast-box-label">نوع سرویس خود را انتخاب کنید:</label>
                 <div class="form-check">
                     <label class="form-check-label main-darkhast-box-label-radio">
-                        <input class="form-check-input" type="radio" name="darkhast">نصب
+                        <input class="form-check-input" type="radio" name="service_type" value="نصب" required>نصب
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label main-darkhast-box-label-radio">
-                        <input class="form-check-input" type="radio" name="darkhast">تعمیر
+                        <input class="form-check-input" type="radio" name="darkhast" value="تعمیر" required>تعمیر
                     </label>
                 </div>
                 <button type="submit" class="main-darkhast-box-sabt">ثبت درخواست</button>
             </form>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script>
+        document.getElementById('request-form').addEventListener('submit', async function(e) {
+            e.preventDefault();  // جلو گیری از ارسال فرم به روش عادی
+
+            const formData = new FormData(this);
+
+            const response = await fetch('/sms/send-request/', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.status === 'success') {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'درخواست ثبت شد!',
+                    text: data.message,
+                    confirmButtonText: 'باشه'
+                });
+                this.reset();  // فرم رو ریست کن
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'خطا!',
+                    text: data.message,
+                    confirmButtonText: 'باشه'
+                });
+            }
+        });
+        </script>
         </section>
         <section class="main-khadamat" id="khadamat">
             <h2>ما چه خدماتی ارائه میدیم؟</h2>

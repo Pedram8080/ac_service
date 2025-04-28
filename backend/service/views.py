@@ -34,8 +34,7 @@ def send_request_view(request):
         service_type = request.POST.get('service_type')
 
         if not name or not phone or not service_type:
-            return redirect('/')  # یا صفحه خطا
-
+            return JsonResponse({'status': 'error', 'message': 'لطفاً همه فیلدها را پر کنید.'})
         # ذخیره درخواست در دیتابیس
         service_request = ServiceRequest.objects.create(
             name=name,
@@ -50,6 +49,6 @@ def send_request_view(request):
         admin_phone = '09352493041'  # شماره ادمین اینجا بذار
         send_sms(admin_phone, f"درخواست جدید {service_type} از {name} - {phone}")
 
-        return redirect('/')  # یا یک صفحه موفقیت
+        return JsonResponse({'status': 'success', 'message': 'درخواست شما با موفقیت ثبت شد.'})
 
-    return redirect('/')
+    return JsonResponse({'status': 'error', 'message': 'متد غیرمجاز است.'})
