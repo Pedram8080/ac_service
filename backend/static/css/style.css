@@ -152,6 +152,9 @@ body p {
 .header .meno-nav-item .disabled {
   color: gray !important;
 }
+.header .meno-nav-tamas a {
+  color: white;
+}
 @media (max-width: 800px) {
   .header .meno-nav-item {
     display: none !important;
