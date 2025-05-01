@@ -1,3 +1,5 @@
+version: '3.9'
+
 services:
   db:
     image: postgres:15
@@ -8,7 +10,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - .:/code
+      - postgres_data:/var/lib/postgresql/data
 
   web:
     build: ./backend
