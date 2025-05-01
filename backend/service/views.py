@@ -57,3 +57,4 @@ def send_request_view(request):
         return JsonResponse({'status': 'success', 'message': 'درخواست شما با موفقیت ثبت شد.'})
 
     return JsonResponse({'status': 'error', 'message': 'متد غیرمجاز است.'})
+
