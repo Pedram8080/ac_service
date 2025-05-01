@@ -13,6 +13,9 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import ServiceRequest
 from .utils import send_sms
 import re
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import AuthenticationForm
 
 
 class CreateRequestView(APIView):
@@ -38,7 +41,8 @@ def send_request_view(request):
             return JsonResponse({'status': 'error', 'message': 'لطفاً همه فیلدها را پر کنید.'})
 
         if not re.fullmatch(r'09\d{9}', phone):
-            return JsonResponse({'status': 'error', 'message': 'شماره موبایل نامعتبر است. لطفاً یک شماره صحیح وارد کنید.'})
+            return JsonResponse(
+                {'status': 'error', 'message': 'شماره موبایل نامعتبر است. لطفاً یک شماره صحیح وارد کنید.'})
 
         # ذخیره درخواست در دیتابیس
         service_request = ServiceRequest.objects.create(
@@ -58,3 +62,41 @@ def send_request_view(request):
 
     return JsonResponse({'status': 'error', 'message': 'متد غیرمجاز است.'})
 
+
+def request_panel_view(request):
+    requests = ServiceRequest.objects.all().order_by('-created_at')
+    return render(request, 'service/panel.html', {'requests': requests})
+
+
+def panel_login(request):
+    if request.user.is_authenticated:
+        return redirect('request_panel')
+
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('request_panel')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'service/panel_login.html', {'form': form})
+
+
+@login_required
+def request_panel_view(request):
+    requests = ServiceRequest.objects.all().order_by('-created_at')
+    return render(request, 'service/panel.html', {'requests': requests})
+
+
+@login_required
+def update_status_view(request, pk):
+    req = ServiceRequest.objects.get(pk=pk)
+    req.status = 'done' if req.status == 'pending' else 'pending'
+    req.save()
+    return redirect('request_panel')
+
+
+def panel_logout(request):
+    logout(request)
+    return redirect('panel_login')

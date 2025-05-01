@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>ورود پنل مدیریت</title>
+</head>
+<body>
+  <h2>ورود به پنل مدیریت</h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">ورود</button>
+  </form>
+</body>
+</html>
