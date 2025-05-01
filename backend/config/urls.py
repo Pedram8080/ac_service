@@ -5,6 +5,6 @@ from service.views import home
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('service.urls')),
-    # path('sms/', include('service.urls')),
+    # path('sms/', include('service.urls')), comment
     path('', home, name='home'),
 ]
