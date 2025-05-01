@@ -12,6 +12,17 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: adel@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: 12054801
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+
   web:
     build: ./backend
     command: python manage.py runserver 0.0.0.0:8000
