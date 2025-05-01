@@ -137,6 +137,10 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CSRF_TRUSTED_ORIGINS = ['https://nasbfix.ir', 'https://www.nasbfix.ir', 'http://nasbfix.ir', 'http://www.nasbfix.ir']
 
+CSRF_COOKIE_SECURE = True
+
+SESSION_COOKIE_SECURE = True
 
 
