@@ -19,16 +19,15 @@ class ServiceRequest(models.Model):
 
     STATUS_CHOICES = [
         ('pending', 'در حال بررسی'),
-        ('approved', 'تایید شده'),
-        ('done', 'انجام شده')
+        ('done', 'انجام شده'),
     ]
 
-    name = models.CharField(max_length=100, verbose_name="نام مشتری")
-    phone = models.CharField(max_length=15, verbose_name="شماره تماس")
-    service_type = models.CharField(max_length=10, choices=SERVICE_CHOICES, verbose_name="نوع سرویس")
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="تاریخ ثبت")
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending', verbose_name="وضعیت")
+    name = models.CharField(max_length=100)
+    phone = models.CharField(max_length=11)
+    service_type = models.CharField(max_length=10, choices=SERVICE_CHOICES)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.name} ({self.phone}) - {self.service_type}"
+        return f"{self.name} - {self.phone}"
 

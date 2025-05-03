@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-w@p+fa&&omp^oa7&n68==+0@4^+lert43yw8v8yjhrxip821po
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['159.69.87.39', '127.0.0.1']
+ALLOWED_HOSTS = ['159.69.87.39', '127.0.0.1', 'nasbfix.ir']
 
 # Application definition
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'service',
+    'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE = [
@@ -86,6 +87,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -136,6 +138,16 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CSRF_TRUSTED_ORIGINS = ['https://nasbfix.ir', 'https://www.nasbfix.ir', 'http://nasbfix.ir', 'http://www.nasbfix.ir']
 
+CSRF_COOKIE_SECURE = True
+
+SESSION_COOKIE_SECURE = True
+
+LOGIN_URL = '/panel/login/'
+
+LOGIN_REDIRECT_URL = '/panel/'
+
+LOGOUT_REDIRECT_URL = '/panel/login/'
 
 

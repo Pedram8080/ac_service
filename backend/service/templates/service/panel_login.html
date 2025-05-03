@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>ورود به پنل مدیریت</title>
+    <style>
+        body { font-family: sans-serif; direction: rtl; background-color: #f1f5f9; text-align: center; padding-top: 100px; }
+        .login-box { background: white; padding: 30px; border-radius: 10px; display: inline-block; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        input { padding: 10px; margin: 10px 0; width: 100%; }
+        button { padding: 10px; width: 100%; background: #0080ff; color: white; border: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>ورود به پنل مدیریت</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">ورود</button>
+        </form>
+    </div>
+</body>
+</html>

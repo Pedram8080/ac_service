@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>پنل مدیریت</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body { font-family: sans-serif; direction: rtl; background: #f9f9f9; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; background: white; }
+        th, td { padding: 10px; border: 1px solid #ddd; }
+        th { background: #eef; }
+        .btn { padding: 5px 10px; border-radius: 5px; border: none; color: white; cursor: pointer; }
+        .pending { background-color: orange; }
+        .done { background-color: green; }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>لیست درخواست‌ها</h2>
+        <a href="{% url 'logout' %}">خروج</a>
+    </div>
+    <table>
+        <tr>
+            <th>نام</th>
+            <th>شماره تماس</th>
+            <th>نوع سرویس</th>
+            <th>وضعیت</th>
+            <th>عملیات</th>
+        </tr>
+        {% for req in requests %}
+        <tr>
+            <td>{{ req.name }}</td>
+            <td>{{ req.phone }}</td>
+            <td>{{ req.get_service_type_display }}</td>
+            <td id="status-{{ req.id }}">{{ req.get_status_display }}</td>
+            <td>
+                <button class="btn {% if req.status == 'pending' %}pending{% else %}done{% endif %}" onclick="changeStatus('{{ req.id }}')">
+                    {% if req.status == 'pending' %}انجام شد{% else %}بررسی{% endif %}
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <script>
+        function changeStatus(id) {
+            fetch(`/panel/update-status/${id}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    Swal.fire('موفق', data.message, 'success').then(() => location.reload());
+                } else {
+                    Swal.fire('خطا', 'مشکلی پیش آمد.', 'error');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

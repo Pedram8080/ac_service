@@ -13,6 +13,11 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import ServiceRequest
 from .utils import send_sms
 import re
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import AuthenticationForm
+from django.http import HttpResponse
+
 
 
 class CreateRequestView(APIView):
@@ -38,7 +43,8 @@ def send_request_view(request):
             return JsonResponse({'status': 'error', 'message': 'لطفاً همه فیلدها را پر کنید.'})
 
         if not re.fullmatch(r'09\d{9}', phone):
-            return JsonResponse({'status': 'error', 'message': 'شماره موبایل نامعتبر است. لطفاً یک شماره صحیح وارد کنید.'})
+            return JsonResponse(
+                {'status': 'error', 'message': 'شماره موبایل نامعتبر است. لطفاً یک شماره صحیح وارد کنید.'})
 
         # ذخیره درخواست در دیتابیس
         service_request = ServiceRequest.objects.create(
@@ -57,3 +63,34 @@ def send_request_view(request):
         return JsonResponse({'status': 'success', 'message': 'درخواست شما با موفقیت ثبت شد.'})
 
     return JsonResponse({'status': 'error', 'message': 'متد غیرمجاز است.'})
+
+
+def request_panel_view(request):
+    requests = ServiceRequest.objects.all().order_by('-id')
+    return render(request, 'service/panel.html', {'requests': requests})
+
+@csrf_exempt
+@login_required
+def update_status_view(request, request_id):
+    if request.method == 'POST':
+        try:
+            req = ServiceRequest.objects.get(id=request_id)
+            if req.status == 'pending':
+                req.status = 'done'
+                message = 'درخواست انجام شد!'
+            else:
+                req.status = 'pending'
+                message = 'در حال بررسی'
+            req.save()
+            return JsonResponse({'success': True, 'message': message})
+        except:
+            return JsonResponse({'success': False})
+
+
+def robots_txt(request):
+    lines = [
+        "User-Agent: *",
+        "Disallow:",
+        "Sitemap: https://nasbfix.ir/sitemap.xml",
+    ]
+    return HttpResponse("\n".join(lines), content_type="text/plain")
