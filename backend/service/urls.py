@@ -2,7 +2,8 @@ from django.urls import path
 from .views import CreateRequestView
 from . import views
 from .views import send_request_view
-from .views import request_panel_view, panel_login
+from .views import request_panel_view
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('request/', CreateRequestView.as_view(), name='create-request'),
