@@ -83,20 +83,27 @@ def panel_login(request):
     return render(request, 'service/panel_login.html', {'form': form})
 
 
-@login_required
+PANEL_PASSWORD = "123456"
+
+
 def request_panel_view(request):
-    requests = ServiceRequest.objects.all().order_by('-created_at')
+    if not request.session.get('logged_in'):
+        if request.method == 'POST' and request.POST.get('password') == PANEL_PASSWORD:
+            request.session['logged_in'] = True
+            return redirect('/sms/panel/')
+        return render(request, 'service/panel_login.html')
+
+    requests = ServiceRequest.objects.all().order_by('-id')
     return render(request, 'service/panel.html', {'requests': requests})
 
 
-@login_required
-def update_status_view(request, pk):
-    req = ServiceRequest.objects.get(pk=pk)
-    req.status = 'done' if req.status == 'pending' else 'pending'
-    req.save()
-    return redirect('request_panel')
-
-
-def panel_logout(request):
-    logout(request)
-    return redirect('panel_login')
+@csrf_exempt
+def mark_done_view(request, request_id):
+    if request.method == 'POST':
+        try:
+            req = ServiceRequest.objects.get(id=request_id)
+            req.status = 'done'
+            req.save()
+            return JsonResponse({'success': True})
+        except:
+            return JsonResponse({'success': False})
