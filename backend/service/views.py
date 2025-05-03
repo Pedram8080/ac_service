@@ -16,6 +16,8 @@ import re
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
+from django.http import HttpResponse
+
 
 
 class CreateRequestView(APIView):
@@ -84,3 +86,11 @@ def update_status_view(request, request_id):
         except:
             return JsonResponse({'success': False})
 
+
+def robots_txt(request):
+    lines = [
+        "User-Agent: *",
+        "Disallow:",
+        "Sitemap: https://nasbfix.ir/sitemap.xml",
+    ]
+    return HttpResponse("\n".join(lines), content_type="text/plain")
