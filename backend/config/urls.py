@@ -7,6 +7,25 @@ from django.views.static import serve
 from django.conf import settings
 from django.conf.urls.static import static
 import os
+from django.contrib.sitemaps.views import sitemap
+from django.contrib.sitemaps import Sitemap
+from service.models import ServiceRequest
+
+
+class ServiceSitemap(Sitemap):
+    changefreq = "daily"
+    priority = 0.9
+
+    def items(self):
+        return ServiceRequest.objects.all()
+
+    def location(self, item):
+        return f"/sms/panel/{item.pk}/"  # یا هر آدرسی که نمایش می‌دی
+
+
+sitemaps = {
+    'services': ServiceSitemap,
+}
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
@@ -16,4 +35,5 @@ urlpatterns = [
                   path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
                   path('sitemap.xml', serve,
                        {'path': 'sitemap.xml', 'document_root': os.path.join(settings.BASE_DIR, 'static')}),
+                  path("sitemap.xml", sitemap, {'sitemaps': sitemaps}, name='sitemap'),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

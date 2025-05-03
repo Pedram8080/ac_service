@@ -94,3 +94,7 @@ def robots_txt(request):
         "Sitemap: https://nasbfix.ir/sitemap.xml",
     ]
     return HttpResponse("\n".join(lines), content_type="text/plain")
+
+
+def article_view(request):
+    return render(request, 'article.html') 
