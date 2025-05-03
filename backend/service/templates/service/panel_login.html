@@ -1,15 +1,24 @@
+<!-- service/templates/service/panel_login.html -->
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8">
-  <title>ورود پنل مدیریت</title>
+    <meta charset="UTF-8">
+    <title>ورود به پنل</title>
+    <style>
+        body { font-family: sans-serif; direction: rtl; background: #f2f2f2; text-align: center; padding-top: 100px; }
+        .box { background: white; padding: 30px; display: inline-block; border-radius: 10px; }
+        input { padding: 10px; margin-top: 10px; width: 200px; }
+        button { padding: 10px 20px; margin-top: 20px; background-color: #4CAF50; color: white; border: none; }
+    </style>
 </head>
 <body>
-  <h2>ورود به پنل مدیریت</h2>
-  <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">ورود</button>
-  </form>
+    <div class="box">
+        <h2>ورود به پنل مدیریت</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="password" name="password" placeholder="رمز عبور"><br>
+            <button type="submit">ورود</button>
+        </form>
+    </div>
 </body>
 </html>

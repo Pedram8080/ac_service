@@ -1,40 +1,56 @@
+<!-- service/templates/service/panel.html -->
 <!DOCTYPE html>
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <title>پنل مدیریت</title>
+    <title>پنل مدیریت درخواست‌ها</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
-        body { font-family: Tahoma; direction: rtl; background: #f0f0f0; padding: 20px; }
+        body { font-family: sans-serif; direction: rtl; background: #f9f9f9; padding: 20px; }
         table { width: 100%; border-collapse: collapse; background: white; }
-        th, td { padding: 10px; border: 1px solid #ddd; text-align: center; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
         th { background: #eee; }
-        .btn { padding: 5px 10px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; }
+        button { padding: 5px 10px; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
     </style>
 </head>
 <body>
-    <h2>لیست درخواست‌ها</h2>
-    <a href="{% url 'panel_logout' %}" class="btn">خروج</a>
+    <h2>درخواست‌های ثبت‌شده</h2>
     <table>
         <tr>
             <th>نام</th>
             <th>شماره</th>
             <th>نوع سرویس</th>
             <th>وضعیت</th>
-            <th>تاریخ</th>
             <th>عملیات</th>
         </tr>
-        {% for r in requests %}
-        <tr>
-            <td>{{ r.name }}</td>
-            <td>{{ r.phone }}</td>
-            <td>{{ r.get_service_type_display }}</td>
-            <td>{{ r.get_status_display }}</td>
-            <td>{{ r.created_at|date:"Y-m-d H:i" }}</td>
+        {% for req in requests %}
+        <tr id="row-{{ req.id }}">
+            <td>{{ req.name }}</td>
+            <td>{{ req.phone }}</td>
+            <td>{{ req.get_service_type_display }}</td>
+            <td id="status-{{ req.id }}">{{ req.status }}</td>
             <td>
-                <a href="{% url 'update_status' r.pk %}" class="btn">تغییر وضعیت</a>
+                <button onclick="markDone({{ req.id }})">انجام شد</button>
             </td>
         </tr>
+        {% empty %}
+        <tr><td colspan="5">درخواستی وجود ندارد</td></tr>
         {% endfor %}
     </table>
+
+    <script>
+        function markDone(id) {
+            fetch(`/sms/mark-done/${id}/`, {
+                method: 'POST',
+                headers: {'X-CSRFToken': '{{ csrf_token }}'}
+            }).then(res => res.json())
+              .then(data => {
+                  if (data.success) {
+                      document.getElementById('status-' + id).innerText = 'done';
+                      Swal.fire('موفق', 'وضعیت با موفقیت تغییر کرد!', 'success');
+                  }
+              });
+        }
+    </script>
 </body>
 </html>
