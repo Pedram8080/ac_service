@@ -2,8 +2,6 @@ from django.contrib import admin
 from django.urls import path, include
 from service.views import home
 from django.contrib.sitemaps.views import sitemap
-from service.sitemaps import StaticViewSitemap
-from service.views import robots_txt
 from django.views.generic import TemplateView
 from django.views.static import serve
 from django.conf import settings
