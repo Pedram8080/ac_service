@@ -143,4 +143,10 @@ CSRF_COOKIE_SECURE = True
 
 SESSION_COOKIE_SECURE = True
 
+LOGIN_URL = '/panel/login/'
+
+LOGIN_REDIRECT_URL = '/panel/'
+
+LOGOUT_REDIRECT_URL = '/panel/login/'
+
 

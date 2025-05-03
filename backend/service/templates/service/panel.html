@@ -1,55 +1,63 @@
-<!-- service/templates/service/panel.html -->
 <!DOCTYPE html>
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <title>پنل مدیریت درخواست‌ها</title>
+    <title>پنل مدیریت</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         body { font-family: sans-serif; direction: rtl; background: #f9f9f9; padding: 20px; }
         table { width: 100%; border-collapse: collapse; background: white; }
-        th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
-        th { background: #eee; }
-        button { padding: 5px 10px; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        th, td { padding: 10px; border: 1px solid #ddd; }
+        th { background: #eef; }
+        .btn { padding: 5px 10px; border-radius: 5px; border: none; color: white; cursor: pointer; }
+        .pending { background-color: orange; }
+        .done { background-color: green; }
     </style>
 </head>
 <body>
-    <h2>درخواست‌های ثبت‌شده</h2>
+    <div>
+        <h2>لیست درخواست‌ها</h2>
+        <a href="{% url 'logout' %}">خروج</a>
+    </div>
     <table>
         <tr>
             <th>نام</th>
-            <th>شماره</th>
+            <th>شماره تماس</th>
             <th>نوع سرویس</th>
             <th>وضعیت</th>
             <th>عملیات</th>
         </tr>
         {% for req in requests %}
-        <tr id="row-{{ req.id }}">
+        <tr>
             <td>{{ req.name }}</td>
             <td>{{ req.phone }}</td>
             <td>{{ req.get_service_type_display }}</td>
-            <td id="status-{{ req.id }}">{{ req.status }}</td>
+            <td id="status-{{ req.id }}">{{ req.get_status_display }}</td>
             <td>
-                <button onclick="markDone({{ req.id }})">انجام شد</button>
+                <button class="btn {% if req.status == 'pending' %}pending{% else %}done{% endif %}" onclick="changeStatus('{{ req.id }}')">
+                    {% if req.status == 'pending' %}انجام شد{% else %}بررسی{% endif %}
+                </button>
             </td>
         </tr>
-        {% empty %}
-        <tr><td colspan="5">درخواستی وجود ندارد</td></tr>
         {% endfor %}
     </table>
 
     <script>
-        function markDone(id) {
-            fetch(`/sms/mark-done/${id}/`, {
+        function changeStatus(id) {
+            fetch(`/panel/update-status/${id}/`, {
                 method: 'POST',
-                headers: {'X-CSRFToken': '{{ csrf_token }}'}
-            }).then(res => res.json())
-              .then(data => {
-                  if (data.success) {
-                      document.getElementById('status-' + id).innerText = 'done';
-                      Swal.fire('موفق', 'وضعیت با موفقیت تغییر کرد!', 'success');
-                  }
-              });
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    Swal.fire('موفق', data.message, 'success').then(() => location.reload());
+                } else {
+                    Swal.fire('خطا', 'مشکلی پیش آمد.', 'error');
+                }
+            });
         }
     </script>
 </body>

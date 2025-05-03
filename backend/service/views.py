@@ -64,46 +64,23 @@ def send_request_view(request):
 
 
 def request_panel_view(request):
-    requests = ServiceRequest.objects.all().order_by('-created_at')
-    return render(request, 'service/panel.html', {'requests': requests})
-
-
-def panel_login(request):
-    if request.user.is_authenticated:
-        return redirect('request_panel')
-
-    if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
-        if form.is_valid():
-            user = form.get_user()
-            login(request, user)
-            return redirect('request_panel')
-    else:
-        form = AuthenticationForm()
-    return render(request, 'service/panel_login.html', {'form': form})
-
-
-PANEL_PASSWORD = "123456"
-
-
-def request_panel_view(request):
-    if not request.session.get('logged_in'):
-        if request.method == 'POST' and request.POST.get('password') == PANEL_PASSWORD:
-            request.session['logged_in'] = True
-            return redirect('/sms/panel/')
-        return render(request, 'service/panel_login.html')
-
     requests = ServiceRequest.objects.all().order_by('-id')
     return render(request, 'service/panel.html', {'requests': requests})
 
-
 @csrf_exempt
-def mark_done_view(request, request_id):
+@login_required
+def update_status_view(request, request_id):
     if request.method == 'POST':
         try:
             req = ServiceRequest.objects.get(id=request_id)
-            req.status = 'done'
+            if req.status == 'pending':
+                req.status = 'done'
+                message = 'درخواست انجام شد!'
+            else:
+                req.status = 'pending'
+                message = 'در حال بررسی'
             req.save()
-            return JsonResponse({'success': True})
+            return JsonResponse({'success': True, 'message': message})
         except:
             return JsonResponse({'success': False})
+
