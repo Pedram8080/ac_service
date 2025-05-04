@@ -30,7 +30,6 @@ sitemaps = {
 urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('', include('service.urls')),
-                  # path('sms/', include('service.urls')), comment
                   path('', home, name='home'),
                   path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
                   path('sitemap.xml', serve,
