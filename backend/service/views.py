@@ -108,11 +108,12 @@ def request_specialist(request):
                     f"{settings.SMS_API_URL}/{settings.SMS_API_KEY}",
                     json=customer_data
                 )
-                print(f"پاسخ API پیامک مشتری: {response.text}")  # لاگ پاسخ API
-                if response.status_code == 200:
+                response_data = response.json()
+                print(f"پاسخ API پیامک مشتری: {response_data}")
+                if response.status_code == 200 and response_data.get('status') == 'success':
                     print("پیامک به مشتری ارسال شد")
                 else:
-                    print(f"خطا در ارسال پیامک به مشتری: {response.text}")
+                    print(f"خطا در ارسال پیامک به مشتری: {response_data.get('status')}")
             except Exception as e:
                 print(f"خطا در ارسال پیامک به مشتری: {e}")
 
@@ -128,11 +129,12 @@ def request_specialist(request):
                     f"{settings.SMS_API_URL}/{settings.SMS_API_KEY}",
                     json=admin_data
                 )
-                print(f"پاسخ API پیامک ادمین: {response.text}")  # لاگ پاسخ API
-                if response.status_code == 200:
+                response_data = response.json()
+                print(f"پاسخ API پیامک ادمین: {response_data}")
+                if response.status_code == 200 and response_data.get('status') == 'success':
                     print("پیامک به ادمین ارسال شد")
                 else:
-                    print(f"خطا در ارسال پیامک به ادمین: {response.text}")
+                    print(f"خطا در ارسال پیامک به ادمین: {response_data.get('status')}")
             except Exception as e:
                 print(f"خطا در ارسال پیامک به ادمین: {e}")
 
