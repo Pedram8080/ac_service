@@ -10,8 +10,7 @@ def send_sms(to, text):
         data = {
             'to': to,
             'from': settings.SMS_FROM,
-            'text': text,
-            'isFlash': False
+            'text': text
         }
         
         headers = {
