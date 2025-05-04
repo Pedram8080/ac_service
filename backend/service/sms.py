@@ -18,8 +18,14 @@ def send_sms(to, text):
             'Accept': 'application/json'
         }
         
-        logger.info(f"ارسال پیامک به {to} با متن: {text}")
+        logger.info("="*50)
+        logger.info("شروع ارسال پیامک")
+        logger.info(f"URL: {settings.SMS_API_URL}")
+        logger.info(f"به: {to}")
+        logger.info(f"متن: {text}")
+        logger.info(f"از: {settings.SMS_FROM}")
         logger.info(f"داده‌های ارسالی: {data}")
+        logger.info(f"هدرها: {headers}")
         
         # ارسال درخواست
         response = requests.post(
@@ -31,6 +37,7 @@ def send_sms(to, text):
         
         logger.info(f"وضعیت پاسخ: {response.status_code}")
         logger.info(f"پاسخ خام: {response.text}")
+        logger.info(f"هدرهای پاسخ: {response.headers}")
         
         try:
             response_data = response.json()
@@ -40,6 +47,7 @@ def send_sms(to, text):
             if response.status_code == 200:
                 if isinstance(response_data, dict):
                     status = response_data.get('status', '').lower()
+                    logger.info(f"وضعیت ارسال: {status}")
                     if status == 'ارسال شد':
                         logger.info("پیامک با موفقیت ارسال شد")
                         return True
@@ -67,3 +75,6 @@ def send_sms(to, text):
     except Exception as e:
         logger.error(f"خطای ناشناخته: {e}")
         return False
+    finally:
+        logger.info("پایان ارسال پیامک")
+        logger.info("="*50)
