@@ -1,6 +1,8 @@
 import requests
 from django.conf import settings
+import logging
 
+logger = logging.getLogger(__name__)
 
 def send_sms(to, text):
     try:
@@ -18,25 +20,44 @@ def send_sms(to, text):
             'Accept': 'application/json'
         }
         
+        logger.info(f"ارسال پیامک به {to} با متن: {text}")
+        logger.info(f"داده‌های ارسالی: {data}")
+        
         # ارسال درخواست با فرمت form-data
         response = requests.post(
             settings.SMS_API_URL,
             data=data,
-            headers=headers
+            headers=headers,
+            timeout=10  # اضافه کردن تایم‌اوت
         )
         
-        print(f"پاسخ خام API پیامک: {response.text}")
-        response_data = response.json()
-        print(f"پاسخ JSON API پیامک: {response_data}")
+        logger.info(f"وضعیت پاسخ: {response.status_code}")
+        logger.info(f"پاسخ خام: {response.text}")
         
-        # بررسی وضعیت ارسال
-        if response.status_code == 200 and response_data.get('status') == 'ارسال شد':
-            print("پیامک با موفقیت ارسال شد")
-            return True
-        else:
-            print(f"خطا در ارسال پیامک: {response_data}")
+        try:
+            response_data = response.json()
+            logger.info(f"پاسخ JSON: {response_data}")
+            
+            # بررسی وضعیت ارسال
+            if response.status_code == 200:
+                if isinstance(response_data, dict) and response_data.get('status') == 'ارسال شد':
+                    logger.info("پیامک با موفقیت ارسال شد")
+                    return True
+                else:
+                    logger.error(f"خطا در پاسخ API: {response_data}")
+                    return False
+            else:
+                logger.error(f"خطای HTTP: {response.status_code}")
+                return False
+                
+        except ValueError as e:
+            logger.error(f"خطا در تبدیل پاسخ به JSON: {e}")
+            logger.error(f"پاسخ خام: {response.text}")
             return False
             
+    except requests.exceptions.RequestException as e:
+        logger.error(f"خطا در ارسال درخواست: {e}")
+        return False
     except Exception as e:
-        print(f"خطا در ارسال پیامک: {e}")
+        logger.error(f"خطای ناشناخته: {e}")
         return False
