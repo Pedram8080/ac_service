@@ -178,7 +178,7 @@ body p {
 }
 .header .meno-nav-tamas button p {
   color: white;
-  letter-spacing: 1px;
+  font-family: "font-titr";
   margin-left: 10px;
   font-size: 25px;
 }
@@ -217,7 +217,7 @@ body p {
   width: 100% !important;
   height: 650px !important;
   position: relative;
-  background-image: url(../img/khadamat-nasb-tamir-koulergazy.jpg);
+  background-image: url(../img/banner.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -318,18 +318,18 @@ body p {
     margin-top: 0;
   }
 }
-.main-chera h2 {
+.main-chera h3 {
   font-family: "font-titr";
   font-size: 30px;
   text-align: center;
 }
 @media (max-width: 1000px) {
-  .main-chera h2 {
+  .main-chera h3 {
     font-size: 25px;
   }
 }
 @media (max-width: 700px) {
-  .main-chera h2 {
+  .main-chera h3 {
     font-size: 20px;
   }
 }
@@ -418,7 +418,7 @@ body p {
   margin-top: 50px;
 }
 .main-darkhast-box {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url(../img/iran-radiator-group.jpg) center no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url(../img/darkast.jpg) center no-repeat;
   background-size: cover;
   background-attachment: fixed;
   padding: 150px 50px;
@@ -429,14 +429,14 @@ body p {
     padding: 150px 15px;
   }
 }
-.main-darkhast-box h2 {
+.main-darkhast-box h3 {
   font-size: 25px;
   color: white;
   font-family: "font-titr";
   margin-bottom: 30px;
 }
 @media (max-width: 500px) {
-  .main-darkhast-box h2 {
+  .main-darkhast-box h3 {
     font-size: 20px;
   }
 }
@@ -498,14 +498,14 @@ body p {
     padding: 50px 10px;
   }
 }
-.main-khadamat > h2 {
+.main-khadamat > h3 {
   font-size: 25px;
   font-family: "font-titr";
   text-align: center;
   margin-bottom: 20px;
 }
 @media (max-width: 550px) {
-  .main-khadamat > h2 {
+  .main-khadamat > h3 {
     font-size: 20px;
   }
 }
@@ -614,7 +614,7 @@ body p {
   padding: 100px 0;
   background-color: var(--tousy);
 }
-.main-berand h2 {
+.main-berand h3 {
   text-align: center;
   font-family: "font-titr";
   font-size: 25px;
@@ -623,12 +623,12 @@ body p {
   margin-bottom: 50px;
 }
 @media (max-width: 950px) {
-  .main-berand h2 {
+  .main-berand h3 {
     font-size: 20px;
   }
 }
 @media (max-width: 500px) {
-  .main-berand h2 {
+  .main-berand h3 {
     font-size: 15px;
   }
 }
@@ -679,13 +679,13 @@ body p {
   padding: 50px 0;
   text-align: center;
 }
-.main-soal h2 {
+.main-soal h3 {
   font-family: "font-titr";
   font-size: 25px;
   margin-bottom: 30px;
 }
 @media (max-width: 750px) {
-  .main-soal h2 {
+  .main-soal h3 {
     font-size: 15px;
   }
 }
@@ -763,12 +763,12 @@ body p {
     gap: 20px;
   }
 }
-.footer-darbare h3 {
+.footer-darbare h4 {
   font-size: 20px;
   font-family: "font-titr";
 }
 @media (max-width: 1100px) {
-  .footer-darbare h3 {
+  .footer-darbare h4 {
     font-size: 15px;
   }
 }
@@ -804,9 +804,6 @@ body p {
 }
 .footer-darbare-tamas {
   grid-area: tamas;
-}
-.footer-darbare-tamas p {
-  letter-spacing: 1px;
 }
 .footer-darbare-mojavez {
   grid-area: mojavez;
