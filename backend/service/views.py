@@ -13,6 +13,7 @@ from django.views.decorators.csrf import csrf_protect
 from .models import ServiceRequest
 from .sms import send_sms
 import re
+import requests  # اضافه کردن import
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
