@@ -84,7 +84,7 @@ def request_specialist(request):
         phone = request.POST.get('phone')
         service_type = request.POST.get('service_type')
 
-        print(f"دریافت درخواست جدید: {name}, {phone}, {service_type}")  # لاگ برای دیباگ
+        print(f"دریافت درخواست جدید: {name}, {phone}, {service_type}")
 
         try:
             # ایجاد درخواست جدید با مدل ServiceRequest
@@ -94,7 +94,7 @@ def request_specialist(request):
                 service_type=service_type,
                 status='pending'
             )
-            print(f"درخواست با موفقیت ذخیره شد. ID: {new_request.id}")  # لاگ برای دیباگ
+            print(f"درخواست با موفقیت ذخیره شد. ID: {new_request.id}")
 
             # ارسال پیامک به مشتری
             customer_message = f'{name} عزیز، درخواست شما برای {service_type} ثبت شد. با تشکر از شما.'
@@ -104,8 +104,15 @@ def request_specialist(request):
                 'text': customer_message
             }
             try:
-                requests.post(settings.SMS_API_URL, json=customer_data)
-                print("پیامک به مشتری ارسال شد")  # لاگ برای دیباگ
+                response = requests.post(
+                    f"{settings.SMS_API_URL}/{settings.SMS_API_KEY}",
+                    json=customer_data
+                )
+                print(f"پاسخ API پیامک مشتری: {response.text}")  # لاگ پاسخ API
+                if response.status_code == 200:
+                    print("پیامک به مشتری ارسال شد")
+                else:
+                    print(f"خطا در ارسال پیامک به مشتری: {response.text}")
             except Exception as e:
                 print(f"خطا در ارسال پیامک به مشتری: {e}")
 
@@ -117,8 +124,15 @@ def request_specialist(request):
                 'text': admin_message
             }
             try:
-                requests.post(settings.SMS_API_URL, json=admin_data)
-                print("پیامک به ادمین ارسال شد")  # لاگ برای دیباگ
+                response = requests.post(
+                    f"{settings.SMS_API_URL}/{settings.SMS_API_KEY}",
+                    json=admin_data
+                )
+                print(f"پاسخ API پیامک ادمین: {response.text}")  # لاگ پاسخ API
+                if response.status_code == 200:
+                    print("پیامک به ادمین ارسال شد")
+                else:
+                    print(f"خطا در ارسال پیامک به ادمین: {response.text}")
             except Exception as e:
                 print(f"خطا در ارسال پیامک به ادمین: {e}")
 
@@ -128,7 +142,7 @@ def request_specialist(request):
             })
 
         except Exception as e:
-            print(f"خطا در ذخیره درخواست: {e}")  # لاگ برای دیباگ
+            print(f"خطا در ذخیره درخواست: {e}")
             return JsonResponse({
                 'status': 'error',
                 'message': 'خطا در ثبت درخواست'
