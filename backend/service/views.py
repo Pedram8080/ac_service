@@ -20,6 +20,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponse
 from service.sms import send_sms  # مسیر رو بر اساس پروژه خودت اصلاح کن
+import json
 
 
 class CreateRequestView(APIView):
@@ -173,3 +174,32 @@ def request_specialist(request):
         'status': 'error',
         'message': 'متد درخواست نامعتبر است'
     }, status=400)
+
+
+@csrf_exempt
+@login_required
+def delete_request_view(request, request_id):
+    if request.method == 'POST':
+        try:
+            req = ServiceRequest.objects.get(id=request_id)
+            req.delete()
+            return JsonResponse({'success': True})
+        except ServiceRequest.DoesNotExist:
+            return JsonResponse({'success': False, 'error': 'درخواست یافت نشد'}, status=404)
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)}, status=500)
+    return JsonResponse({'success': False, 'error': 'متد درخواست نامعتبر است'}, status=400)
+
+
+@csrf_exempt
+@login_required
+def delete_selected_requests_view(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            request_ids = data.get('ids', [])
+            ServiceRequest.objects.filter(id__in=request_ids).delete()
+            return JsonResponse({'success': True})
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)}, status=500)
+    return JsonResponse({'success': False, 'error': 'متد درخواست نامعتبر است'}, status=400)
