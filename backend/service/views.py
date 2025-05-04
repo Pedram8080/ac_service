@@ -4,7 +4,6 @@ from rest_framework import status
 from .serializers import RequestSerializer
 from django.conf import settings
 from .models import Request
-import requests
 from django.http import JsonResponse
 from django.conf import settings
 from django.shortcuts import render, redirect
