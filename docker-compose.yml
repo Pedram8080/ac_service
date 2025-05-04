@@ -9,6 +9,11 @@ services:
       - POSTGRES_DB=ac_db
       - POSTGRES_USER=ac_user
       - POSTGRES_PASSWORD=ac_pass
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ac_user -d ac_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   pgadmin:
     image: dpage/pgadmin4
@@ -23,7 +28,10 @@ services:
 
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: >
+      sh -c "while ! nc -z db 5432; do sleep 1; done &&
+             python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./backend:/code
     ports:
@@ -33,7 +41,8 @@ services:
       - SECRET_KEY=django-insecure-w@p+fa&&omp^oa7&n68==+0@4^+lert43yw8v8yjhrxip821po
       - ALLOWED_HOSTS=localhost,127.0.0.1
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
 volumes:
   postgres_data:

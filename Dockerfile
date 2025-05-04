@@ -6,7 +6,8 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /code
 
 COPY backend/requirements.txt /code/
-RUN pip install --upgrade pip && pip install -r requirements.txt
+RUN apt-get update && apt-get install -y netcat-traditional && \
+    pip install --upgrade pip && pip install -r requirements.txt
 
 COPY backend/ /code/
 
