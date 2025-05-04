@@ -27,7 +27,7 @@ services:
     build: .
     command: >
       sh -c "python manage.py migrate &&
-             python manage.py createsuperuser --noinput --username admin --email admin@example.com --password admin123 &&
+             python manage.py createsuperuser --noinput --username admin --email admin@example.com &&
              python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./backend:/code
@@ -40,6 +40,7 @@ services:
       - SECRET_KEY=django-insecure-w@p+fa&&omp^oa7&n68==+0@4^+lert43yw8v8yjhrxip821po
       - ALLOWED_HOSTS=localhost,127.0.0.1,159.69.87.39,nasbfix.ir
       - DATABASE_URL=postgres://ac_user:ac_pass@db:5432/ac_db
+      - DJANGO_SUPERUSER_PASSWORD=admin123
     depends_on:
       - db
 
