@@ -148,4 +148,8 @@ LOGIN_REDIRECT_URL = '/panel/'
 
 LOGOUT_REDIRECT_URL = '/panel/login/'
 
+# settings.py
+
+SMS_API_URL = 'https://console.melipayamak.com/api/send/simple/00cbcb3c6819459d942f96c2943fa3e3'
+SMS_FROM = '5000xxx'  # شماره پنل ارسال‌کننده
 

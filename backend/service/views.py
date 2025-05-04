@@ -10,14 +10,15 @@ from django.conf import settings
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_protect
 from .models import ServiceRequest
-from .utils import send_sms
+from .sms import send_sms
 import re
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponse
-
+from service.sms import send_sms  # مسیر رو بر اساس پروژه خودت اصلاح کن
 
 
 class CreateRequestView(APIView):
@@ -33,41 +34,10 @@ def home(request):
     return render(request, 'home.html')
 
 
-def send_request_view(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        phone = request.POST.get('phone')
-        service_type = request.POST.get('service_type')
-
-        if not name or not phone or not service_type:
-            return JsonResponse({'status': 'error', 'message': 'لطفاً همه فیلدها را پر کنید.'})
-
-        if not re.fullmatch(r'09\d{9}', phone):
-            return JsonResponse(
-                {'status': 'error', 'message': 'شماره موبایل نامعتبر است. لطفاً یک شماره صحیح وارد کنید.'})
-
-        # ذخیره درخواست در دیتابیس
-        service_request = ServiceRequest.objects.create(
-            name=name,
-            phone=phone,
-            service_type='install' if service_type == 'نصب' else 'repair'
-        )
-
-        # ارسال پیامک به مشتری
-        send_sms(phone, f"{name} عزیز، درخواست {service_type} شما با موفقیت ثبت شد. به زودی با شما تماس می‌گیریم.")
-
-        # ارسال پیامک به ادمین
-        admin_phone = '09352493041'  # شماره ادمین اینجا بذار
-        send_sms(admin_phone, f"درخواست جدید {service_type} از {name} - {phone}")
-
-        return JsonResponse({'status': 'success', 'message': 'درخواست شما با موفقیت ثبت شد.'})
-
-    return JsonResponse({'status': 'error', 'message': 'متد غیرمجاز است.'})
-
-
 def request_panel_view(request):
     requests = ServiceRequest.objects.all().order_by('-id')
     return render(request, 'service/panel.html', {'requests': requests})
+
 
 @csrf_exempt
 @login_required
@@ -97,4 +67,24 @@ def robots_txt(request):
 
 
 def article_view(request):
-    return render(request, 'article.html') 
+    return render(request, 'article.html')
+
+
+@csrf_protect
+def request_specialist(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        phone = request.POST.get('phone')
+        service_type = request.POST.get('service_type')
+
+        # پیام به کاربر
+        user_text = f"{name} عزیز، درخواست شما برای سرویس {service_type} با موفقیت ثبت شد. در اسرع وقت با شما تماس می‌گیریم."
+        send_sms(phone, user_text)
+
+        # پیام به ادمین
+        admin_text = f"درخواست جدید:\nنام: {name}\nشماره: {phone}\nنوع سرویس: {service_type}"
+        send_sms('09220760633', admin_text)  # شماره ادمین رو جایگزین کن
+
+        return HttpResponse("درخواست با موفقیت ثبت شد.")
+
+    return render(request, 'home.html')  # اسم قالب رو بذار جای your_template.html

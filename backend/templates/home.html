@@ -103,7 +103,7 @@
             </div>
         </section>
         <section class="main-darkhast" id="darkhast">
-            <form id="request-form" method="POST" class="form-group main-darkhast-box">
+            <form id="request-form" method="POST" action="{% url 'request_specialist' %}" class="form-group main-darkhast-box">
                 {% csrf_token %}
                 <h2 class="form-group">فرم درخواست سریع متخصص</h2>
                 <div class="form-group">
