@@ -1,45 +1,131 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa-IR" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نصب و سرویس و تعمیر کولر گازی | راهنمای کامل</title>
-    <meta name="description" content="راهنمای کامل نصب، سرویس و تعمیر کولر گازی. نکات مهم برای نگهداری و تعمیر کولر گازی را در این مقاله بیاموزید.">
-    <meta name="keywords" content="نصب کولر گازی, سرویس کولر گازی, تعمیر کولر گازی, نگهداری کولر گازی">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="{% static 'js/all.js' %}"></script>
+    <title>مقالات تخصصی | نصب فیکس</title>
+    <meta name="description" content="مقالات تخصصی در زمینه نصب و تعمیر کولرگازی. راهنمای کامل برای انتخاب، نصب و نگهداری کولرگازی">
+    <meta name="keywords" content="مقالات کولرگازی, راهنمای نصب کولرگازی, تعمیر کولرگازی, نگهداری کولرگازی">
 </head>
 <body>
-    <h1>نصب و سرویس و تعمیر کولر گازی: راهنمای کامل</h1>
-    <p>کولر گازی یکی از تجهیزات ضروری در خانه‌ها و محل‌های کار است که در فصل‌های گرم سال بسیار مورد استفاده قرار می‌گیرد. برای اطمینان از عملکرد بهینه و طول عمر بیشتر این دستگاه، نصب صحیح، سرویس منظم و تعمیر به موقع آن بسیار مهم است. در این مقاله، به بررسی نکات مهم در زمینه نصب، سرویس و تعمیر کولر گازی می‌پردازیم.</p>
+    <header class="header">
+        <section class="meno">
+            <div class="meno-berger d-none">
+                <button class="meno-berger-btn navbar-toggler" type="button" data-toggle="collapse" data-target="#berger" aria-controls="berger" aria-expanded="false" aria-label="toggle nav">
+                    <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
+                </button>
+            </div>
+            <nav class="meno-nav navbar navbar-expand nav-pills d-flex justify-content-between">
+                <div class="meno-nav-khali d-none"></div>
+                <div class="meno-nav-logo">
+                    <a href="{% url 'home' %}" class="navbar-brand d-block">نصب فیکس</a>
+                </div>
+                <div class="meno-nav-item d-flex">
+                    <a href="{% url 'home' %}#darkhast" class="nav-link nav-item d-block meno-nav-item">درخواست نصب و تعمیر</a>
+                    <a href="{% url 'home' %}#darbarema" class="nav-link nav-item d-block meno-nav-item">درباره ما</a>
+                    <a href="{% url 'home' %}#tekrar" class="nav-link nav-item d-block meno-nav-item">سوالات پر تکرار</a>
+                    <a href="{% url 'article' %}" class="nav-link nav-item d-block meno-nav-item">مقالات</a>
+                </div>
+                <div class="meno-nav-tamas">
+                    <button type="button" class="d-flex">
+                        <a href="tel:09122343204">09122343204</a>
+                        <span><i class="fa-solid fa-phone"></i></span>
+                    </button>
+                </div>
+            </nav>
+            <div class="meno-berger-box collapse navbar-collapse" id="berger">
+                <div class="navbar-nav">
+                    <a href="{% url 'home' %}#darkhast" class="nav-link nav-item">درخواست نصب و تعمیر</a>
+                    <a href="{% url 'home' %}#darbarema" class="nav-link nav-item">درباره ما</a>
+                    <a href="{% url 'home' %}#tekrar" class="nav-link nav-item">سوالات پر تکرار</a>
+                    <a href="{% url 'article' %}" class="nav-link nav-item">مقالات</a>
+                </div>
+            </div>
+        </section>
+    </header>
 
-    <h2>نصب کولر گازی</h2>
-    <p>نصب کولر گازی نیاز به دقت و تخصص دارد. در این بخش، مراحل نصب کولر گازی را به طور کامل شرح می‌دهیم:</p>
-    <ul>
-        <li>انتخاب محل مناسب برای نصب</li>
-        <li>بررسی وضعیت برق و اتصالات</li>
-        <li>نصب یونیت داخلی و خارجی</li>
-        <li>اتصال لوله‌های مسی و کابل‌ها</li>
-        <li>شارژ گاز و تست عملکرد</li>
-    </ul>
+    <main class="main">
+        <section class="main-article">
+            <h1 class="main-article-title">مقالات تخصصی</h1>
+            <div class="main-article-content">
+                <div class="main-article-card">
+                    <h2>نصب و سرویس و تعمیر کولر گازی: راهنمای کامل</h2>
+                    <p>کولر گازی یکی از تجهیزات ضروری در خانه‌ها و محل‌های کار است که در فصل‌های گرم سال بسیار مورد استفاده قرار می‌گیرد. برای اطمینان از عملکرد بهینه و طول عمر بیشتر این دستگاه، نصب صحیح، سرویس منظم و تعمیر به موقع آن بسیار مهم است.</p>
+                    
+                    <h3>نصب کولر گازی</h3>
+                    <ul>
+                        <li>انتخاب محل مناسب برای نصب</li>
+                        <li>بررسی وضعیت برق و اتصالات</li>
+                        <li>نصب یونیت داخلی و خارجی</li>
+                        <li>اتصال لوله‌های مسی و کابل‌ها</li>
+                        <li>شارژ گاز و تست عملکرد</li>
+                    </ul>
 
-    <h2>سرویس کولر گازی</h2>
-    <p>سرویس منظم کولر گازی باعث افزایش کارایی و طول عمر دستگاه می‌شود. در این بخش، نکات مهم در سرویس کولر گازی را بررسی می‌کنیم:</p>
-    <ul>
-        <li>تمیز کردن فیلترها</li>
-        <li>بررسی وضعیت گاز و فشار سیستم</li>
-        <li>بررسی وضعیت فن‌ها و موتور</li>
-        <li>بررسی وضعیت لوله‌ها و اتصالات</li>
-    </ul>
+                    <h3>سرویس کولر گازی</h3>
+                    <ul>
+                        <li>تمیز کردن فیلترها</li>
+                        <li>بررسی وضعیت گاز و فشار سیستم</li>
+                        <li>بررسی وضعیت فن‌ها و موتور</li>
+                        <li>بررسی وضعیت لوله‌ها و اتصالات</li>
+                    </ul>
 
-    <h2>تعمیر کولر گازی</h2>
-    <p>در صورت بروز مشکل در کولر گازی، تعمیر به موقع آن بسیار مهم است. در این بخش، مشکلات رایج و راه‌حل‌های آن‌ها را بررسی می‌کنیم:</p>
-    <ul>
-        <li>مشکلات مربوط به گاز</li>
-        <li>مشکلات مربوط به برق</li>
-        <li>مشکلات مربوط به فن‌ها و موتور</li>
-        <li>مشکلات مربوط به ترموستات</li>
-    </ul>
+                    <h3>تعمیر کولر گازی</h3>
+                    <ul>
+                        <li>مشکلات مربوط به گاز</li>
+                        <li>مشکلات مربوط به برق</li>
+                        <li>مشکلات مربوط به فن‌ها و موتور</li>
+                        <li>مشکلات مربوط به ترموستات</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <h2>نتیجه‌گیری</h2>
-    <p>نصب صحیح، سرویس منظم و تعمیر به موقع کولر گازی، از جمله عوامل مهم در افزایش کارایی و طول عمر این دستگاه است. با رعایت نکات ذکر شده در این مقاله، می‌توانید از عملکرد بهینه کولر گازی خود اطمینان حاصل کنید.</p>
+    <footer class="footer">
+        <section class="footer-darbare" id="darbarema">
+            <div class="footer-darbare-ma">
+                <h3>درباره ما:</h3>
+                <p>ما یه تیم فنی هستیم که حدود 10 سال در حوضه کولرگازی در حال فعالیت هستیم که الان به صورت رسمی نمایندگی ایران رادیاتور را داریم و به شرکت ها و برند های دیگه هم خدمات میدیم</p>
+            </div>
+            <div class="footer-darbare-tamas">
+                <h3>ارتباط با ما:</h3>
+                <p>شماره تماس: 09389956061</p>
+                <p>شماره تماس: 09122343204</p>
+            </div>
+            <div class="footer-darbare-dastresy">
+                <h3>دسترسی سریع:</h3>
+                <ul>
+                    <li>
+                        <a href="{% url 'home' %}#darkhast">درخواست نصب و تعمیر</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'home' %}#khadamat">خدمات ما</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'home' %}#brand">برند های تحت پوشش</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-darbare-mojavez">
+                <h3>مجوزها:</h3>
+                <img src="{% static 'img/iran-radiyator.png' %}" alt="نمایندگی رسمی شرکت ایران رادیاتور" loading="lazy">
+            </div>
+        </section>
+        <section class="footer-houghough">
+            <p>تمامی حقوق این سایت متعلق به <span>نمایندگی نصب فیکس</span> است</p>
+            <p>این سایت توسط <span>تیم برنامه نویسی روموساپ</span> ساخته شده است</p>
+        </section>
+    </footer>
+    
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/all.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html> 
