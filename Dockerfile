@@ -18,4 +18,4 @@ RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
 
-CMD ["/code/wait-for-db.sh", "db", "python", "manage.py", "runserver", "0.0.0.0:8000"] 
+CMD ["sh", "-c", "/code/wait-for-db.sh db python manage.py runserver 0.0.0.0:8000"] 
