@@ -24,7 +24,7 @@ def send_sms(to, text):
         # ارسال درخواست
         response = requests.post(
             settings.SMS_API_URL,
-            json=data,  # استفاده از json به جای data
+            json=data,
             headers=headers,
             timeout=10
         )
@@ -38,11 +38,19 @@ def send_sms(to, text):
             
             # بررسی وضعیت ارسال
             if response.status_code == 200:
-                if isinstance(response_data, dict) and response_data.get('status') == 'ارسال شد':
-                    logger.info("پیامک با موفقیت ارسال شد")
-                    return True
+                if isinstance(response_data, dict):
+                    status = response_data.get('status', '').lower()
+                    if status == 'ارسال شد':
+                        logger.info("پیامک با موفقیت ارسال شد")
+                        return True
+                    elif status == 'ارسال نشده':
+                        logger.error("پیامک ارسال نشد")
+                        return False
+                    else:
+                        logger.error(f"وضعیت نامشخص: {status}")
+                        return False
                 else:
-                    logger.error(f"خطا در پاسخ API: {response_data}")
+                    logger.error(f"فرمت پاسخ نامعتبر: {response_data}")
                     return False
             else:
                 logger.error(f"خطای HTTP: {response.status_code}")
