@@ -106,16 +106,25 @@ def request_specialist(request):
                 'password': settings.SMS_API_KEY
             }
             try:
+                headers = {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
                 response = requests.post(
                     settings.SMS_API_URL,
-                    json=customer_data
+                    json=customer_data,
+                    headers=headers
                 )
-                response_data = response.json()
-                print(f"پاسخ API پیامک مشتری: {response_data}")
-                if response.status_code == 200 and response_data.get('status') == 'success':
-                    print("پیامک به مشتری ارسال شد")
-                else:
-                    print(f"خطا در ارسال پیامک به مشتری: {response_data.get('status')}")
+                print(f"پاسخ خام API پیامک مشتری: {response.text}")  # اضافه کردن لاگ پاسخ خام
+                try:
+                    response_data = response.json()
+                    print(f"پاسخ JSON API پیامک مشتری: {response_data}")
+                    if response.status_code == 200 and response_data.get('status') == 'success':
+                        print("پیامک به مشتری ارسال شد")
+                    else:
+                        print(f"خطا در ارسال پیامک به مشتری: {response_data.get('status')}")
+                except ValueError as e:
+                    print(f"خطا در تبدیل پاسخ به JSON: {e}")
             except Exception as e:
                 print(f"خطا در ارسال پیامک به مشتری: {e}")
 
@@ -129,16 +138,25 @@ def request_specialist(request):
                 'password': settings.SMS_API_KEY
             }
             try:
+                headers = {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
                 response = requests.post(
                     settings.SMS_API_URL,
-                    json=admin_data
+                    json=admin_data,
+                    headers=headers
                 )
-                response_data = response.json()
-                print(f"پاسخ API پیامک ادمین: {response_data}")
-                if response.status_code == 200 and response_data.get('status') == 'success':
-                    print("پیامک به ادمین ارسال شد")
-                else:
-                    print(f"خطا در ارسال پیامک به ادمین: {response_data.get('status')}")
+                print(f"پاسخ خام API پیامک ادمین: {response.text}")  # اضافه کردن لاگ پاسخ خام
+                try:
+                    response_data = response.json()
+                    print(f"پاسخ JSON API پیامک ادمین: {response_data}")
+                    if response.status_code == 200 and response_data.get('status') == 'success':
+                        print("پیامک به ادمین ارسال شد")
+                    else:
+                        print(f"خطا در ارسال پیامک به ادمین: {response_data.get('status')}")
+                except ValueError as e:
+                    print(f"خطا در تبدیل پاسخ به JSON: {e}")
             except Exception as e:
                 print(f"خطا در ارسال پیامک به ادمین: {e}")
 
