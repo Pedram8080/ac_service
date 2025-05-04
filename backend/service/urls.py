@@ -14,5 +14,4 @@ urlpatterns = [
     path('panel/', views.request_panel_view, name='panel'),
     path('panel/update-status/<int:request_id>/', views.update_status_view, name='update_status'),
     path('article/', views.article_view, name='article'),
-    path('articles/', views.articles_view, name='articles'),
 ]
