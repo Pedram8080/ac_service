@@ -8,27 +8,25 @@ def send_sms(to, text):
     try:
         # ساختار درخواست مطابق با مستندات ملی پیامک
         data = {
-            'username': settings.SMS_FROM,  # شماره پنل
-            'password': settings.SMS_API_KEY,  # رمز عبور پنل
             'to': to,
             'from': settings.SMS_FROM,
             'text': text
         }
         
         headers = {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
             'Accept': 'application/json'
         }
         
         logger.info(f"ارسال پیامک به {to} با متن: {text}")
         logger.info(f"داده‌های ارسالی: {data}")
         
-        # ارسال درخواست با فرمت form-data
+        # ارسال درخواست
         response = requests.post(
             settings.SMS_API_URL,
-            data=data,
+            json=data,  # استفاده از json به جای data
             headers=headers,
-            timeout=10  # اضافه کردن تایم‌اوت
+            timeout=10
         )
         
         logger.info(f"وضعیت پاسخ: {response.status_code}")
