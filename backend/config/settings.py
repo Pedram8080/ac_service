@@ -154,3 +154,28 @@ SMS_API_URL = 'https://console.melipayamak.com/api/send/simple/00cbcb3c6819459d9
 SMS_FROM = '50002710093341'  # شماره پنل
 ADMIN_PHONE = '09220760633'  # شماره مدیر
 
+# تنظیمات لاگینگ
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'service.sms': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+    },
+}
+

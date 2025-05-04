@@ -2,7 +2,7 @@ import requests
 from django.conf import settings
 import logging
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('service.sms')
 
 def send_sms(to, text):
     try:

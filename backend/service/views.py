@@ -21,7 +21,10 @@ from django.http import HttpResponse
 from service.sms import send_sms  # مسیر رو بر اساس پروژه خودت اصلاح کن
 import json
 from .models import Article
+import logging
+from django.views.decorators.http import require_POST
 
+logger = logging.getLogger('service.views')
 
 class CreateRequestView(APIView):
     def post(self, request):
@@ -79,56 +82,50 @@ def article_view(request):
     return render(request, 'article.html', {'articles': articles})
 
 
-
-@csrf_protect
+@csrf_exempt
+@require_POST
 def request_specialist(request):
-    if request.method == 'POST':
+    try:
         name = request.POST.get('name')
         phone = request.POST.get('phone')
         service_type = request.POST.get('service_type')
-
-        print(f"دریافت درخواست جدید: {name}, {phone}, {service_type}")
-
-        try:
-            # ایجاد درخواست جدید با مدل ServiceRequest
-            new_request = ServiceRequest.objects.create(
-                name=name,
-                phone=phone,
-                service_type=service_type,
-                status='pending'
-            )
-            print(f"درخواست با موفقیت ذخیره شد. ID: {new_request.id}")
-
-            # ارسال پیامک به مشتری
-            customer_message = f'{name} عزیز، درخواست شما برای {service_type} ثبت شد. با تشکر از شما.'
-            customer_sms_sent = send_sms(phone, customer_message)
-            
-            # ارسال پیامک به ادمین
-            admin_message = f'درخواست جدید از طرف {name} - شماره: {phone} - نوع سرویس: {service_type}'
-            admin_sms_sent = send_sms(settings.ADMIN_PHONE, admin_message)
-
-            if customer_sms_sent and admin_sms_sent:
-                return JsonResponse({
-                    'status': 'success',
-                    'message': 'درخواست شما با موفقیت ثبت شد و پیامک‌ها ارسال شدند'
-                })
-            else:
-                return JsonResponse({
-                    'status': 'warning',
-                    'message': 'درخواست شما ثبت شد اما پیامک‌ها ارسال نشدند'
-                })
-
-        except Exception as e:
-            print(f"خطا در ذخیره درخواست: {e}")
-            return JsonResponse({
-                'status': 'error',
-                'message': 'خطا در ثبت درخواست'
-            }, status=500)
-
-    return JsonResponse({
-        'status': 'error',
-        'message': 'متد درخواست نامعتبر است'
-    }, status=400)
+        
+        logger.info(f"دریافت درخواست جدید: {name}, {phone}, {service_type}")
+        
+        # ذخیره درخواست
+        service_request = ServiceRequest.objects.create(
+            name=name,
+            phone=phone,
+            service_type=service_type
+        )
+        
+        logger.info(f"درخواست با موفقیت ذخیره شد. ID: {service_request.id}")
+        
+        # ارسال پیامک به مشتری
+        customer_message = f"سلام {name} عزیز. درخواست شما برای {service_type} ثبت شد. به زودی با شما تماس می‌گیریم."
+        customer_sms_status = send_sms(phone, customer_message)
+        
+        logger.info(f"وضعیت ارسال پیامک به مشتری: {'موفق' if customer_sms_status else 'ناموفق'}")
+        
+        # ارسال پیامک به مدیر
+        admin_message = f"درخواست جدید: {name} - {phone} - {service_type}"
+        admin_sms_status = send_sms(settings.ADMIN_PHONE, admin_message)
+        
+        logger.info(f"وضعیت ارسال پیامک به مدیر: {'موفق' if admin_sms_status else 'ناموفق'}")
+        
+        return JsonResponse({
+            'status': 'success',
+            'message': 'درخواست شما با موفقیت ثبت شد.',
+            'customer_sms': 'ارسال شد' if customer_sms_status else 'ارسال نشد',
+            'admin_sms': 'ارسال شد' if admin_sms_status else 'ارسال نشد'
+        })
+        
+    except Exception as e:
+        logger.error(f"خطا در پردازش درخواست: {e}")
+        return JsonResponse({
+            'status': 'error',
+            'message': 'خطا در ثبت درخواست. لطفا دوباره تلاش کنید.'
+        }, status=500)
 
 
 @csrf_exempt
