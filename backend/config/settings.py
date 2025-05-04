@@ -136,11 +136,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://nasbfix.ir', 'https://www.nasbfix.ir', 'http://nasbfix.ir', 'http://www.nasbfix.ir']
-
-CSRF_COOKIE_SECURE = True
-
-SESSION_COOKIE_SECURE = True
+# CSRF settings
+CSRF_TRUSTED_ORIGINS = ['https://nasbfix.ir', 'https://www.nasbfix.ir', 'http://nasbfix.ir', 'http://www.nasbfix.ir', 'http://localhost:8000', 'http://127.0.0.1:8000']
+CSRF_COOKIE_SECURE = False  # در محیط توسعه
+SESSION_COOKIE_SECURE = False  # در محیط توسعه
 
 LOGIN_URL = '/panel/login/'
 
