@@ -26,8 +26,7 @@ services:
   web:
     build: .
     command: >
-      sh -c "/code/wait-for-db.sh db &&
-             python manage.py migrate &&
+      sh -c "python manage.py migrate &&
              python manage.py createsuperuser --noinput --username admin --email admin@example.com &&
              python manage.py runserver 0.0.0.0:8000"
     volumes:
