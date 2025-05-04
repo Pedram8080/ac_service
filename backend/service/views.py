@@ -101,68 +101,22 @@ def request_specialist(request):
 
             # ارسال پیامک به مشتری
             customer_message = f'{name} عزیز، درخواست شما برای {service_type} ثبت شد. با تشکر از شما.'
-            customer_data = {
-                'to': phone,
-                'from': settings.SMS_FROM,
-                'text': customer_message
-            }
-            try:
-                headers = {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-                response = requests.post(
-                    settings.SMS_API_URL,
-                    json=customer_data,
-                    headers=headers
-                )
-                print(f"پاسخ خام API پیامک مشتری: {response.text}")
-                try:
-                    response_data = response.json()
-                    print(f"پاسخ JSON API پیامک مشتری: {response_data}")
-                    if response.status_code == 200:
-                        print("پیامک به مشتری ارسال شد")
-                    else:
-                        print(f"خطا در ارسال پیامک به مشتری: {response_data}")
-                except ValueError as e:
-                    print(f"خطا در تبدیل پاسخ به JSON: {e}")
-            except Exception as e:
-                print(f"خطا در ارسال پیامک به مشتری: {e}")
-
+            customer_sms_sent = send_sms(phone, customer_message)
+            
             # ارسال پیامک به ادمین
             admin_message = f'درخواست جدید از طرف {name} - شماره: {phone} - نوع سرویس: {service_type}'
-            admin_data = {
-                'to': settings.ADMIN_PHONE,
-                'from': settings.SMS_FROM,
-                'text': admin_message
-            }
-            try:
-                headers = {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-                response = requests.post(
-                    settings.SMS_API_URL,
-                    json=admin_data,
-                    headers=headers
-                )
-                print(f"پاسخ خام API پیامک ادمین: {response.text}")
-                try:
-                    response_data = response.json()
-                    print(f"پاسخ JSON API پیامک ادمین: {response_data}")
-                    if response.status_code == 200:
-                        print("پیامک به ادمین ارسال شد")
-                    else:
-                        print(f"خطا در ارسال پیامک به ادمین: {response_data}")
-                except ValueError as e:
-                    print(f"خطا در تبدیل پاسخ به JSON: {e}")
-            except Exception as e:
-                print(f"خطا در ارسال پیامک به ادمین: {e}")
+            admin_sms_sent = send_sms(settings.ADMIN_PHONE, admin_message)
 
-            return JsonResponse({
-                'status': 'success',
-                'message': 'درخواست شما با موفقیت ثبت شد'
-            })
+            if customer_sms_sent and admin_sms_sent:
+                return JsonResponse({
+                    'status': 'success',
+                    'message': 'درخواست شما با موفقیت ثبت شد و پیامک‌ها ارسال شدند'
+                })
+            else:
+                return JsonResponse({
+                    'status': 'warning',
+                    'message': 'درخواست شما ثبت شد اما پیامک‌ها ارسال نشدند'
+                })
 
         except Exception as e:
             print(f"خطا در ذخیره درخواست: {e}")
