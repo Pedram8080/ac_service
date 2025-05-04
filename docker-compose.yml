@@ -35,9 +35,15 @@ services:
       sh -c "python manage.py migrate &&
              python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - ./backend:/code
-      - ./backend/staticfiles:/code/staticfiles
-      - ./backend/media:/code/media
+      - type: bind
+        source: ./backend
+        target: /code
+      - type: bind
+        source: ./backend/staticfiles
+        target: /code/staticfiles
+      - type: bind
+        source: ./backend/media
+        target: /code/media
     ports:
       - "8000:8000"
     environment:
