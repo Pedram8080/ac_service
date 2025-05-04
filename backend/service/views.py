@@ -5,6 +5,7 @@ from .serializers import RequestSerializer
 from kavenegar import *
 from django.conf import settings
 from .models import Request
+import requests
 from django.http import JsonResponse
 from django.conf import settings
 from django.shortcuts import render, redirect
@@ -77,14 +78,44 @@ def request_specialist(request):
         phone = request.POST.get('phone')
         service_type = request.POST.get('service_type')
 
-        # پیام به کاربر
-        user_text = f"{name} عزیز، درخواست شما برای سرویس {service_type} با موفقیت ثبت شد. در اسرع وقت با شما تماس می‌گیریم."
-        send_sms(phone, user_text)
+        # ایجاد درخواست جدید با مدل ServiceRequest
+        ServiceRequest.objects.create(
+            name=name,
+            phone=phone,
+            service_type=service_type,
+            status='pending'
+        )
 
-        # پیام به ادمین
-        admin_text = f"درخواست جدید:\nنام: {name}\nشماره: {phone}\nنوع سرویس: {service_type}"
-        send_sms('09220760633', admin_text)  # شماره ادمین رو جایگزین کن
+        # ارسال پیامک به مشتری
+        customer_message = f'{name} عزیز، درخواست شما برای {service_type} ثبت شد. با تشکر از شما.'
+        customer_data = {
+            'from': settings.SMS_FROM,
+            'to': phone,
+            'text': customer_message
+        }
+        try:
+            requests.post(settings.SMS_API_URL, json=customer_data)
+        except Exception as e:
+            print(f"Error sending SMS to customer: {e}")
 
-        return HttpResponse("درخواست با موفقیت ثبت شد.")
+        # ارسال پیامک به ادمین
+        admin_message = f'درخواست جدید از طرف {name} - شماره: {phone} - نوع سرویس: {service_type}'
+        admin_data = {
+            'from': settings.SMS_FROM,
+            'to': '09220760633',  # شماره مدیر
+            'text': admin_message
+        }
+        try:
+            requests.post(settings.SMS_API_URL, json=admin_data)
+        except Exception as e:
+            print(f"Error sending SMS to admin: {e}")
 
-    return render(request, 'home.html')  # اسم قالب رو بذار جای your_template.html
+        return JsonResponse({
+            'status': 'success',
+            'message': 'درخواست شما با موفقیت ثبت شد'
+        })
+
+    return JsonResponse({
+        'status': 'error',
+        'message': 'متد درخواست نامعتبر است'
+    }, status=400)

@@ -129,33 +129,43 @@
 
         <script>
         document.getElementById('request-form').addEventListener('submit', async function(e) {
-            e.preventDefault();  // جلو گیری از ارسال فرم به روش عادی
+            e.preventDefault();
 
             const formData = new FormData(this);
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 
-            const response = await fetch('/sms/send-request/', {
-                method: 'POST',
-                headers: {
-                    'X-CSRFToken': '{{ csrf_token }}',
-                },
-                body: formData
-            });
-
-            const data = await response.json();
-
-            if (data.status === 'success') {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'درخواست ثبت شد!',
-                    text: data.message,
-                    confirmButtonText: 'باشه'
+            try {
+                const response = await fetch('/sms/send-request/', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': csrfToken
+                    },
+                    body: formData
                 });
-                this.reset();  // فرم رو ریست کن
-            } else {
+
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'موفقیت‌آمیز!',
+                        text: data.message,
+                        confirmButtonText: 'باشه'
+                    });
+                    this.reset();
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'خطا!',
+                        text: data.message,
+                        confirmButtonText: 'باشه'
+                    });
+                }
+            } catch (error) {
                 Swal.fire({
                     icon: 'error',
                     title: 'خطا!',
-                    text: data.message,
+                    text: 'مشکلی در ارسال درخواست پیش آمد. لطفاً دوباره تلاش کنید.',
                     confirmButtonText: 'باشه'
                 });
             }
