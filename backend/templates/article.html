@@ -53,35 +53,25 @@
         <section class="main-article">
             <h1 class="main-article-title">مقالات تخصصی</h1>
             <div class="main-article-content">
+                {% for article in articles %}
                 <div class="main-article-card">
-                    <h2>نصب و سرویس و تعمیر کولر گازی: راهنمای کامل</h2>
-                    <p>کولر گازی یکی از تجهیزات ضروری در خانه‌ها و محل‌های کار است که در فصل‌های گرم سال بسیار مورد استفاده قرار می‌گیرد. برای اطمینان از عملکرد بهینه و طول عمر بیشتر این دستگاه، نصب صحیح، سرویس منظم و تعمیر به موقع آن بسیار مهم است.</p>
-                    
-                    <h3>نصب کولر گازی</h3>
-                    <ul>
-                        <li>انتخاب محل مناسب برای نصب</li>
-                        <li>بررسی وضعیت برق و اتصالات</li>
-                        <li>نصب یونیت داخلی و خارجی</li>
-                        <li>اتصال لوله‌های مسی و کابل‌ها</li>
-                        <li>شارژ گاز و تست عملکرد</li>
-                    </ul>
-
-                    <h3>سرویس کولر گازی</h3>
-                    <ul>
-                        <li>تمیز کردن فیلترها</li>
-                        <li>بررسی وضعیت گاز و فشار سیستم</li>
-                        <li>بررسی وضعیت فن‌ها و موتور</li>
-                        <li>بررسی وضعیت لوله‌ها و اتصالات</li>
-                    </ul>
-
-                    <h3>تعمیر کولر گازی</h3>
-                    <ul>
-                        <li>مشکلات مربوط به گاز</li>
-                        <li>مشکلات مربوط به برق</li>
-                        <li>مشکلات مربوط به فن‌ها و موتور</li>
-                        <li>مشکلات مربوط به ترموستات</li>
-                    </ul>
+                    <h2>{{ article.title }}</h2>
+                    <div class="article-meta">
+                        <span class="article-date">
+                            <i class="far fa-calendar-alt"></i>
+                            {{ article.created_at|date:"Y/m/d" }}
+                        </span>
+                    </div>
+                    <div class="article-content">
+                        {{ article.content|safe|linebreaks }}
+                    </div>
                 </div>
+                {% empty %}
+                <div class="main-article-card">
+                    <h2>مقاله‌ای یافت نشد</h2>
+                    <p>به زودی مقالات جدید در این بخش منتشر خواهد شد.</p>
+                </div>
+                {% endfor %}
             </div>
         </section>
     </main>

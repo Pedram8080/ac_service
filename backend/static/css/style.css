@@ -858,80 +858,76 @@ body p {
 }
 
 .main-article {
-    padding: 100px 20px;
-    background-color: var(--tousy);
-    color: white;
+    padding: 60px 0;
+    background-color: #f8f9fa;
 }
 
 .main-article-title {
-    font-family: "font-titr";
-    font-size: 30px;
     text-align: center;
-    margin-bottom: 50px;
-    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
 }
 
 .main-article-content {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .main-article-card {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     padding: 30px;
     margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .main-article-card h2 {
-    font-family: "font-titr";
-    font-size: 25px;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.article-meta {
     margin-bottom: 20px;
-    color: var(--ghermez);
+    color: #666;
 }
 
-.main-article-card h3 {
-    font-family: "font-titr";
-    font-size: 20px;
-    margin: 20px 0 15px;
-    color: white;
+.article-date {
+    font-size: 0.9rem;
 }
 
-.main-article-card p {
-    font-size: 16px;
+.article-date i {
+    margin-left: 5px;
+}
+
+.article-content {
+    font-size: 1.1rem;
     line-height: 1.8;
-    margin-bottom: 20px;
-    text-align: justify;
+    color: #444;
 }
 
-.main-article-card ul {
-    list-style-type: none;
+.article-content p {
+    margin-bottom: 15px;
+}
+
+.article-content ul {
+    margin-bottom: 15px;
     padding-right: 20px;
 }
 
-.main-article-card ul li {
-    position: relative;
-    padding-right: 25px;
-    margin-bottom: 10px;
-    font-size: 16px;
-}
-
-.main-article-card ul li:before {
-    content: "•";
-    color: var(--ghermez);
-    position: absolute;
-    right: 0;
-    font-size: 20px;
+.article-content li {
+    margin-bottom: 8px;
 }
 
 @media (max-width: 768px) {
     .main-article {
-        padding: 50px 15px;
+        padding: 40px 0;
     }
 
     .main-article-title {
-        font-size: 25px;
-        margin-bottom: 30px;
+        font-size: 2rem;
     }
 
     .main-article-card {
@@ -939,15 +935,10 @@ body p {
     }
 
     .main-article-card h2 {
-        font-size: 20px;
+        font-size: 1.5rem;
     }
 
-    .main-article-card h3 {
-        font-size: 18px;
-    }
-
-    .main-article-card p,
-    .main-article-card ul li {
-        font-size: 14px;
+    .article-content {
+        font-size: 1rem;
     }
 }

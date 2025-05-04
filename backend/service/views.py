@@ -21,6 +21,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponse
 from service.sms import send_sms  # مسیر رو بر اساس پروژه خودت اصلاح کن
 import json
+from .models import Article
 
 
 class CreateRequestView(APIView):
@@ -75,7 +76,8 @@ def robots_txt(request):
 
 
 def article_view(request):
-    return render(request, 'article.html')
+    articles = Article.objects.filter(is_active=True).order_by('-created_at')
+    return render(request, 'article.html', {'articles': articles})
 
 
 
