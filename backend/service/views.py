@@ -35,9 +35,15 @@ def home(request):
     return render(request, 'home.html')
 
 
+@login_required
 def request_panel_view(request):
-    requests = ServiceRequest.objects.all().order_by('-id')
-    return render(request, 'service/panel.html', {'requests': requests})
+    try:
+        requests = ServiceRequest.objects.all().order_by('-id')
+        print(f"تعداد درخواست‌ها در پنل: {requests.count()}")  # لاگ برای دیباگ
+        return render(request, 'service/panel.html', {'requests': requests})
+    except Exception as e:
+        print(f"خطا در نمایش پنل: {e}")  # لاگ برای دیباگ
+        return render(request, 'service/panel.html', {'requests': []})
 
 
 @csrf_exempt
@@ -78,42 +84,55 @@ def request_specialist(request):
         phone = request.POST.get('phone')
         service_type = request.POST.get('service_type')
 
-        # ایجاد درخواست جدید با مدل ServiceRequest
-        ServiceRequest.objects.create(
-            name=name,
-            phone=phone,
-            service_type=service_type,
-            status='pending'
-        )
+        print(f"دریافت درخواست جدید: {name}, {phone}, {service_type}")  # لاگ برای دیباگ
 
-        # ارسال پیامک به مشتری
-        customer_message = f'{name} عزیز، درخواست شما برای {service_type} ثبت شد. با تشکر از شما.'
-        customer_data = {
-            'from': settings.SMS_FROM,
-            'to': phone,
-            'text': customer_message
-        }
         try:
-            requests.post(settings.SMS_API_URL, json=customer_data)
-        except Exception as e:
-            print(f"Error sending SMS to customer: {e}")
+            # ایجاد درخواست جدید با مدل ServiceRequest
+            new_request = ServiceRequest.objects.create(
+                name=name,
+                phone=phone,
+                service_type=service_type,
+                status='pending'
+            )
+            print(f"درخواست با موفقیت ذخیره شد. ID: {new_request.id}")  # لاگ برای دیباگ
 
-        # ارسال پیامک به ادمین
-        admin_message = f'درخواست جدید از طرف {name} - شماره: {phone} - نوع سرویس: {service_type}'
-        admin_data = {
-            'from': settings.SMS_FROM,
-            'to': '09220760633',  # شماره مدیر
-            'text': admin_message
-        }
-        try:
-            requests.post(settings.SMS_API_URL, json=admin_data)
-        except Exception as e:
-            print(f"Error sending SMS to admin: {e}")
+            # ارسال پیامک به مشتری
+            customer_message = f'{name} عزیز، درخواست شما برای {service_type} ثبت شد. با تشکر از شما.'
+            customer_data = {
+                'from': settings.SMS_FROM,
+                'to': phone,
+                'text': customer_message
+            }
+            try:
+                requests.post(settings.SMS_API_URL, json=customer_data)
+                print("پیامک به مشتری ارسال شد")  # لاگ برای دیباگ
+            except Exception as e:
+                print(f"خطا در ارسال پیامک به مشتری: {e}")
 
-        return JsonResponse({
-            'status': 'success',
-            'message': 'درخواست شما با موفقیت ثبت شد'
-        })
+            # ارسال پیامک به ادمین
+            admin_message = f'درخواست جدید از طرف {name} - شماره: {phone} - نوع سرویس: {service_type}'
+            admin_data = {
+                'from': settings.SMS_FROM,
+                'to': settings.ADMIN_PHONE,
+                'text': admin_message
+            }
+            try:
+                requests.post(settings.SMS_API_URL, json=admin_data)
+                print("پیامک به ادمین ارسال شد")  # لاگ برای دیباگ
+            except Exception as e:
+                print(f"خطا در ارسال پیامک به ادمین: {e}")
+
+            return JsonResponse({
+                'status': 'success',
+                'message': 'درخواست شما با موفقیت ثبت شد'
+            })
+
+        except Exception as e:
+            print(f"خطا در ذخیره درخواست: {e}")  # لاگ برای دیباگ
+            return JsonResponse({
+                'status': 'error',
+                'message': 'خطا در ثبت درخواست'
+            }, status=500)
 
     return JsonResponse({
         'status': 'error',
