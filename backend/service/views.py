@@ -77,6 +77,7 @@ def article_view(request):
     return render(request, 'article.html')
 
 
+
 @csrf_protect
 def request_specialist(request):
     if request.method == 'POST':
