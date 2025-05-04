@@ -150,8 +150,8 @@ LOGOUT_REDIRECT_URL = '/panel/login/'
 
 # settings.py
 
-SMS_API_URL = 'https://console.melipayamak.com/api/send/simple'
-SMS_API_KEY = '00cbcb3c6819459d942f96c2943fa3e3'  # کلید API شما
-SMS_FROM = '50004001001010'  # شماره پنل ارسال‌کننده (شماره پنل ملپیامک)
+# تنظیمات پیامک
+SMS_API_URL = 'https://console.melipayamak.com/api/send/simple/00cbcb3c6819459d942f96c2943fa3e3'
+SMS_FROM = '50002710093341'  # شماره پنل ارسال‌کننده (شماره ملی پیامک)
 ADMIN_PHONE = '09220760633'  # شماره مدیر
 
