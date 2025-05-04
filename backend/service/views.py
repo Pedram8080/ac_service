@@ -101,11 +101,13 @@ def request_specialist(request):
             customer_data = {
                 'from': settings.SMS_FROM,
                 'to': phone,
-                'text': customer_message
+                'text': customer_message,
+                'username': settings.SMS_API_KEY,
+                'password': settings.SMS_API_KEY
             }
             try:
                 response = requests.post(
-                    f"{settings.SMS_API_URL}/{settings.SMS_API_KEY}",
+                    settings.SMS_API_URL,
                     json=customer_data
                 )
                 response_data = response.json()
@@ -122,11 +124,13 @@ def request_specialist(request):
             admin_data = {
                 'from': settings.SMS_FROM,
                 'to': settings.ADMIN_PHONE,
-                'text': admin_message
+                'text': admin_message,
+                'username': settings.SMS_API_KEY,
+                'password': settings.SMS_API_KEY
             }
             try:
                 response = requests.post(
-                    f"{settings.SMS_API_URL}/{settings.SMS_API_KEY}",
+                    settings.SMS_API_URL,
                     json=admin_data
                 )
                 response_data = response.json()
