@@ -1,3 +1,9 @@
+import logging
+from django.shortcuts import render
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
+from .models import ServiceRequest
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -11,20 +17,17 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.csrf import csrf_protect
 from .models import ServiceRequest
-from .sms import send_sms
 import re
-import requests  # اضافه کردن import
+import requests
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponse
-from service.sms import send_sms  # مسیر رو بر اساس پروژه خودت اصلاح کن
 import json
 from .models import Article
-import logging
-from django.views.decorators.http import require_POST
 
 logger = logging.getLogger('service.views')
+
 
 class CreateRequestView(APIView):
     def post(self, request):
@@ -89,37 +92,23 @@ def request_specialist(request):
         name = request.POST.get('name')
         phone = request.POST.get('phone')
         service_type = request.POST.get('service_type')
-        
+
         logger.info(f"دریافت درخواست جدید: {name}, {phone}, {service_type}")
-        
+
         # ذخیره درخواست
         service_request = ServiceRequest.objects.create(
             name=name,
             phone=phone,
             service_type=service_type
         )
-        
+
         logger.info(f"درخواست با موفقیت ذخیره شد. ID: {service_request.id}")
-        
-        # ارسال پیامک به مشتری
-        customer_message = f"سلام {name} عزیز. درخواست شما برای {service_type} ثبت شد. به زودی با شما تماس می‌گیریم."
-        customer_sms_status = send_sms(phone, customer_message)
-        
-        logger.info(f"وضعیت ارسال پیامک به مشتری: {'موفق' if customer_sms_status else 'ناموفق'}")
-        
-        # ارسال پیامک به مدیر
-        admin_message = f"درخواست جدید: {name} - {phone} - {service_type}"
-        admin_sms_status = send_sms(settings.ADMIN_PHONE, admin_message)
-        
-        logger.info(f"وضعیت ارسال پیامک به مدیر: {'موفق' if admin_sms_status else 'ناموفق'}")
-        
+
         return JsonResponse({
             'status': 'success',
-            'message': 'درخواست شما با موفقیت ثبت شد.',
-            'customer_sms': 'ارسال شد' if customer_sms_status else 'ارسال نشد',
-            'admin_sms': 'ارسال شد' if admin_sms_status else 'ارسال نشد'
+            'message': 'درخواست شما با موفقیت ثبت شد.'
         })
-        
+
     except Exception as e:
         logger.error(f"خطا در پردازش درخواست: {e}")
         return JsonResponse({
