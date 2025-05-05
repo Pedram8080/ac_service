@@ -25,6 +25,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponse
 import json
 from .models import Article
+from .utils import send_sms
 
 logger = logging.getLogger('service.views')
 
@@ -62,6 +63,9 @@ def update_status_view(request, request_id):
             if req.status == 'pending':
                 req.status = 'done'
                 message = 'درخواست انجام شد!'
+                # ارسال پیامک به کاربر
+                user_message = f"سلام {req.name} عزیز\nدرخواست {req.service_type} شما با موفقیت انجام شد. از اعتماد شما متشکریم."
+                send_sms(req.phone, user_message)
             else:
                 req.status = 'pending'
                 message = 'در حال بررسی'
@@ -103,6 +107,14 @@ def request_specialist(request):
         )
 
         logger.info(f"درخواست با موفقیت ذخیره شد. ID: {service_request.id}")
+
+        # ارسال پیامک به کاربر
+        user_message = f"سلام {name} عزیز\nدرخواست {service_type} شما با موفقیت ثبت شد. به زودی با شما تماس خواهیم گرفت."
+        send_sms(phone, user_message)
+
+        # ارسال پیامک به ادمین
+        admin_message = f"درخواست جدید:\nنام: {name}\nشماره: {phone}\nنوع سرویس: {service_type}"
+        send_sms("09220760633", admin_message)  # شماره ادمین
 
         return JsonResponse({
             'status': 'success',
