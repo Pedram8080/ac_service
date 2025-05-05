@@ -413,6 +413,89 @@ body p {
   padding: 50px 0;
   border-radius: 10px;
 }
+.main-nemoune {
+  overflow-x: auto;
+  width: 100% !important;
+  position: relative;
+  margin: 40px 0 80px 0;
+  font-size: 12px;
+}
+.main-nemoune h2 {
+  font-family: "font-titr";
+  font-size: 30px;
+  text-align: center;
+}
+@media (max-width: 1000px) {
+  .main-nemoune h2 {
+    font-size: 25px;
+  }
+}
+@media (max-width: 700px) {
+  .main-nemoune h2 {
+    font-size: 20px;
+  }
+}
+.main-nemoune-div {
+  overflow-x: auto;
+  width: 100% !important;
+  position: relative;
+}
+.main-nemoune-box {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 2px 2px 20px red, -2px -2px 20px white;
+  position: relative;
+  width: 300px !important;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 25px;
+}
+.main-nemoune-box-img {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  position: relative;
+  transition: all 0.5s;
+}
+.main-nemoune-box-img:hover img {
+  transform: scale(1.5);
+}
+.main-nemoune-box-img img {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+.main-nemoune-box-moshtary {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid red;
+  padding: 10px;
+}
+.main-nemoune-box-tozihat {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid red;
+  padding: 10px;
+}
+.main-nemoune-box-coment {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid red;
+  padding: 10px;
+}
+.main-nemoune-box-coment .main-nemoune-box-about {
+  margin-top: 5px;
+}
+.main-nemoune-box-icon {
+  color: red;
+  margin-left: 5px;
+}
+.main-nemoune-box-icon i {
+  margin-left: 5px;
+}
 .main-darkhast {
   background-color: rgb(212, 0, 0);
   margin-top: 50px;
