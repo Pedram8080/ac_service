@@ -67,3 +67,14 @@ volumes:
   postgres_data:
     name: ac_service_postgres_data
     driver: local
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./backend/staticfiles:/static
+      - ./backend/media:/media
+    depends_on:
+      - web
