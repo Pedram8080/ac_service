@@ -5,11 +5,11 @@ services:
     image: postgres:13
     volumes:
       - postgres_data:/var/lib/postgresql/data/
+      - ./init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
     environment:
       - POSTGRES_DB=ac_db
       - POSTGRES_USER=ac_user
       - POSTGRES_PASSWORD=ac_pass
-      - POSTGRES_HOST_AUTH_METHOD=trust
     ports:
       - "5432:5432"
     healthcheck:
@@ -17,7 +17,6 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
-    command: postgres -c 'max_connections=1000' -c 'shared_buffers=256MB' -c 'max_wal_size=1GB'
 
   pgadmin:
     image: dpage/pgadmin4
