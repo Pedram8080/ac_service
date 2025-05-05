@@ -63,7 +63,6 @@ services:
     depends_on:
       - db
     restart: always
-#Why???
 volumes:
   postgres_data:
     name: ac_service_postgres_data
