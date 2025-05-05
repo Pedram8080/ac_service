@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-w@p+fa&&omp^oa7&n68==+0@4^+lert43yw8v8yjhrxip821po'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['nasbfix.ir', 'www.nasbfix.ir', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['159.69.87.39', '127.0.0.1', 'nasbfix.ir']
 
 # Application definition
 
@@ -137,9 +137,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CSRF settings
-CSRF_TRUSTED_ORIGINS = ['https://nasbfix.ir', 'https://www.nasbfix.ir']
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = ['https://nasbfix.ir', 'https://www.nasbfix.ir', 'http://nasbfix.ir', 'http://www.nasbfix.ir', 'http://localhost:8000', 'http://127.0.0.1:8000']
+CSRF_COOKIE_SECURE = False  # در محیط توسعه
+SESSION_COOKIE_SECURE = False  # در محیط توسعه
 
 LOGIN_URL = '/panel/login/'
 
