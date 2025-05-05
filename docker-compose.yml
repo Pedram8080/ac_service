@@ -63,11 +63,6 @@ services:
     depends_on:
       - db
     restart: always
-volumes:
-  postgres_data:
-    name: ac_service_postgres_data
-    driver: local
-
   nginx:
     image: nginx:latest
     ports:
@@ -78,3 +73,8 @@ volumes:
       - ./backend/media:/media
     depends_on:
       - web
+volumes:
+  postgres_data:
+    name: ac_service_postgres_data
+    driver: local
+
