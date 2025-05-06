@@ -111,7 +111,7 @@
                 {% for article in articles %}
                 <div class="main-article-content-card">
                     {% if article.image %}
-                    <img src="{{ article.image.url }}" alt="{{ article.title }}">
+                    <img src="{{ article.image.url }}" alt="{{ article.title }}" loading="lazy">
                     {% endif %}
                     <h2>{{ article.title }}</h2>
                     <button class="btn btn-danger" type="button" onclick="window.location.href='{% url 'article_detail' slug=article.slug %}'">مشاهده مقاله</button>                </div>
