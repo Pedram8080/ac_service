@@ -1,0 +1,844 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --ghermez: red;
+    --tousy: #262427;
+    --abi: #0375BC;
+}
+
+@font-face {
+    font-family: "font-matn";
+    src: url(../font/IRANSansWeb_Medium.ttf);
+}
+
+@font-face {
+    font-family: "font-titr";
+    src: url(../font/BTitrBd.ttf);
+}
+
+body{
+    font-family: "font-matn";
+    font-size: 15px;
+    a{
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+    }
+    p{
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 0;
+    margin: 0;
+    border-bottom: 2px solid white;
+
+    .meno{
+        width: 100%;
+        background-color: var(--tousy);
+        padding: 20px 10px;
+        margin: 0;
+        @media(max-width:1100px){
+            padding: 20px 0px;
+        }
+        &-berger{
+            color: white;
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            z-index: 101;
+            @media(max-width:800px){
+                display: block !important;
+            }
+            @media(max-width:450px){
+                right: 10px;
+                top: 21px;
+            }
+            &-btn{
+                font-size: 25px;
+                @media(max-width:450px){
+                    font-size: 20px;
+                }
+            }
+        }
+        &-berger-box{
+            padding: 0;
+            margin: 0;
+            margin-top: 20px;
+            border-top: 1px solid gray;
+            a{
+                color: white ;
+                font-size: 12px;
+                display: block;
+                padding: 7px 30px 7px 0;
+                @media(max-width:450px){
+                    padding: 7px 15px 7px 0;
+                }
+                transition: all 0.7s;
+                &:hover{
+                    background-color: var(--ghermez);
+                }
+            }
+            .disabled{
+                color: gray !important;
+            }
+        }
+        &-nav{
+            margin: 0;
+            padding: 0;
+            &-khali{
+                @media(max-width:800px){
+                    display: block !important;
+                }
+            }
+            &-logo{
+                a{
+                    padding: 0;
+                    margin: 0;
+                    color: white;
+                    font-family: "font-titr";
+                    font-size: 25px;
+                    margin-right: 25px;
+                    background-color: var(--ghermez);
+                    padding: 5px;
+                    border-radius: 10px;
+                    @media(max-width:1100px){
+                        font-size: 20px;
+                    }
+                    @media(max-width:450px){
+                        font-size: 15px;
+                    }
+                }
+            }
+            &-item{
+                a{
+                    color: white;
+                    font-size: 15px;
+                    margin: 0 5px;
+                    border-radius: 10px;
+                    padding: 10px;
+                    transition: all 0.5s;
+                    @media(max-width: 1100px){
+                        margin: 0;
+                    }
+                    &:hover{
+                        background-color: var(--ghermez);
+                    }
+                }
+                .disabled{
+                    color: gray !important;
+                }
+                @media(max-width: 800px){
+                    display: none !important;
+                }
+            }
+            &-tamas{
+                button{
+                    color: white;
+                    font-size: 25px;
+                    margin-left:25px;
+                    transition: all 0.5s;
+                    background-color: transparent;
+                    border: none;
+                    animation: cheshmak 1s infinite;
+                    @media(max-width: 1100px){
+                        font-size: 20px;
+                    }
+                    @media(max-width:450px){
+                        font-size: 15px;
+                    }
+                    p{
+                        color: white;
+                        // font-family: "font-titr";
+                        // font-weight: 600;
+                        letter-spacing: 1px;
+                        margin-left: 10px;
+                        font-size: 25px;
+                        @media(max-width: 1100px){
+                            font-size: 20px;
+                        }
+                        @media(max-width:450px){
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.main{
+    margin-top: 65px; 
+    width: 100% !important;
+    @media(max-width:1100px){
+        margin-top: 60px; 
+    }
+    @media(max-width:800px){
+        margin-top: 55px; 
+    }
+    @media(max-width:450px){
+        margin-top: 55px; 
+    }
+    &-banner{
+        position: relative !important;
+        width: 100% !important;    
+        height: 650px !important;
+        position: relative;
+        background-image: url(../img/banner.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        clip-path:polygon(100% 0, 100% 85%, 50% 100%, 0 85%, 0 0);
+        &::after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            background-color: black;
+            opacity: 0.8;
+        }
+        &-title{
+            margin-top: 120px;
+            z-index: 1;
+            color: white;
+            position: relative;
+            text-align: center;
+            h1{
+                font-size: 50px;
+                font-family: "font-titr";
+                margin-bottom: 30px;
+                @media(max-width:700px){
+                    font-size: 35px;
+                }
+                @media(max-width:450px){
+                    font-size: 25px;
+                }
+            }
+            h2{
+                font-family: "font-matn";
+                font-size: 30px;
+                font-weight: 500;
+                @media(max-width:700px){
+                    font-size: 25px;
+                }
+                @media(max-width:450px){
+                    font-size: 18px;
+                }
+            }
+        }
+        &-amar{
+            margin-top: 100px;
+            z-index: 101;
+            &-box{
+                border: 2px solid white;
+                border-radius: 10px;
+                text-align: center;
+                width: 120px;
+                padding: 20px 0;
+                color: white;
+                margin: 0 5px;
+                @media(max-width:500px){
+                    width: 90px;
+                    padding: 10px 0;
+                }
+                p{
+                    font-family: "font-titr";
+                    margin: 10px 0;
+                    @media(max-width:500px){
+                        font-size: 12px;
+                        margin: 5px 0;
+
+                    }
+                    i{
+                        font-size: 25px;
+                    }
+                }
+            }
+        }
+        
+    }
+    &-chera{
+        padding: 50px;
+        margin-top: 20px;
+        @media(max-width:1000px){
+            padding: 25px;
+            margin-top: 10px;
+        }
+        @media(max-width:700px){
+            padding: 15px;
+            margin-top: 0;
+        }
+        h2{
+            font-family: "font-titr";
+            font-size: 30px;
+            text-align: center;
+            @media(max-width:1000px){
+                font-size: 25px;
+            }
+            @media(max-width:700px){
+                font-size: 20px;
+            }
+        }
+        &-box{
+            margin-top: 60px;
+            display: grid;
+            grid-template-areas: 'box1 box2 box3 box4';
+            gap: 20px;
+            text-align: center;
+            @media(max-width:1000px){
+                margin-top: 40px;
+            }
+            @media(max-width:700px){
+                margin-top: 30px;
+            }
+            @media(max-width:500px){
+                grid-template-areas: 'box1 box2' 'box3 box4';
+            }
+            span{
+                font-size: 25px;
+                padding: 10px 20px;
+                color: white;
+                background-color: red;
+                border-radius: 50%;
+                display: inline-block;
+                margin-bottom: 20px;
+                @media(max-width:1000px){
+                    font-size: 20px;
+                }
+                @media(max-width:700px){
+                    font-size: 20px;
+                }
+            }
+            p{
+                font-size: 20px;
+                border-radius: 10px;
+                color: white;
+                @media(max-width:1000px){
+                    font-size: 15px;
+                }
+                @media(max-width:700px){
+                    font-size: 12px;
+                }
+            }
+            &-item1{
+                grid-area: box1;
+                background-color: var(--tousy);
+                padding: 50px 0;
+                border-radius: 10px;
+            }
+            &-item2{
+                grid-area: box2;
+                background-color: var(--tousy);
+                padding: 50px 0;
+                border-radius: 10px;                
+            }
+            &-item3{
+                grid-area: box3;
+                background-color: var(--tousy);
+                padding: 50px 0;
+                border-radius: 10px;
+            }
+            &-item4{
+                grid-area: box4;
+                background-color: var(--tousy);
+                padding: 50px 0;
+                border-radius: 10px;
+            }
+        }
+    }
+    &-nemoune{
+        overflow-x: auto;
+        width: 100% !important;
+        position: relative;
+        margin:40px 0 80px 0;
+        font-size: 12px;
+        h2{
+            font-family: "font-titr";
+            font-size: 30px;
+            text-align: center;
+            @media(max-width:1000px){
+                font-size: 25px;
+            }
+            @media(max-width:700px){
+                font-size: 20px;
+            }
+        }
+        &-div{
+            overflow-x: auto;
+            width: 100% !important;
+            position: relative;
+        }
+        &-box{
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 2px 2px 20px red , -2px -2px 20px white;
+            position: relative;
+            width: 300px !important;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px;
+            &-img{
+                width: 100%;
+                height: 200px;
+                overflow: hidden;
+                margin-bottom: 20px;
+                border-radius: 10px;
+                position: relative;
+                transition: all 0.5s;
+                &:hover img {
+                    transform: scale(1.5);
+                }
+                img{
+                    width: 100%;
+                    height: 200px;
+                    border-radius: 10px;
+                    transition: all 0.5s;
+                }
+            }
+            &-moshtary{
+                margin-bottom: 20px;
+                border-radius: 10px;
+                border: 1px solid red;
+                padding: 10px;
+            }
+            &-tozihat{
+                margin-bottom: 20px;
+                border-radius: 10px;
+                border: 1px solid red;
+                padding: 10px;
+            }
+            &-coment{
+                margin-bottom: 20px;
+                border-radius: 10px;
+                border: 1px solid red;
+                padding: 10px;
+                .main-nemoune-box-about{
+                    margin-top: 5px;
+                }
+            }
+            &-icon{
+                color: red;
+                margin-left: 5px;
+                i{
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+    &-darkhast{
+        position: relative !important;
+        width: 100% !important;
+        height: 600px !important;
+        background-image: url(../img/darkast.jpg); //dadan dorost esm o adres dar sorat boroz moshkel
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        padding: 100px 50px;
+        &::after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            background-color: black;
+            opacity: 0.8;
+        }
+        &-box{
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 100px 50px;
+            z-index: 1;
+            @media(max-width:500px){
+                padding: 100px 15px;
+            }
+            h2{
+                font-size: 25px;
+                color: white;
+                font-family: "font-titr";
+                margin-bottom: 30px;
+                @media(max-width:500px){
+                    font-size: 20px;
+                }
+            }
+            &-label{
+                font-size: 18px;
+                color: white;
+                margin-bottom: 5px;
+                @media(max-width:500px){
+                    font-size: 15px;
+                }
+            }
+            &-input{
+                width: 350px;
+                margin-bottom: 15px;
+                @media(max-width:500px){
+                    width: 250px;
+                }
+            }
+            ::placeholder{
+                color: gray !important;
+                font-size: 15px;
+                text-align: right;
+                @media(max-width:500px){
+                    font-size: 12px;
+                }
+            }
+            &-label-radio{
+                font-size: 15px;
+                color: white;
+                @media(max-width:500px){
+                    font-size: 12px;
+                }
+            }
+            &-sabt{
+                border-radius: 10px;
+                background-color: var(--ghermez);
+                color: white;
+                transition: all 0.5s;
+                border: 0;
+                padding: 10px 40px;
+                margin-top: 15px;
+                &:hover{
+                    background-color: rgb(255, 71, 71);
+                }
+                
+            }
+        }
+    }
+    &-khadamat{
+        padding: 100px 20px;
+        @media(max-width:550px){
+            padding: 50px 10px;
+        }
+        >h2{
+            font-size: 25px;
+            font-family: "font-titr";
+            text-align: center;
+            margin-bottom: 20px;
+            @media(max-width:550px){
+                font-size: 20px;
+            }
+        }
+        &-box{
+            display: grid;
+            grid-template-areas: 'khedmat1 khedmat2 khedmat3 khedmat4';
+            justify-content: center;
+            gap: 20px;
+            @media(max-width:1100px){
+                grid-template-areas: 'khedmat1 khedmat2' 'khedmat3 khedmat4';
+            }
+            @media(max-width:550px){
+                gap: 10px;
+            }
+            @media(max-width:430px){
+                grid-template-areas: 'khedmat1' 'khedmat2' 'khedmat3' 'khedmat4';
+            }
+            &-img{
+                text-align: center;
+                img{
+                    width: 200px !important;
+                    height: 150px !important;
+                    border-radius: 10px;
+                    @media(max-width:550px){
+                        width: 150px !important;
+                        height: 100px !important;
+                    }
+                }
+            }
+            &-titr{
+                font-size: 15px;
+                margin: 20px 0;
+            }
+            &-matn{
+                font-size: 14px;
+                margin: 10px 0;
+                text-align: center;
+                color: gray;
+            }
+            &-khedmat1{
+                grid-area: khedmat1;
+                border: 2px solid var(--ghermez);
+                border-radius: 10px;
+                text-align: center;
+                padding: 40px 10px;
+                width: 250px;
+                @media(max-width:550px){
+                    padding: 30px 5px;
+                    width: 200px;
+                }
+            }
+            &-khedmat2{
+                grid-area: khedmat2;
+                border: 2px solid var(--ghermez);
+                border-radius: 10px;
+                text-align: center;
+                padding: 40px 10px;
+                width: 250px;
+                @media(max-width:550px){
+                    padding: 30px 5px;
+                    width: 200px;
+                }
+            }
+            &-khedmat3{
+                grid-area: khedmat3;
+                border: 2px solid var(--ghermez);
+                border-radius: 10px;
+                text-align: center;
+                padding: 40px 10px;
+                width: 250px;
+                @media(max-width:550px){
+                    padding: 30px 5px;
+                    width: 200px;
+                }
+            }
+            &-khedmat4{
+                grid-area: khedmat4;
+                border: 2px solid var(--ghermez);
+                border-radius: 10px;
+                text-align: center;
+                padding: 40px 10px;
+                width: 250px;
+                @media(max-width:550px){
+                    padding: 30px 5px;
+                    width: 200px;
+                }
+            }
+        }
+    }
+    &-berand{
+        padding: 100px 0;
+        background-color: var(--tousy);
+        h2{
+            text-align: center;
+            font-family: "font-titr";
+            font-size: 25px;
+            margin-bottom: 20px;
+            color: white;
+            margin-bottom: 50px;
+            @media(max-width:950px){
+                font-size: 20px;
+            }
+            @media(max-width:500px){
+                font-size: 15px;
+
+            }
+        }
+        &-box{
+            display: grid;
+            grid-template-areas: 'item1 item7 item3' 'item4 item5 item6' '. item2 .';
+            justify-content: center;
+            text-align: center;
+            gap: 30px;
+            padding-bottom: 20px;
+            @media(max-width:500px){
+                grid-template-areas: 'item1 item7' 'item3 item4' 'item5 item6' 'item2 item2';
+                text-align: center;
+            }
+            img{
+                width: 100px !important;
+                height: 60px !important;
+                border: 1px solid red;
+                border-radius: 10px;
+                padding: 5px;
+                background-color: white;
+            }
+            &-item1{
+                grid-area: item1;
+            }
+            &-item2{
+                grid-area: item2;
+            }
+            &-item3{
+                grid-area: item3;
+            }
+            &-item4{
+                grid-area: item4;
+            }
+            &-item5{
+                grid-area: item5;
+            }
+            &-item6{
+                grid-area: item6;
+            }
+            &-item7{
+                grid-area: item7;
+            }
+        }
+    }
+    &-soal{
+        padding: 50px 0;
+        text-align: center;
+        h2{
+            font-family: "font-titr";
+            font-size: 25px;
+            margin-bottom: 30px;
+            @media(max-width:750px){
+                font-size: 15px;
+            }
+        }
+        &-box{
+            width: 700px !important;
+            @media(max-width:750px){
+                width: 500px !important;
+            }
+            @media(max-width:550px){
+                width: 280px !important;
+            }
+            button{
+                width: 100%;
+                border-top: 1px solid var(--ghermez);
+                border-left: 1px solid var(--ghermez);
+                border-right: 1px solid var(--ghermez);
+                border-bottom: 1px solid var(--ghermez);
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                background-color: var(--tousy);
+                padding: 15px;
+                color: white;
+                @media(max-width:750px){
+                    font-size: 12px;
+                }
+            }
+            .javab{
+                border-top: 1px solid var(--ghermez);
+                border-bottom: 1px solid var(--ghermez);
+                border-left: 1px solid var(--ghermez);
+                border-right: 1px solid var(--ghermez);
+                border-end-end-radius: 10px;
+                border-end-start-radius: 10px;
+                p{
+                    text-align: right;
+                    padding: 10px;
+                    @media(max-width:750px){
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+.footer{
+    background-color: var(--tousy);
+    color: white;
+    width: 100% !important;
+    position: relative;
+    &-darbare{
+        padding: 30px 20px;
+        display: grid;
+        justify-content: space-around;
+        grid-template-areas: 'ma tamas dastresy mojavez';
+        @media(max-width:1100px){
+            grid-template-areas: 'ma dastresy' 'tamas mojavez';
+            gap: 20px;
+            padding: 30px 10px;
+        }
+        @media(max-width:550px){
+            grid-template-areas: 'ma' 'dastresy' 'tamas' 'mojavez';
+            justify-content: center;
+            gap: 20px;
+        }
+        h3{
+            font-size: 20px;
+            font-family: "font-titr";
+            @media(max-width:1100px){
+                font-size: 15px;
+            }
+        }
+        &-ma{
+            grid-area: ma;
+            width: 300px;
+            @media(max-width:1100px){
+                font-size: 12px;
+                width: 250px;
+            }
+        }
+        &-dastresy{
+            grid-area: dastresy;
+            ul{
+                li{
+                    list-style-type:square;
+                    list-style-position: inside;
+                    a{
+                        padding: 5px 0 0 0;
+                        color: white;
+                        background-color: transparent;
+                        &:hover{
+                            color: var(--ghermez);
+                        }
+                        @media(max-width:1100px){
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+        &-tamas{
+            grid-area: tamas;
+            a{
+                letter-spacing: 1px;
+                display: block;
+            }
+        }
+        &-mojavez{
+            grid-area: mojavez;
+            img{
+                width: 100px !important;
+                height: 100px !important;
+                border-radius: 10px;
+                border: 2px solid black;
+                background-color: white;
+                padding: 5px;
+            }
+        }
+    }
+    &-houghough{
+        border-top: 1px solid gray;
+        text-align: center;
+        padding: 15px 0;
+        color: gray;
+        font-size: 12px;
+        p{
+            margin-bottom: 5px;
+            span{
+                color: white !important;
+            }
+        }
+    }
+}
+
+
+@keyframes cheshmak{
+    0%{color: white;}
+    50%{color: var(--ghermez)}
+    100%{color: white;}
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-track{
+    background-color: black;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--ghermez);
+    border-radius: 10px;
+}
