@@ -21,11 +21,13 @@
             <nav class="meno-nav navbar navbar-expand nav-pills d-flex justify-content-between">
                 <div class="meno-nav-khali d-none"></div>
                 <div class="meno-nav-logo">
-                    <a href="/" class="navbar-brand d-block">نصب فیکس</a>
+                    <a href="{% url 'home' %}" class="navbar-brand d-block">نصب فیکس</a>
                 </div>
                 <div class="meno-nav-item d-flex">
-                    <a href="/" class="nav-link nav-item d-block meno-nav-item">خانه</a>
-                    <a href="/article/" class="nav-link nav-item d-block meno-nav-item">مقالات</a>
+                    <a href="{% url 'home' %}#darkhast" class="nav-link nav-item d-block meno-nav-item">درخواست نصب و تعمیر</a>
+                    <a href="{% url 'home' %}#darbarema" class="nav-link nav-item d-block meno-nav-item">درباره ما</a>
+                    <a href="{% url 'home' %}#tekrar" class="nav-link nav-item d-block meno-nav-item">سوالات پر تکرار</a>
+                    <a href="{% url 'article' %}" class="nav-link nav-item d-block meno-nav-item">مقالات</a>
                 </div>
                 <div class="meno-nav-tamas">
                     <button type="button" class="d-flex">
@@ -36,8 +38,10 @@
             </nav>
             <div class="meno-berger-box collapse navbar-collapse" id="berger">
                 <div class="navbar-nav">
-                    <a href="/" class="nav-link nav-item">خانه</a>
-                    <a href="/article/" class="nav-link nav-item">مقالات</a>
+                    <a href="{% url 'home' %}#darkhast" class="nav-link nav-item">درخواست نصب و تعمیر</a>
+                    <a href="{% url 'home' %}#darbarema" class="nav-link nav-item">درباره ما</a>
+                    <a href="{% url 'home' %}#tekrar" class="nav-link nav-item">سوالات پر تکرار</a>
+                    <a href="{% url 'article' %}" class="nav-link nav-item">مقالات</a>
                 </div>
             </div>
         </section>
