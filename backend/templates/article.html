@@ -112,7 +112,13 @@
                         </span>
                     </div>
                     <div class="article-content">
-                        {{ article.content|safe|linebreaks }}
+                        <div class="article-summary">
+                            {{ article.content|truncatechars:120|linebreaks }}
+                        </div>
+                        <div class="article-full" style="display:none;">
+                            {{ article.content|safe|linebreaks }}
+                        </div>
+                        <button class="show-more-btn" onclick="showFullArticle(this)">ادامه مطلب</button>
                     </div>
                 </div>
                 {% empty %}
@@ -166,5 +172,13 @@
     <script src="{% static 'js/all.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/script.js' %}"></script>
+    <script>
+    function showFullArticle(btn) {
+        var card = btn.closest('.article-content');
+        card.querySelector('.article-summary').style.display = 'none';
+        card.querySelector('.article-full').style.display = 'block';
+        btn.style.display = 'none';
+    }
+    </script>
 </body>
 </html> 
