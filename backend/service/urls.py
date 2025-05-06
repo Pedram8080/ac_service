@@ -16,4 +16,5 @@ urlpatterns = [
     path('panel/delete-request/<int:request_id>/', views.delete_request_view, name='delete_request'),
     path('panel/delete-selected/', views.delete_selected_requests_view, name='delete_selected'),
     path('article/', views.article_view, name='article'),
+    path('article/<slug:slug>/', views.article_detail_view, name='article_detail'),
 ]

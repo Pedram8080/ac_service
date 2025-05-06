@@ -1,5 +1,5 @@
 import logging
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
@@ -156,3 +156,8 @@ def delete_selected_requests_view(request):
         except Exception as e:
             return JsonResponse({'success': False, 'error': str(e)}, status=500)
     return JsonResponse({'success': False, 'error': 'متد درخواست نامعتبر است'}, status=400)
+
+
+def article_detail_view(request, slug):
+    article = get_object_or_404(Article, slug=slug, is_active=True)
+    return render(request, 'article_detail.html', {'article': article})

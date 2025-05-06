@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ article.title }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="main-article-card">
+        <h1>{{ article.title }}</h1>
+        {% if article.image %}
+            <img src="{{ article.image.url }}" alt="{{ article.title }}" class="article-image" style="max-width:100%;height:auto;margin-bottom:20px;">
+        {% endif %}
+        <div class="article-content">
+            {{ article.content|safe|linebreaks }}
+        </div>
+    </div>
+    <a href="{% url 'article' %}">بازگشت به لیست مقالات</a>
+</body>
+</html> 
