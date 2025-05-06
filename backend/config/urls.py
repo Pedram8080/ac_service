@@ -35,4 +35,14 @@ urlpatterns = [
                   path('sitemap.xml', serve,
                        {'path': 'sitemap.xml', 'document_root': os.path.join(settings.BASE_DIR, 'static')}),
                   path("sitemap.xml", sitemap, {'sitemaps': sitemaps}, name='sitemap'),
-              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+              ]
+
+# اضافه کردن تنظیمات static و media
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+else:
+    # در حالت production، فایل‌های media را از طریق Nginx سرو می‌کنیم
+    urlpatterns += [
+        path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT}),
+    ]
