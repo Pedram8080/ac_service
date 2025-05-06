@@ -888,7 +888,7 @@ body p {
 .footer-darbare-tamas {
   grid-area: tamas;
 }
-.footer-darbare-tamas p {
+.footer-darbare-tamas a {
   letter-spacing: 1px;
 }
 .footer-darbare-mojavez {
