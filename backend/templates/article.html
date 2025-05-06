@@ -102,6 +102,9 @@
                 {% for article in articles %}
                 <div class="main-article-card">
                     <h2>{{ article.title }}</h2>
+                    {% if article.image %}
+                        <img src="{{ article.image.url }}" alt="{{ article.title }}" class="article-image" style="max-width:100%;height:auto;margin-bottom:20px;">
+                    {% endif %}
                     <div class="article-meta">
                         <span class="article-date">
                             <i class="far fa-calendar-alt"></i>
