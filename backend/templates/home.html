@@ -496,5 +496,39 @@
     <script src="{% static 'js/all.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/script.js' %}"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // تبدیل اعداد فارسی به انگلیسی
+        function fa2en(str) {
+            return str.replace(/[۰-۹]/g, function(d) {
+                return '۰۱۲۳۴۵۶۷۸۹'.indexOf(d);
+            });
+        }
+
+        // روی همه inputهای شماره تلفن اعمال کن
+        var phoneInputs = document.querySelectorAll('input[name="phone"]');
+        phoneInputs.forEach(function(input) {
+            input.addEventListener('input', function() {
+                this.value = fa2en(this.value);
+                this.setCustomValidity('');
+            });
+            input.oninvalid = function(e) {
+                this.setCustomValidity('لطفا شماره تماس معتبر و با اعداد انگلیسی وارد کنید');
+            }
+        });
+
+        // پیام required برای همه فیلدها
+        var requiredFields = document.querySelectorAll('input[required], textarea[required], select[required]');
+        requiredFields.forEach(function(field) {
+            field.oninvalid = function(e) {
+                if (this.name === 'phone') return; // چون بالا پیام سفارشی دادیم
+                this.setCustomValidity('لطفا این فیلد را پر کنید');
+            }
+            field.oninput = function(e) {
+                this.setCustomValidity('');
+            }
+        });
+    });
+    </script>
 </body>
 </html>
