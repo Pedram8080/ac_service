@@ -793,8 +793,9 @@ body{
         }
         &-tamas{
             grid-area: tamas;
-            p{
+            a{
                 letter-spacing: 1px;
+                display: block;
             }
         }
         &-mojavez{
