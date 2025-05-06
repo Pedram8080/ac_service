@@ -26,6 +26,7 @@ from django.http import HttpResponse
 import json
 from .models import Article
 from .utils import send_sms
+from django.contrib import messages
 
 logger = logging.getLogger('service.views')
 
@@ -99,7 +100,6 @@ def request_specialist(request):
 
         logger.info(f"دریافت درخواست جدید: {name}, {phone}, {service_type}")
 
-        # ذخیره درخواست
         service_request = ServiceRequest.objects.create(
             name=name,
             phone=phone,
@@ -108,25 +108,19 @@ def request_specialist(request):
 
         logger.info(f"درخواست با موفقیت ذخیره شد. ID: {service_request.id}")
 
-        # ارسال پیامک به کاربر
         user_message = f"سلام {name} عزیز\nدرخواست {service_type} شما با موفقیت ثبت شد. به زودی با شما تماس خواهیم گرفت."
         send_sms(phone, user_message)
 
-        # ارسال پیامک به ادمین
         admin_message = f"درخواست جدید:\nنام: {name}\nشماره: {phone}\nنوع سرویس: {service_type}"
-        send_sms("09220760633", admin_message)  # شماره ادمین
+        send_sms("09220760633", admin_message)
 
-        return JsonResponse({
-            'status': 'success',
-            'message': 'درخواست شما با موفقیت ثبت شد.'
-        })
+        messages.success(request, "درخواست شما با موفقیت ثبت شد. به زودی با شما تماس خواهیم گرفت.")
+        return redirect('home')
 
     except Exception as e:
         logger.error(f"خطا در پردازش درخواست: {e}")
-        return JsonResponse({
-            'status': 'error',
-            'message': 'خطا در ثبت درخواست. لطفا دوباره تلاش کنید.'
-        }, status=500)
+        messages.error(request, "خطا در ثبت درخواست. لطفا دوباره تلاش کنید.")
+        return redirect('home')
 
 
 @csrf_exempt

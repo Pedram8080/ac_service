@@ -289,6 +289,13 @@
             </div>
         </section>
         <section class="main-darkhast" id="darkhast">
+            {% if messages %}
+              {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" style="margin: 20px 0; text-align: center;">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
             <form id="request-form" method="POST" action="{% url 'request_specialist' %}" class="form-group main-darkhast-box" novalidate>
                 {% csrf_token %}
                 <h2 class="form-group">فرم درخواست سریع متخصص</h2>
