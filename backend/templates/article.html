@@ -105,8 +105,7 @@
                     <img src="{{ article.image.url }}" alt="{{ article.title }}">
                     {% endif %}
                     <h2>{{ article.title }}</h2>
-                    <button class="btn-danger btn" type="button" href="{% url 'article_detail' slug=article.slug %}">مشاهده مقاله</button>
-                </div>
+                    <button class="btn btn-danger" type="button" onclick="window.location.href='{% url 'article_detail' slug=article.slug %}'">مشاهده مقاله</button>                </div>
                 {% empty %}
                 <div class="main-article-content-nocard">
                     <h2>مقاله ای یافت نشد</h2>
