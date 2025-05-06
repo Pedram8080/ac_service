@@ -513,7 +513,13 @@
                 this.setCustomValidity('');
             });
             input.oninvalid = function(e) {
-                this.setCustomValidity('لطفا شماره تماس معتبر و با اعداد انگلیسی وارد کنید');
+                if (!this.value) {
+                    this.setCustomValidity('لطفا شماره تماس را وارد کنید');
+                } else if (!/^09[0-9]{9}$/.test(this.value)) {
+                    this.setCustomValidity('شماره تماس باید با 09 شروع شده و 11 رقم باشد');
+                } else {
+                    this.setCustomValidity('');
+                }
             }
         });
 
