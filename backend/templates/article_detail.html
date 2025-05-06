@@ -56,16 +56,25 @@
         </section>
     </header>
     <main class="main">
-        <div class="main-article-card">
-            <h1>{{ article.title }}</h1>
-            {% if article.image %}
-                <img src="{{ article.image.url }}" alt="{{ article.title }}" class="article-image" style="max-width:100%;height:auto;margin-bottom:20px;">
-            {% endif %}
-            <div class="article-content">
-                {{ article.content|safe|linebreaks }}
+        <div class="main-article-detail">
+            <div class="main-article-detail-titr">
+                <span><i class="fa-solid fa-tag"></i></span>
+                <h1>????????</h1>
             </div>
+            <div class="main-article-detail-text">
+                <p>????????</p>
+            </div>
+            <img src="??????????" alt="??????????" loading="lazy">
+            <div class="main-article-detail-album">
+                <h2>آلبوم تصاویر مرتبط با مقاله:</h2>
+                <div class="main-article-detail-album-box">
+                    <div class="main-article-detail-album-box-img">
+                        <img src="????????" alt="?????????" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-danger" type="button" href="?????">بازگشت به لیست مقالات</button>
         </div>
-        <a href="{% url 'article' %}">بازگشت به لیست مقالات</a>
     </main>
     <footer class="footer">
         <section class="footer-darbare" id="darbarema">

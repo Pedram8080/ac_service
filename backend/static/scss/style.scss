@@ -924,3 +924,115 @@ body{
         }
     }
 }
+
+.main-article-detail{
+    padding: 0 100px;
+    @media(max-width:1200px){
+        padding: 0 50px;
+    }
+    @media(max-width:700px){
+        padding: 0 30px;
+    }
+    &-titr{
+        margin-top: 100px;
+        margin-bottom: 50px;
+        @media(max-width:700px){
+            margin-top: 80px;
+            margin-bottom: 30px;
+        }
+        span{
+            margin-left: 5px;
+            display: inline;
+            font-size: 25px;
+            @media(max-width:700px){
+                font-size: 15px;
+            }
+        }
+        h1{
+            text-align: right;
+            font-size: 30px;
+            font-family: "font-titr";
+            display: inline;
+            @media(max-width:700px){
+                font-size: 20px;
+            }
+        }
+    }
+    &-text{
+        p{
+            font-size: 15px;
+            font-family: "font-matn";
+            line-height: 2;
+            @media (max-width:600px) {
+                font-size: 13px;
+            }
+        }
+    }
+    img{
+        width: 35vw !important;
+        object-fit: fill;
+        margin: 30px 0;
+        display: block;
+        justify-self: center;
+        @media (max-width:1200px) {
+            width: 40vw !important;
+        }
+        @media (max-width:900px) {
+            width: 50vw !important;
+        }
+        @media (max-width:700px) {
+            width: 60vw !important;
+        }
+        @media (max-width:550px) {
+            width: 75vw !important;
+        }
+        @media (max-width:450px) {
+            width: 85vw !important;
+        }
+    }
+    &-album{
+        margin: 40px 0 20px 0;
+        h2{
+            font-size: 20px;
+            font-family: "font-titr";
+            @media(max-width:700px){
+                font-size: 15px;
+            }
+        }
+        &-box{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            justify-content: center;
+            gap: 20px;
+            @media(max-width:900px){
+                grid-template-columns: auto auto;
+            }
+            @media(max-width:600px){
+                grid-template-columns: auto;
+            }
+            &-img{
+                width: 350px !important;
+                border-radius: 10px;
+                @media(max-width:1200px){
+                    width: 250px !important;
+                }
+                img{
+                    width: 100% !important;
+                    height: 100% !important;
+                    object-fit: fill;
+                    display: block;
+                    border-radius: 10px;
+                    transition: all 0.5s;
+                    cursor: pointer;
+                    @media(max-width:1200px){
+                        height: 150px !important;
+                    }
+                }
+            }
+        }
+    }
+    button{
+        text-align: right;
+        margin: 30px 0; 
+    }
+}
