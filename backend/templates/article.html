@@ -97,21 +97,20 @@
 
     <main class="main">
         <section class="main-article">
-            <h1 class="main-article-title">مقالات تخصصی</h1>
+            <h1 class="main-article-title">مقالات تخصصی ما</h1>
             <div class="main-article-content">
                 {% for article in articles %}
-                <div class="main-article-card">
-                    <a href="{% url 'article_detail' slug=article.slug %}">
-                        <h2>{{ article.title }}</h2>
-                        {% if article.image %}
-                            <img src="{{ article.image.url }}" alt="{{ article.title }}" class="article-image" style="max-width:100%;height:auto;margin-bottom:20px;">
-                        {% endif %}
-                    </a>
+                <div class="main-article-content-card">
+                    {% if article.image %}
+                    <img src="{{ article.image.url }}" alt="{{ article.title }}">
+                    {% endif %}
+                    <h2>{{ article.title }}</h2>
+                    <button class="btn-danger btn" type="button" href="{% url 'article_detail' slug=article.slug %}">مشاهده مقاله</button>
                 </div>
                 {% empty %}
-                <div class="main-article-card">
-                    <h2>مقاله‌ای یافت نشد</h2>
-                    <p>به زودی مقالات جدید در این بخش منتشر خواهد شد.</p>
+                <div class="main-article-content-nocard">
+                    <h2>مقاله ای یافت نشد</h2>
+                    <p>در اولین فرصت مقاله های جدید به سایت افزوده میشود</p>
                 </div>
                 {% endfor %}
             </div>
