@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Request, ServiceRequest, Article, ArticleSection
 
 
-class ArticleSectionInline(admin.TabularInline):
+class ArticleSectionInline(admin.StackedInline):
     model = ArticleSection
     extra = 1
     fields = ('title', 'slug', 'content', 'image', 'order')
