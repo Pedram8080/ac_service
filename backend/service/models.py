@@ -55,7 +55,6 @@ class Article(models.Model):
     title = models.CharField(max_length=200, verbose_name='عنوان مقاله')
     slug = models.SlugField(max_length=200, unique=True, allow_unicode=True, verbose_name='اسلاگ')
     image = models.ImageField(upload_to='articles/', verbose_name='تصویر مقاله', null=True, blank=True)
-    content = models.TextField(verbose_name='محتوا')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ ایجاد')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='تاریخ بروزرسانی')
     is_active = models.BooleanField(default=True, verbose_name='فعال')

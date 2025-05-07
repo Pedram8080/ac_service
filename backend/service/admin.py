@@ -26,7 +26,7 @@ class ServiceRequestAdmin(admin.ModelAdmin):
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ('title', 'created_at', 'updated_at', 'is_active')
     list_filter = ('is_active', 'created_at')
-    search_fields = ('title', 'content')
+    search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)}
-    fields = ('title', 'slug', 'image', 'content', 'is_active')
+    fields = ('title', 'slug', 'image', 'is_active')
     inlines = [ArticleSectionInline]
