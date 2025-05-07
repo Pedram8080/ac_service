@@ -72,9 +72,11 @@
             <div class="main-article-detail-album">
                 <h2>آلبوم تصاویر مرتبط با مقاله:</h2>
                 <div class="main-article-detail-album-box">
-                    <div class="main-article-detail-album-box-img">
-                        <img src="????????" alt="?????????" loading="lazy">
-                    </div>
+                    {% for img in article.album_images.all %}
+                        <div class="main-article-detail-album-box-img">
+                            <img src="{{ img.image.url }}" alt="تصویر آلبوم" loading="lazy">
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
             <button class="btn btn-danger" type="button" onclick="window.location.href='{% url 'article' %}'">بازگشت به لیست مقالات</button>
