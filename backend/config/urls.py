@@ -10,6 +10,7 @@ import os
 from django.contrib.sitemaps.views import sitemap
 from django.contrib.sitemaps import Sitemap
 from service.models import ServiceRequest
+from service.sitemaps import ArticleSitemap
 
 
 class ServiceSitemap(Sitemap):
@@ -25,6 +26,7 @@ class ServiceSitemap(Sitemap):
 
 sitemaps = {
     'services': ServiceSitemap,
+    'articles': ArticleSitemap,
 }
 
 urlpatterns = [
@@ -32,9 +34,7 @@ urlpatterns = [
                   path('', include('service.urls')),
                   path('', home, name='home'),
                   path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
-                  path('sitemap.xml', serve,
-                       {'path': 'sitemap.xml', 'document_root': os.path.join(settings.BASE_DIR, 'static')}),
-                  path("sitemap.xml", sitemap, {'sitemaps': sitemaps}, name='sitemap'),
+                  path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
               ]
 
 # اضافه کردن تنظیمات static و media
