@@ -68,15 +68,15 @@
             {% if section.image %}
                 <img src="{{ section.image.url }}" alt="{{ section.title }}" loading="lazy">
             {% endif %}
-            <!-- <div class="main-article-detail-album">
+            {% endfor %}
+            <div class="main-article-detail-album">
                 <h2>آلبوم تصاویر مرتبط با مقاله:</h2>
                 <div class="main-article-detail-album-box">
                     <div class="main-article-detail-album-box-img">
                         <img src="????????" alt="?????????" loading="lazy">
                     </div>
                 </div>
-            </div> -->
-            {% endfor %}
+            </div>
             <button class="btn btn-danger" type="button" onclick="window.location.href='{% url 'article' %}'">بازگشت به لیست مقالات</button>
         </div>
     </main>

@@ -78,3 +78,17 @@ class Article(models.Model):
             self.slug = slugify(self.title, allow_unicode=True)
         super().save(*args, **kwargs)
 
+
+class ArticleImage(models.Model):
+    article = models.ForeignKey('Article', on_delete=models.CASCADE, related_name='album_images')
+    image = models.ImageField(upload_to='articles/album/', verbose_name='تصویر آلبوم')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'تصویر آلبوم مقاله'
+        verbose_name_plural = 'تصاویر آلبوم مقاله'
+        ordering = ['uploaded_at']
+
+    def __str__(self):
+        return f"آلبوم {self.article.title} - {self.id}"
+
