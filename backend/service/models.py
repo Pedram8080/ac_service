@@ -37,6 +37,7 @@ class ServiceRequest(models.Model):
 class ArticleSection(models.Model):
     article = models.ForeignKey('Article', on_delete=models.CASCADE, related_name='sections')
     title = models.CharField(max_length=200, verbose_name='عنوان بخش')
+    slug = models.SlugField(max_length=200, unique=True, allow_unicode=True, verbose_name='اسلاگ بخش')
     content = models.TextField(verbose_name='محتوا')
     image = models.ImageField(upload_to='articles/sections/', verbose_name='تصویر بخش', null=True, blank=True)
     order = models.PositiveIntegerField(default=0, verbose_name='ترتیب')
@@ -48,16 +49,13 @@ class ArticleSection(models.Model):
         ordering = ['order', 'created_at']
 
     def __str__(self):
-        return f"{self.article.title} - {self.title}"
+        return f"{self.title} - {self.slug}"
 
 
 class Article(models.Model):
-    title = models.CharField(max_length=200, verbose_name='عنوان مقاله')
-    slug = models.SlugField(max_length=200, unique=True, allow_unicode=True, verbose_name='اسلاگ')
-    image = models.ImageField(upload_to='articles/', verbose_name='تصویر مقاله', null=True, blank=True)
+    is_active = models.BooleanField(default=True, verbose_name='فعال')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ ایجاد')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='تاریخ بروزرسانی')
-    is_active = models.BooleanField(default=True, verbose_name='فعال')
 
     class Meta:
         verbose_name = 'مقاله'
@@ -65,10 +63,5 @@ class Article(models.Model):
         ordering = ['-created_at']
 
     def __str__(self):
-        return self.title
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title, allow_unicode=True)
-        super().save(*args, **kwargs)
+        return f"مقاله {self.id}"
 
