@@ -1,5 +1,11 @@
 from django.contrib import admin
-from .models import Request, ServiceRequest, Article
+from .models import Request, ServiceRequest, Article, ArticleSection
+
+
+class ArticleSectionInline(admin.TabularInline):
+    model = ArticleSection
+    extra = 1
+    fields = ('title', 'content', 'image', 'order')
 
 
 @admin.register(Request)
@@ -18,9 +24,9 @@ class ServiceRequestAdmin(admin.ModelAdmin):
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_at', 'is_active')
+    list_display = ('title', 'created_at', 'updated_at', 'is_active')
     list_filter = ('is_active', 'created_at')
     search_fields = ('title', 'content')
     prepopulated_fields = {'slug': ('title',)}
-    date_hierarchy = 'created_at'
     fields = ('title', 'slug', 'image', 'content', 'is_active')
+    inlines = [ArticleSectionInline]

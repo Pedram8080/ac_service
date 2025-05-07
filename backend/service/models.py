@@ -34,6 +34,23 @@ class ServiceRequest(models.Model):
         return f"{self.name} ({self.phone}) - {self.service_type}"
 
 
+class ArticleSection(models.Model):
+    article = models.ForeignKey('Article', on_delete=models.CASCADE, related_name='sections')
+    title = models.CharField(max_length=200, verbose_name='عنوان بخش')
+    content = models.TextField(verbose_name='محتوا')
+    image = models.ImageField(upload_to='articles/sections/', verbose_name='تصویر بخش', null=True, blank=True)
+    order = models.PositiveIntegerField(default=0, verbose_name='ترتیب')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'بخش مقاله'
+        verbose_name_plural = 'بخش‌های مقاله'
+        ordering = ['order', 'created_at']
+
+    def __str__(self):
+        return f"{self.article.title} - {self.title}"
+
+
 class Article(models.Model):
     title = models.CharField(max_length=200, verbose_name='عنوان مقاله')
     slug = models.SlugField(max_length=200, unique=True, allow_unicode=True, verbose_name='اسلاگ')
