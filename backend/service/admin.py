@@ -5,7 +5,7 @@ from .models import Request, ServiceRequest, Article, ArticleSection
 class ArticleSectionInline(admin.TabularInline):
     model = ArticleSection
     extra = 1
-    fields = ('title', 'content', 'image', 'order')
+    fields = ('title', 'slug', 'content', 'image', 'order')
 
 
 @admin.register(Request)
@@ -24,9 +24,7 @@ class ServiceRequestAdmin(admin.ModelAdmin):
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_at', 'updated_at', 'is_active')
+    list_display = ('id', 'is_active', 'created_at', 'updated_at')
     list_filter = ('is_active', 'created_at')
-    search_fields = ('title',)
-    prepopulated_fields = {'slug': ('title',)}
-    fields = ('title', 'slug', 'image', 'is_active')
+    fields = ('is_active',)
     inlines = [ArticleSectionInline]
