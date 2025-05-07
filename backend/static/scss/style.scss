@@ -296,72 +296,62 @@ body{
         &-box{
             margin-top: 60px;
             display: grid;
-            grid-template-areas: 'box1 box2 box3 box4';
+            grid-template-columns: auto auto auto auto ;
+            justify-content: center;
             gap: 20px;
             text-align: center;
-            @media(max-width:1000px){
-                margin-top: 40px;
-            }
             @media(max-width:700px){
-                margin-top: 30px;
+                grid-template-columns: auto auto ;
+                gap: 10px;
             }
-            @media(max-width:500px){
-                grid-template-areas: 'box1 box2' 'box3 box4';
+            @media(max-width:1100px){
+                margin-top: 40px;
             }
             span{
                 font-size: 25px;
-                padding: 10px 20px;
+                width: 80px !important;
+                height: 80px !important;
+                align-content: center;
                 color: white;
                 background-color: red;
                 border-radius: 50%;
                 display: inline-block;
                 margin-bottom: 20px;
-                @media(max-width:1000px){
+                @media(max-width:1100px){
                     font-size: 20px;
+                    width: 65px !important;
+                    height: 65px !important;
                 }
                 @media(max-width:700px){
-                    font-size: 20px;
+                    width: 60px !important;
+                    height: 60px !important;
                 }
             }
             p{
                 font-size: 20px;
                 border-radius: 10px;
                 color: white;
-                @media(max-width:1000px){
+                @media(max-width:1100px){
                     font-size: 15px;
                 }
-                @media(max-width:700px){
-                    font-size: 12px;
+
+            }
+            &-item{
+                background-color: var(--tousy);
+                border-radius: 10px;
+                width: 250px;
+                padding: 30px 0;
+                @media(max-width:1100px){
+                    width: 150px;
                 }
-            }
-            &-item1{
-                grid-area: box1;
-                background-color: var(--tousy);
-                padding: 50px 0;
-                border-radius: 10px;
-            }
-            &-item2{
-                grid-area: box2;
-                background-color: var(--tousy);
-                padding: 50px 0;
-                border-radius: 10px;                
-            }
-            &-item3{
-                grid-area: box3;
-                background-color: var(--tousy);
-                padding: 50px 0;
-                border-radius: 10px;
-            }
-            &-item4{
-                grid-area: box4;
-                background-color: var(--tousy);
-                padding: 50px 0;
-                border-radius: 10px;
+                @media(max-width:400px){
+                    width: 140px;
+                    padding: 20px 0;
+                }
             }
         }
     }
     &-nemoune{
-        overflow-x: auto;
         width: 100% !important;
         position: relative;
         margin:40px 0 80px 0;
@@ -385,7 +375,7 @@ body{
         &-box{
             background-color: white;
             border-radius: 20px;
-            box-shadow: 2px 2px 20px red , -2px -2px 20px white;
+            box-shadow: 1px 1px 10px red , -1px -1px 10px white;
             position: relative;
             width: 300px !important;
             border-radius: 10px;
@@ -447,7 +437,6 @@ body{
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        background-attachment: fixed;
         padding: 100px 50px;
         &::after{
             content: "";
