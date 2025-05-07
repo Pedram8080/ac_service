@@ -56,24 +56,28 @@
         </section>
     </header>
     <main class="main">
+        {% for section in article.sections.all %}
         <div class="main-article-detail">
             <div class="main-article-detail-titr">
                 <span><i class="fa-solid fa-tag"></i></span>
-                <h1>????????</h1>
+                <h1>{{ section.title }}</h1>
             </div>
             <div class="main-article-detail-text">
-                <p>????????</p>
+                <p>{{ section.content|linebreaks }}</p>
             </div>
-            <img src="??????????" alt="??????????" loading="lazy">
-            <div class="main-article-detail-album">
+            {% if section.image %}
+                <img src="{{ section.image.url }}" alt="{{ section.title }}" loading="lazy">
+            {% endif %}
+            <!-- <div class="main-article-detail-album">
                 <h2>آلبوم تصاویر مرتبط با مقاله:</h2>
                 <div class="main-article-detail-album-box">
                     <div class="main-article-detail-album-box-img">
                         <img src="????????" alt="?????????" loading="lazy">
                     </div>
                 </div>
-            </div>
-            <button class="btn btn-danger" type="button" href="?????">بازگشت به لیست مقالات</button>
+            </div> -->
+            {% endfor %}
+            <button class="btn btn-danger" type="button" onclick="window.location.href='{% url 'article' %}'">بازگشت به لیست مقالات</button>
         </div>
     </main>
     <footer class="footer">
