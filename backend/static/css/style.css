@@ -525,8 +525,7 @@ body p {
     width: 140px;
     padding: 20px 0;
   }
-}
-.main-nemoune {
+}.main-nemoune {
   overflow-x: auto;
   width: 100% !important;
   position: relative;
