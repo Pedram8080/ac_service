@@ -271,6 +271,109 @@ body{
         }
         
     }
+    &-manategh{
+        position: relative;
+        width: 100% !important;
+        background-color: var(--tousy);
+        margin-top: 50px;
+        padding:20px;
+        text-align: center;
+        >h2{
+            color: white;
+            font-family: "font-titr";
+            font-size: 25px;
+            padding: 0;
+            text-align: center;
+            margin-top: 30px !important;
+            @media(max-width:800px){
+                font-size: 20px;
+            }
+        }
+        >p{
+            color: white;
+            font-family: "font-matn";
+            font-size: 15px;
+            margin-top: 25px !important;
+            @media(max-width:800px){
+                font-size: 13px;
+            }
+        }
+        &-box{
+            margin-top: 30px;
+            padding-bottom: 50px;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            justify-content: center;
+            gap: 20px;
+            @media(max-width:800px){
+                grid-template-columns: auto auto;
+                gap: 10px;
+            }
+            @media(max-width:450px){
+                grid-template-columns: auto;
+            }
+            &-item{
+                position: relative;
+                border-radius: 10px;
+                width: 300px !important;
+                height: 150px !important;
+                border-radius: 10px;
+                background: linear-gradient(rgba(transparent,0.5),rgba(black,0.9));
+                border: 1px solid white;
+                @media(max-width:1000px){
+                    width: 250px !important;
+                    height: 150px !important;
+                }
+                @media(max-width:600px){
+                    width: 200px !important;
+                    height: 120px !important;
+                }
+                @media(max-width:450px){
+                    width: 250px !important;
+                    height: 120px !important;
+                }
+                >img{
+                    width: 100% !important;
+                    height: 100% !important;
+                    border-radius: 10px;
+                    opacity: 0.4;
+                    object-fit: fill;
+                }
+                &-about{
+                    border-radius: 10px;
+                    position: absolute;
+                    bottom: 0;
+                    text-align: center;
+                    transition: all 0.5s;
+                    padding:  10px;
+                    @media(max-width:1000px){
+                        padding:  5px;
+                    }
+                    >h2{
+                        color: white;
+                        font-size: 20px;
+                        font-family: "font-titr";
+                        text-shadow: 1px 1px 5px black;
+                        padding: 0;
+                        margin: 0;
+                        display: inline-block;
+                        margin-bottom: 15px;
+                        @media(max-width:1000px){
+                            font-size: 18px;
+                        }
+                        @media(max-width:600px){
+                            font-size: 15px;
+                        }
+                    }
+                    >button{
+                        text-align: center;
+                        margin-bottom: 5px;
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
     &-chera{
         padding: 50px;
         margin-top: 20px;

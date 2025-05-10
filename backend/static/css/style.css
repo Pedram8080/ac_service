@@ -302,6 +302,129 @@ body p {
 .main-banner-amar-box p i {
   font-size: 25px;
 }
+.main-manategh {
+  position: relative;
+  width: 100% !important;
+  background-color: var(--tousy);
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
+}
+.main-manategh > h2 {
+  color: white;
+  font-family: "font-titr";
+  font-size: 25px;
+  padding: 0;
+  text-align: center;
+  margin-top: 30px !important;
+}
+@media (max-width: 800px) {
+  .main-manategh > h2 {
+    font-size: 20px;
+  }
+}
+.main-manategh > p {
+  color: white;
+  font-family: "font-matn";
+  font-size: 15px;
+  margin-top: 25px !important;
+}
+@media (max-width: 800px) {
+  .main-manategh > p {
+    font-size: 13px;
+  }
+}
+.main-manategh-box {
+  margin-top: 30px;
+  padding-bottom: 50px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+  gap: 20px;
+}
+@media (max-width: 800px) {
+  .main-manategh-box {
+    grid-template-columns: auto auto;
+    gap: 10px;
+  }
+}
+@media (max-width: 450px) {
+  .main-manategh-box {
+    grid-template-columns: auto;
+  }
+}
+.main-manategh-box-item {
+  position: relative;
+  border-radius: 10px;
+  width: 300px !important;
+  height: 150px !important;
+  border-radius: 10px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9));
+  border: 1px solid white;
+}
+@media (max-width: 1000px) {
+  .main-manategh-box-item {
+    width: 250px !important;
+    height: 150px !important;
+  }
+}
+@media (max-width: 600px) {
+  .main-manategh-box-item {
+    width: 200px !important;
+    height: 120px !important;
+  }
+}
+@media (max-width: 450px) {
+  .main-manategh-box-item {
+    width: 250px !important;
+    height: 120px !important;
+  }
+}
+.main-manategh-box-item > img {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 10px;
+  opacity: 0.4;
+  object-fit: fill;
+}
+.main-manategh-box-item-about {
+  border-radius: 10px;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  transition: all 0.5s;
+  padding: 10px;
+}
+@media (max-width: 1000px) {
+  .main-manategh-box-item-about {
+    padding: 5px;
+  }
+}
+.main-manategh-box-item-about > h2 {
+  color: white;
+  font-size: 20px;
+  font-family: "font-titr";
+  text-shadow: 1px 1px 5px black;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+@media (max-width: 1000px) {
+  .main-manategh-box-item-about > h2 {
+    font-size: 18px;
+  }
+}
+@media (max-width: 600px) {
+  .main-manategh-box-item-about > h2 {
+    font-size: 15px;
+  }
+}
+.main-manategh-box-item-about > button {
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
 .main-chera {
   padding: 50px;
   margin-top: 20px;
