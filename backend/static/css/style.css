@@ -48,7 +48,7 @@ body p {
 .logo-loader-neon {
   width: 120px;
   height: 120px;
-  animation: neon-pulse 2s infinite ease-in-out;
+  animation: neon-pulse 0.5s infinite ease-in-out;
   filter: drop-shadow(0 0 10px #ff7300);
 }
 
