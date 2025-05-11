@@ -685,7 +685,7 @@
         function hideLoader() {
           const now = new Date().getTime();
           const elapsed = now - startTime;
-          const minTime = 5000;
+          const minTime = 1000;
     
           const wait = minTime - elapsed;
           setTimeout(() => {
