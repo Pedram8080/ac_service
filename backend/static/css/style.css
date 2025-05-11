@@ -31,7 +31,47 @@ body p {
   margin: 0;
   padding: 0;
 }
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
 
+.logo-loader-neon {
+  width: 120px;
+  height: 120px;
+  animation: neon-pulse 2s infinite ease-in-out;
+  filter: drop-shadow(0 0 10px #ff7300);
+}
+
+@keyframes neon-pulse {
+  0% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 2px #ff7300);
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 20px #ff7300) brightness(1.5);
+  }
+  100% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 2px #ff7300);
+  }
+}
+.loading-text {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #555;
+  font-weight: bold;
+}
 .header {
   position: fixed;
   top: 0;
@@ -78,6 +118,12 @@ body p {
   .header .meno-berger-btn {
     font-size: 20px;
   }
+}
+.header .meno-berger-btn:hover {
+  background-color: transparent !important;
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
 }
 .header .meno-berger-box {
   padding: 0;
@@ -384,7 +430,7 @@ body p {
   width: 100% !important;
   height: 100% !important;
   border-radius: 10px;
-  opacity: 0.4;
+  opacity: 0.2;
   object-fit: fill;
 }
 .main-manategh-box-item-about {
@@ -400,6 +446,11 @@ body p {
     padding: 5px;
   }
 }
+@media (max-width: 450px) {
+  .main-manategh-box-item-about {
+    padding: 12px;
+  }
+}
 .main-manategh-box-item-about > h2 {
   color: white;
   font-size: 20px;
@@ -409,6 +460,7 @@ body p {
   margin: 0;
   display: inline-block;
   margin-bottom: 15px;
+  line-height: 1.5;
 }
 @media (max-width: 1000px) {
   .main-manategh-box-item-about > h2 {
@@ -424,6 +476,9 @@ body p {
   text-align: center;
   margin-bottom: 5px;
   font-size: 13px;
+  color: white !important;
+  background-color: rgb(255, 56, 56);
+  padding: 5px 10px !important;
 }
 .main-chera {
   padding: 50px;
@@ -612,7 +667,7 @@ body p {
   position: relative !important;
   width: 100% !important;
   height: 600px !important;
-  background-image: url(../img/iran-radiator-group.jpg);
+  background-image: url(../img/darkast.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -644,62 +699,148 @@ body p {
   font-size: 25px;
   color: white;
   font-family: "font-titr";
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 @media (max-width: 500px) {
   .main-darkhast-box h2 {
     font-size: 20px;
   }
 }
-.main-darkhast-box-label {
-  font-size: 18px;
-  color: white;
-  margin-bottom: 5px;
+.main-darkhast .input-field {
+  position: relative;
 }
-@media (max-width: 500px) {
-  .main-darkhast-box-label {
-    font-size: 15px;
-  }
+.main-darkhast .input-field label {
+  position: absolute;
+  color: #8d8d8d;
+  pointer-events: none;
+  background-color: transparent;
+  right: 15px;
+  top: 13px;
+  transition: all 0.3s ease;
+  font-family: "font-matn";
 }
-.main-darkhast-box-input {
-  width: 350px;
-  margin-bottom: 15px;
-}
-@media (max-width: 500px) {
-  .main-darkhast-box-input {
-    width: 250px;
-  }
-}
-.main-darkhast-box ::placeholder {
-  color: gray !important;
+.main-darkhast .input-field input {
+  padding: 10px 15px;
   font-size: 15px;
-  text-align: right;
+  border-radius: 8px;
+  border: solid 1px #8d8d8d;
+  letter-spacing: 1px;
+  width: 400px;
+  font-family: "font-matn";
+  outline: none;
+  transition: 0.35s;
+  padding: 10px 10px;
+  background-color: #212121;
+  border-radius: 6px;
+  border: 2px solid #212121;
+  box-shadow: 6px 6px 10px rgb(0, 0, 0), 1px 1px 10px rgba(255, 255, 255, 0.6);
+  margin-bottom: 30px;
 }
 @media (max-width: 500px) {
-  .main-darkhast-box ::placeholder {
-    font-size: 12px;
+  .main-darkhast .input-field input {
+    width: 260px;
   }
 }
-.main-darkhast-box-label-radio {
-  font-size: 15px;
+.main-darkhast .input-field input:focus,
+.main-darkhast .input-field input:valid {
+  outline: none;
+}
+.main-darkhast .input-field input:focus ~ label,
+.main-darkhast .input-field input:valid ~ label {
+  transform: translateY(-30px) translateX(10px) scale(0.9);
+  padding: 0px 5px;
   color: white;
+  text-shadow: 2px 2px 10px white;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 100px;
 }
-@media (max-width: 500px) {
-  .main-darkhast-box-label-radio {
-    font-size: 12px;
-  }
+.main-darkhast .input-field input:focus {
+  transform: scale(1.05);
+  box-shadow: 6px 6px 10px rgb(0, 0, 0), 1px 1px 10px rgba(255, 255, 255, 0.6), inset 2px 2px 10px rgb(0, 0, 0), inset -1px -1px 5px rgba(255, 255, 255, 0.6);
 }
-.main-darkhast-box-sabt {
+.main-darkhast .radio-input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.main-darkhast .radio-input * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.main-darkhast .radio-input label {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 20px;
+  width: 200px;
+  cursor: pointer;
+  position: relative;
+}
+.main-darkhast .radio-input label::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   border-radius: 10px;
-  background-color: var(--ghermez);
-  color: white;
-  transition: all 0.5s;
-  border: 0;
-  padding: 10px 40px;
-  margin-top: 15px;
+  border: 2px solid transparent;
 }
-.main-darkhast-box-sabt:hover {
-  background-color: rgb(255, 71, 71);
+.main-darkhast .radio-input label:hover::before {
+  transition: all 0.2s ease;
+  background-color: rgb(107, 107, 107);
+}
+.main-darkhast .radio-input .label:has(input:checked)::before {
+  background-color: var(--ch-black);
+  border-color: red;
+  height: 50px;
+}
+.main-darkhast .radio-input .label .text {
+  color: #fff;
+}
+.main-darkhast .radio-input .label input[type=radio] {
+  background-color: black;
+  appearance: none;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-darkhast .radio-input .label input[type=radio]:checked {
+  background-color: red;
+  -webkit-animation: puls 0.7s forwards;
+  animation: pulse 0.7s forwards;
+}
+.main-darkhast .radio-input .label input[type=radio]:before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  transition: all 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  background-color: #fff;
+  transform: scale(0);
+}
+.main-darkhast .radio-input .label input[type=radio]:checked::before {
+  transform: scale(1);
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
 }
 .main-khadamat {
   padding: 100px 20px;
@@ -1044,7 +1185,86 @@ body p {
 .footer-houghough p span {
   color: white !important;
 }
+.btn-shadow {
+  text-transform: uppercase;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "font-matn";
+  color: red;
+  text-shadow: none;
+  background: transparent;
+  cursor: pointer;
+  box-shadow: transparent;
+  border: 1px solid red;
+  transition: 0.5s ease;
+  user-select: none;
+  padding: 10px 15px;
+  margin: 20px 0;
+}
 
+.btn-shadow:hover,
+:focus {
+  color: #ffffff;
+  background: red;
+  border: 1px solid red;
+  text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+  box-shadow: 0 0 5px red, 0 0 20px red, 0 0 50px red, 0 0 100px red;
+}
+
+.btn-hashie {
+  --black: #000000;
+  --ch-black: #141414;
+  --eer-black: #1b1b1b;
+  --night-rider: #2e2e2e;
+  --white: #ffffff;
+  --af-white: #f3f3f3;
+  --ch-white: #e1e1e1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  font-family: "font-matn";
+  font-weight: 500;
+  border: none;
+  color: white;
+  position: relative;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  background-color: var(--tousy);
+}
+
+.btn-hashie:before, .btn-hashie:after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  border-radius: 10px;
+  background: linear-gradient(45deg, var(--ch-black), var(--eer-black), var(--night-rider), var(--ch-white), var(--night-rider), var(--eer-black), var(--ch-black), var(--ch-black));
+  background-size: 400%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  z-index: -1;
+  animation: steam 15s linear infinite;
+}
+
+@keyframes steam {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+.btn-hashie:after {
+  filter: blur(50px);
+}
 @keyframes cheshmak {
   0% {
     color: white;
