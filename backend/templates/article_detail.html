@@ -65,7 +65,6 @@
 {% endblock %}
 
 {% block content %}
-<body onload="hideLoader()">
     <div id="loader-wrapper">
         <img src="{% static 'img/logo-nasbfix.png' %}" alt="لوگوی نئون" class="logo-loader-neon">
         <p class="loading-text">در حال بارگذاری...</p>
@@ -105,6 +104,7 @@
             </div>
         </section>
     </header>
+
     <main class="main">
         {% for section in article.sections.all %}
         <div class="main-article-detail">
@@ -118,58 +118,20 @@
             {% if section.image %}
                 <img src="{{ section.image.url }}" alt="{{ section.title }}" loading="lazy">
             {% endif %}
-            {% endfor %}
-            <div class="main-article-detail-album">
-                <h2>آلبوم تصاویر مرتبط با مقاله:</h2>
-                <div class="main-article-detail-album-box">
-                    {% for img in article.album_images.all %}
-                        <div class="main-article-detail-album-box-img">
-                            <img src="{{ img.image.url }}" alt="تصویر آلبوم" loading="lazy">
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-            <button class="btn btn-danger" type="button" onclick="window.location.href='{% url 'article' %}'">بازگشت به لیست مقالات</button>
         </div>
+        {% endfor %}
+        <div class="main-article-detail-album">
+            <h2>آلبوم تصاویر مرتبط با مقاله:</h2>
+            <div class="main-article-detail-album-box">
+                {% for img in article.album_images.all %}
+                    <div class="main-article-detail-album-box-img">
+                        <img src="{{ img.image.url }}" alt="تصویر آلبوم" loading="lazy">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <button class="btn btn-danger" type="button" onclick="window.location.href='{% url 'article' %}'">بازگشت به لیست مقالات</button>
     </main>
-    <footer class="footer">
-        <section class="footer-darbare" id="darbarema">
-            <div class="footer-darbare-ma">
-                <h3>درباره ما:</h3>
-                <p>ما یه تیم فنی هستیم که حدود 10 سال در حوضه کولرگازی در حال فعالیت هستیم که الان به صورت رسمی نمایندگی ایران رادیاتور را داریم و به شرکت ها و برند های دیگه هم خدمات میدیم</p>
-            </div>
-            <div class="footer-darbare-tamas">
-                <h3>ارتباط با ما:</h3>
-                <a href="tel:09389956061">09389956061</a>
-                <a href="tel:09122343204">09122343204</a>
-            </div>
-            <div class="footer-darbare-dastresy">
-                <h3>دسترسی سریع:</h3>
-                <ul>
-                    <li>
-                        <a href="/">خانه</a>
-                    </li>
-                    <li>
-                        <a href="/article/">مقالات</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="footer-darbare-mojavez">
-                <h3>مجوزها:</h3>
-                <img src="{% static 'img/iran-radiyator.png' %}" alt="نمایندگی رسمی شرکت ایران رادیاتور" loading="lazy">
-            </div>
-        </section>
-        <section class="footer-houghough">
-            <p>تمامی حقوق این سایت متعلق به <span>نمایندگی نصب فیکس</span> است</p>
-            <p>این سایت توسط <span>تیم برنامه نویسی روموساپ</span> ساخته شده است</p>
-        </section>
-    </footer>
-    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'js/all.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/script.js' %}"></script>
-</body>
 {% endblock %}
 
 {% block extra_scripts %}

@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block content %}
-<body onload="hideLoader()">
     <div id="loader-wrapper">
         <img src="{% static 'img/logo-nasbfix.png' %}" alt="لوگوی نئون" class="logo-loader-neon">
         <p class="loading-text">در حال بارگذاری...</p>
@@ -17,12 +16,12 @@
             <nav class="meno-nav navbar navbar-expand nav-pills d-flex justify-content-between">
                 <div class="meno-nav-khali d-none"></div>
                 <div class="meno-nav-logo">
-                    <a href="#" class="navbar-brand d-block">نصب فیکس</a>
+                    <a href="{% url 'home' %}" class="navbar-brand d-block">نصب فیکس</a>
                 </div>
                 <div class="meno-nav-item d-flex">
-                    <a href="#darkhast" class="nav-link nav-item d-block meno-nav-item">درخواست نصب و تعمیر</a>
-                    <a href="#darbarema" class="nav-link nav-item d-block meno-nav-item">درباره ما</a>
-                    <a href="#tekrar" class="nav-link nav-item d-block meno-nav-item">سوالات پر تکرار</a>
+                    <a href="{% url 'home' %}#darkhast" class="nav-link nav-item d-block meno-nav-item">درخواست نصب و تعمیر</a>
+                    <a href="{% url 'home' %}#darbarema" class="nav-link nav-item d-block meno-nav-item">درباره ما</a>
+                    <a href="{% url 'home' %}#tekrar" class="nav-link nav-item d-block meno-nav-item">سوالات پر تکرار</a>
                     <a href="{% url 'article' %}" class="nav-link nav-item d-block meno-nav-item">مقالات</a>
                 </div>
                 <div class="meno-nav-tamas">
@@ -34,9 +33,9 @@
             </nav>
             <div class="meno-berger-box collapse navbar-collapse" id="berger">
                 <div class="navbar-nav">
-                    <a href="#darkhast" class="nav-link nav-item">درخواست نصب و تعمیر</a>
-                    <a href="#darbarema" class="nav-link nav-item">درباره ما</a>
-                    <a href="#tekrar" class="nav-link nav-item">سوالات پر تکرار</a>
+                    <a href="{% url 'home' %}#darkhast" class="nav-link nav-item">درخواست نصب و تعمیر</a>
+                    <a href="{% url 'home' %}#darbarema" class="nav-link nav-item">درباره ما</a>
+                    <a href="{% url 'home' %}#tekrar" class="nav-link nav-item">سوالات پر تکرار</a>
                     <a href="{% url 'article' %}" class="nav-link nav-item">مقالات</a>
                 </div>
             </div>
@@ -548,43 +547,6 @@
             </div>
         </section>
     </main>
-
-    <footer class="footer">
-        <section class="footer-darbare" id="darbarema">
-            <div class="footer-darbare-ma">
-                <h3>درباره ما:</h3>
-                <p>ما یه تیم فنی هستیم که حدود 10 سال در حوضه کولرگازی در حال فعالیت هستیم که الان به صورت رسمی نمایندگی ایران رادیاتور را داریم و به شرکت ها و برند های دیگه هم خدمات میدیم</p>
-            </div>
-            <div class="footer-darbare-tamas">
-                <h3>ارتباط با ما:</h3>
-                <a href="tel:09389956061">09389956061</a>
-                <a href="tel:09122343204">09122343204</a>
-            </div>
-            <div class="footer-darbare-dastresy">
-                <h3>دسترسی سریع:</h3>
-                <ul>
-                    <li>
-                        <a href="#darkhast">درخواست نصب و تعمیر</a>
-                    </li>
-                    <li>
-                        <a href="#khadamat">خدمات ما</a>
-                    </li>
-                    <li>
-                        <a href="#brand">برند های تحت پوشش</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="footer-darbare-mojavez">
-                <h3>مجوزها:</h3>
-                <img src="{% static 'img/iran-radiyator.png' %}" alt="نمایندگی رسمی شرکت ایران رادیاتور" loading="lazy">
-            </div>
-        </section>
-        <section class="footer-houghough">
-            <p>تمامی حقوق این سایت متعلق به <span>نمایندگی نصب فیکس</span> است</p>
-            <p>این سایت توسط <span>تیم برنامه نویسی روموساپ</span> ساخته شده است</p>
-        </section>
-    </footer>
-</body>
 {% endblock %}
 
 {% block extra_scripts %}
