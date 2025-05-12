@@ -13,7 +13,7 @@
     <title>مقالات تخصصی نصب و تعمیر کولرگازی | نصب فیکس</title>
     <meta name="title" content="مقالات تخصصی نصب و تعمیر کولرگازی | نصب فیکس">
     <meta name="description" content="مجموعه مقالات تخصصی در زمینه نصب و تعمیر کولرگازی، داکت اسپیلت و سیستم‌های تهویه مطبوع. راهنمای کامل برای انتخاب، نصب و نگهداری کولرگازی">
-    <meta name="keywords" content="مقالات کولرگازی, راهنمای نصب کولرگازی, تعمیر کولرگازی, نگهداری کولرگازی, مقالات داکت اسپیلت, راهنمای نصب داکت اسپیلت">
+    <meta name="keywords" content="مقالات کولرگازی, راهنمای نصب کولرگازی, تعمیر کولرگازی, نگهداری کولرگازی, مقالات داکت اسپیلت, راهنمای نصب داکت اسپیلت, نصب کولرگازی در شمال تهران, نصب کولرگازی در جنوب تهران, نصب کولرگازی در شرق تهران, نصب کولرگازی در غرب تهران, نصب کولرگازی در مرکز تهران, نصب کولرگازی در اطراف تهران, تعمیر کولرگازی در شمال تهران, تعمیر کولرگازی در جنوب تهران, تعمیر کولرگازی در شرق تهران, تعمیر کولرگازی در غرب تهران, تعمیر کولرگازی در مرکز تهران, تعمیر کولرگازی در اطراف تهران">
     <meta name="author" content="نصب فیکس">
     <meta name="robots" content="index, follow">
     <meta name="language" content="Persian">
@@ -54,7 +54,51 @@
           "@type": "ImageObject",
           "url": "https://nasbfix.ir/static/img/logo-nasbfix.png"
         }
-      }
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "شمال تهران",
+          "description": "مقالات تخصصی نصب و تعمیر کولرگازی در شمال تهران"
+        },
+        {
+          "@type": "City",
+          "name": "جنوب تهران",
+          "description": "مقالات تخصصی نصب و تعمیر کولرگازی در جنوب تهران"
+        },
+        {
+          "@type": "City",
+          "name": "شرق تهران",
+          "description": "مقالات تخصصی نصب و تعمیر کولرگازی در شرق تهران"
+        },
+        {
+          "@type": "City",
+          "name": "غرب تهران",
+          "description": "مقالات تخصصی نصب و تعمیر کولرگازی در غرب تهران"
+        },
+        {
+          "@type": "City",
+          "name": "مرکز تهران",
+          "description": "مقالات تخصصی نصب و تعمیر کولرگازی در مرکز تهران"
+        },
+        {
+          "@type": "City",
+          "name": "اطراف تهران",
+          "description": "مقالات تخصصی نصب و تعمیر کولرگازی در اطراف تهران"
+        }
+      ],
+      "blogPost": [
+        {% for article in articles %}
+        {
+          "@type": "BlogPosting",
+          "headline": "{{ article.title }}",
+          "description": "{{ article.sections.first.content|truncatechars:160|striptags }}",
+          "url": "https://nasbfix.ir/article/{{ article.slug }}/",
+          "datePublished": "{{ article.created_at|date:'c' }}",
+          "dateModified": "{{ article.updated_at|date:'c' }}"
+        }{% if not forloop.last %},{% endif %}
+        {% endfor %}
+      ]
     }
     </script>
     <script type="application/ld+json">

@@ -1,4 +1,37 @@
-User-agent: *
-Disallow:
+# robots.txt for nasbfix.ir
 
+# Allow all crawlers
+User-agent: *
+Allow: /
+Allow: /article/
+Allow: /static/
+Allow: /media/
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /media/private/
+Disallow: /*?*
+
+# Crawl-delay for all bots
+Crawl-delay: 10
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Yandexbot
+Allow: /
+Crawl-delay: 5
+
+# Block bad bots
+User-agent: BadBot
+Disallow: /
+
+# Sitemap location
 Sitemap: https://nasbfix.ir/sitemap.xml

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    
+   
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVJ6RPNWB0"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CVJ6RPNWB0');
+    </script>
+
+    
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="your-verification-code" />
+    
+    <!-- Common Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Persian">
+    <meta name="revisit-after" content="1 days">
+    
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}?v=20240510">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20240510">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Common JavaScript -->
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/all.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    {% block content %}{% endblock %}
+    
+    <!-- Common Footer -->
+    <footer class="footer">
+        <section class="footer-darbare" id="darbarema">
+            <div class="footer-darbare-ma">
+                <h3>درباره ما:</h3>
+                <p>ما یه تیم فنی هستیم که حدود 10 سال در حوضه کولرگازی در حال فعالیت هستیم که الان به صورت رسمی نمایندگی ایران رادیاتور را داریم و به شرکت ها و برند های دیگه هم خدمات میدیم</p>
+            </div>
+            <div class="footer-darbare-tamas">
+                <h3>ارتباط با ما:</h3>
+                <a href="tel:09389956061">09389956061</a>
+                <a href="tel:09122343204">09122343204</a>
+            </div>
+            <div class="footer-darbare-dastresy">
+                <h3>دسترسی سریع:</h3>
+                <ul>
+                    <li><a href="{% url 'home' %}#darkhast">درخواست نصب و تعمیر</a></li>
+                    <li><a href="{% url 'home' %}#khadamat">خدمات ما</a></li>
+                    <li><a href="{% url 'home' %}#brand">برند های تحت پوشش</a></li>
+                    <li><a href="{% url 'home' %}#faq">سوالات متداول</a></li>
+                </ul>
+            </div>
+            <div class="footer-darbare-mojavez">
+                <h3>مجوزها:</h3>
+                <img src="{% static 'img/iran-radiyator.png' %}" alt="نمایندگی رسمی شرکت ایران رادیاتور" loading="lazy">
+            </div>
+        </section>
+        <section class="footer-houghough">
+            <p>تمامی حقوق این سایت متعلق به <span>نمایندگی نصب فیکس</span> است</p>
+            <p>این سایت توسط <span>تیم برنامه نویسی روموساپ</span> ساخته شده است</p>
+        </section>
+    </footer>
+    
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html> 
