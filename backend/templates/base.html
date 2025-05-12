@@ -167,6 +167,20 @@
     {% endblock %}
     
     {% block extra_head %}{% endblock %}
+    <script>
+      const startTime = new Date().getTime();
+      function hideLoader() {
+        const now = new Date().getTime();
+        const elapsed = now - startTime;
+        const minTime = 1000;
+        const wait = minTime - elapsed;
+        setTimeout(() => {
+          document.getElementById("loader-wrapper").style.display = "none";
+          var content = document.getElementById("content");
+          if(content) content.style.display = "block";
+        }, wait > 0 ? wait : 0);
+      }
+    </script>
 </head>
 <body onload="hideLoader()">
     {% block content %}{% endblock %}
