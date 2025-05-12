@@ -24,6 +24,51 @@
     <meta name="robots" content="index, follow">
     <meta name="language" content="Persian">
     <meta name="revisit-after" content="1 days">
+    <meta name="author" content="نصب فیکس">
+    
+    <!-- Regional Meta Tags -->
+    <meta name="geo.region" content="IR-TE">
+    <meta name="geo.placename" content="Tehran">
+    <meta name="geo.position" content="35.6892;51.3890">
+    <meta name="ICBM" content="35.6892, 51.3890">
+    
+    <!-- Service Area Meta Tags -->
+    <meta name="service-area" content="شمال تهران, جنوب تهران, شرق تهران, غرب تهران, مرکز تهران, اطراف تهران">
+    <meta name="service-area-north" content="شمال تهران - خدمات نصب و تعمیر کولرگازی در مناطق شمال تهران">
+    <meta name="service-area-south" content="جنوب تهران - خدمات نصب و تعمیر کولرگازی در مناطق جنوب تهران">
+    <meta name="service-area-east" content="شرق تهران - خدمات نصب و تعمیر کولرگازی در مناطق شرق تهران">
+    <meta name="service-area-west" content="غرب تهران - خدمات نصب و تعمیر کولرگازی در مناطق غرب تهران">
+    <meta name="service-area-center" content="مرکز تهران - خدمات نصب و تعمیر کولرگازی در مناطق مرکز تهران">
+    <meta name="service-area-around" content="اطراف تهران - خدمات نصب و تعمیر کولرگازی در اطراف تهران">
+    
+    <!-- Dynamic Meta Tags -->
+    {% block meta_tags %}
+    <!-- Primary Meta Tags -->
+    <title>نصب و تعمیر کولرگازی | نصب فیکس | نمایندگی رسمی ایران رادیاتور</title>
+    <meta name="title" content="نصب و تعمیر کولرگازی | نصب فیکس | نمایندگی رسمی ایران رادیاتور">
+    <meta name="description" content="نصب فیکس، ارائه خدمات تخصصی نصب و تعمیر کولرگازی با قیمت مناسب و گارانتی. نمایندگی رسمی ایران رادیاتور با 10 سال سابقه و بیش از 2000 پروژه موفق.">
+    <meta name="keywords" content="نصب کولرگازی, تعمیر کولرگازی, خدمات کولرگازی, نصب فیکس, نمایندگی ایران رادیاتور, نصب داکت اسپیلت, تعمیر داکت اسپیلت, نصب کولرگازی در شمال تهران, نصب کولرگازی در جنوب تهران, نصب کولرگازی در شرق تهران, نصب کولرگازی در غرب تهران, نصب کولرگازی در مرکز تهران, نصب کولرگازی در اطراف تهران, تعمیر کولرگازی در شمال تهران, تعمیر کولرگازی در جنوب تهران, تعمیر کولرگازی در شرق تهران, تعمیر کولرگازی در غرب تهران, تعمیر کولرگازی در مرکز تهران, تعمیر کولرگازی در اطراف تهران">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nasbfix.ir/">
+    <meta property="og:title" content="نصب و تعمیر کولرگازی | نصب فیکس | نمایندگی رسمی ایران رادیاتور">
+    <meta property="og:description" content="نصب فیکس، ارائه خدمات تخصصی نصب و تعمیر کولرگازی با قیمت مناسب و گارانتی. نمایندگی رسمی ایران رادیاتور با 10 سال سابقه و بیش از 2000 پروژه موفق.">
+    <meta property="og:image" content="https://nasbfix.ir/static/img/logo-nasbfix.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nasbfix.ir/">
+    <meta property="twitter:title" content="نصب و تعمیر کولرگازی | نصب فیکس | نمایندگی رسمی ایران رادیاتور">
+    <meta property="twitter:description" content="نصب فیکس، ارائه خدمات تخصصی نصب و تعمیر کولرگازی با قیمت مناسب و گارانتی. نمایندگی رسمی ایران رادیاتور با 10 سال سابقه و بیش از 2000 پروژه موفق.">
+    <meta property="twitter:image" content="https://nasbfix.ir/static/img/logo-nasbfix.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://nasbfix.ir/">
+    {% endblock %}
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/jpg" href="{% static 'img/logo-nasbfix.png' %}"/>
     
     <!-- Common CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}?v=20240510">
@@ -36,6 +81,90 @@
     <script src="{% static 'js/all.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/script.js' %}"></script>
+    
+    <!-- Structured Data -->
+    {% block structured_data %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "نصب فیکس",
+      "image": "https://nasbfix.ir/static/img/logo-nasbfix.png",
+      "description": "نصب و تعمیر کولرگازی با قیمت مناسب و گارانتی",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IR",
+        "addressRegion": "تهران"
+      },
+      "telephone": "09122343204",
+      "priceRange": "$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "08:00",
+        "closes": "20:00"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "شمال تهران",
+          "description": "خدمات نصب و تعمیر کولرگازی در شمال تهران"
+        },
+        {
+          "@type": "City",
+          "name": "جنوب تهران",
+          "description": "خدمات نصب و تعمیر کولرگازی در جنوب تهران"
+        },
+        {
+          "@type": "City",
+          "name": "شرق تهران",
+          "description": "خدمات نصب و تعمیر کولرگازی در شرق تهران"
+        },
+        {
+          "@type": "City",
+          "name": "غرب تهران",
+          "description": "خدمات نصب و تعمیر کولرگازی در غرب تهران"
+        },
+        {
+          "@type": "City",
+          "name": "مرکز تهران",
+          "description": "خدمات نصب و تعمیر کولرگازی در مرکز تهران"
+        },
+        {
+          "@type": "City",
+          "name": "اطراف تهران",
+          "description": "خدمات نصب و تعمیر کولرگازی در اطراف تهران"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "نصب فیکس",
+      "url": "https://nasbfix.ir/",
+      "logo": "https://nasbfix.ir/static/img/logo-nasbfix.png",
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "35.6892",
+          "longitude": "51.3890"
+        },
+        "geoRadius": "30000",
+        "description": "خدمات در تمام مناطق تهران شامل شمال، جنوب، شرق، غرب، مرکز و اطراف تهران"
+      }
+    }
+    </script>
+    {% endblock %}
     
     {% block extra_head %}{% endblock %}
 </head>

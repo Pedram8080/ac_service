@@ -1,190 +1,11 @@
-<!DOCTYPE html>
-<html lang="fa-IR" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}?v=20240510">
-     <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20240510">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-     <script src="{% static 'js/all.js' %}"></script>
-    
-    <!-- Primary Meta Tags -->
-    <title>نصب و تعمیر کولرگازی | نصب فیکس | نمایندگی رسمی ایران رادیاتور</title>
-    <meta name="title" content="نصب و تعمیر کولرگازی | نصب فیکس | نمایندگی رسمی ایران رادیاتور">
-    <meta name="description" content="نصب فیکس، ارائه خدمات تخصصی نصب و تعمیر کولرگازی با قیمت مناسب و گارانتی. نمایندگی رسمی ایران رادیاتور با 10 سال سابقه و بیش از 2000 پروژه موفق.">
-    <meta name="keywords" content="نصب کولرگازی, تعمیر کولرگازی, خدمات کولرگازی, نصب فیکس, نمایندگی ایران رادیاتور, نصب داکت اسپیلت, تعمیر داکت اسپیلت, نصب کولرگازی در شمال تهران, نصب کولرگازی در جنوب تهران, نصب کولرگازی در شرق تهران, نصب کولرگازی در غرب تهران, نصب کولرگازی در مرکز تهران, نصب کولرگازی در اطراف تهران, تعمیر کولرگازی در شمال تهران, تعمیر کولرگازی در جنوب تهران, تعمیر کولرگازی در شرق تهران, تعمیر کولرگازی در غرب تهران, تعمیر کولرگازی در مرکز تهران, تعمیر کولرگازی در اطراف تهران">
-    <meta name="author" content="نصب فیکس">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="Persian">
-    <meta name="revisit-after" content="1 days">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nasbfix.ir/">
-    <meta property="og:title" content="نصب و تعمیر کولرگازی | نصب فیکس | نمایندگی رسمی ایران رادیاتور">
-    <meta property="og:description" content="نصب فیکس، ارائه خدمات تخصصی نصب و تعمیر کولرگازی با قیمت مناسب و گارانتی. نمایندگی رسمی ایران رادیاتور با 10 سال سابقه و بیش از 2000 پروژه موفق.">
-    <meta property="og:image" content="https://nasbfix.ir/static/img/logo-nasbfix.png">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://nasbfix.ir/">
-    <meta property="twitter:title" content="نصب و تعمیر کولرگازی | نصب فیکس | نمایندگی رسمی ایران رادیاتور">
-    <meta property="twitter:description" content="نصب فیکس، ارائه خدمات تخصصی نصب و تعمیر کولرگازی با قیمت مناسب و گارانتی. نمایندگی رسمی ایران رادیاتور با 10 سال سابقه و بیش از 2000 پروژه موفق.">
-    <meta property="twitter:image" content="https://nasbfix.ir/static/img/logo-nasbfix.png">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://nasbfix.ir/">
-    
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/jpg" href="{% static 'img/logo-nasbfix.png' %}"/>
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "نصب فیکس",
-      "image": "https://nasbfix.ir/static/img/logo-nasbfix.png",
-      "description": "نصب و تعمیر کولرگازی با قیمت مناسب و گارانتی",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "IR"
-      },
-      "telephone": "09122343204",
-      "priceRange": "$$",
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        "opens": "08:00",
-        "closes": "20:00"
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "نصب فیکس",
-      "url": "https://nasbfix.ir/",
-      "logo": "https://nasbfix.ir/static/img/logo-nasbfix.png"
-    }
-    </script>
-    <!-- Region-specific Meta Tags -->
-    <meta name="keywords" content="نصب کولرگازی, تعمیر کولرگازی, خدمات کولرگازی, نصب فیکس, نمایندگی ایران رادیاتور, نصب داکت اسپیلت, تعمیر داکت اسپیلت, نصب کولرگازی در شمال تهران, نصب کولرگازی در جنوب تهران, نصب کولرگازی در شرق تهران, نصب کولرگازی در غرب تهران, نصب کولرگازی در مرکز تهران, نصب کولرگازی در اطراف تهران, تعمیر کولرگازی در شمال تهران, تعمیر کولرگازی در جنوب تهران, تعمیر کولرگازی در شرق تهران, تعمیر کولرگازی در غرب تهران, تعمیر کولرگازی در مرکز تهران, تعمیر کولرگازی در اطراف تهران">
-    
-    <!-- Region-specific Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "نصب و تعمیر کولرگازی",
-      "provider": {
-        "@type": "LocalBusiness",
-        "name": "نصب فیکس",
-        "image": "https://nasbfix.ir/static/img/logo-nasbfix.png"
-      },
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "شمال تهران",
-          "description": "خدمات نصب و تعمیر کولرگازی در شمال تهران"
-        },
-        {
-          "@type": "City",
-          "name": "جنوب تهران",
-          "description": "خدمات نصب و تعمیر کولرگازی در جنوب تهران"
-        },
-        {
-          "@type": "City",
-          "name": "شرق تهران",
-          "description": "خدمات نصب و تعمیر کولرگازی در شرق تهران"
-        },
-        {
-          "@type": "City",
-          "name": "غرب تهران",
-          "description": "خدمات نصب و تعمیر کولرگازی در غرب تهران"
-        },
-        {
-          "@type": "City",
-          "name": "مرکز تهران",
-          "description": "خدمات نصب و تعمیر کولرگازی در مرکز تهران"
-        },
-        {
-          "@type": "City",
-          "name": "اطراف تهران",
-          "description": "خدمات نصب و تعمیر کولرگازی در اطراف تهران"
-        }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "خدمات نصب و تعمیر کولرگازی",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "نصب کولرگازی در شمال تهران",
-              "description": "خدمات تخصصی نصب کولرگازی در مناطق شمال تهران"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "نصب کولرگازی در جنوب تهران",
-              "description": "خدمات تخصصی نصب کولرگازی در مناطق جنوب تهران"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "نصب کولرگازی در شرق تهران",
-              "description": "خدمات تخصصی نصب کولرگازی در مناطق شرق تهران"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "نصب کولرگازی در غرب تهران",
-              "description": "خدمات تخصصی نصب کولرگازی در مناطق غرب تهران"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "نصب کولرگازی در مرکز تهران",
-              "description": "خدمات تخصصی نصب کولرگازی در مناطق مرکز تهران"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "نصب کولرگازی در اطراف تهران",
-              "description": "خدمات تخصصی نصب کولرگازی در مناطق اطراف تهران"
-            }
-          }
-        ]
-      }
-    }
-    </script>
-</head>
+{% extends 'base.html' %}
+
+{% block content %}
 <body onload="hideLoader()">
     <div id="loader-wrapper">
         <img src="{% static 'img/logo-nasbfix.png' %}" alt="لوگوی نئون" class="logo-loader-neon">
         <p class="loading-text">در حال بارگذاری...</p>
-      </div>
+    </div>
     <header class="header">
         <section class="meno">
             <div class="meno-berger d-none">
@@ -762,13 +583,11 @@
             <p>این سایت توسط <span>تیم برنامه نویسی روموساپ</span> ساخته شده است</p>
         </section>
     </footer>
-    
-    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'js/all.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/script.js' %}"></script>
-    <script>
+</body>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
     document.addEventListener('DOMContentLoaded', function() {
         // تبدیل اعداد فارسی به انگلیسی
         function fa2en(str) {
@@ -807,21 +626,20 @@
             }
         });
     });
-    </script>
-    <script>
-        const startTime = new Date().getTime();
-    
-        function hideLoader() {
-          const now = new Date().getTime();
-          const elapsed = now - startTime;
-          const minTime = 1000;
-    
-          const wait = minTime - elapsed;
-          setTimeout(() => {
-            document.getElementById("loader-wrapper").style.display = "none";
-            document.getElementById("content").style.display = "block";
-          }, wait > 0 ? wait : 0);
-        }
-    </script>
-</body>
-</html>
+</script>
+<script>
+    const startTime = new Date().getTime();
+
+    function hideLoader() {
+      const now = new Date().getTime();
+      const elapsed = now - startTime;
+      const minTime = 1000;
+
+      const wait = minTime - elapsed;
+      setTimeout(() => {
+        document.getElementById("loader-wrapper").style.display = "none";
+        document.getElementById("content").style.display = "block";
+      }, wait > 0 ? wait : 0);
+    }
+</script>
+{% endblock %}

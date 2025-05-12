@@ -1,117 +1,100 @@
-<!DOCTYPE html>
-<html lang="fa-IR" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}?v=20240510">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20240510">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="{% static 'js/all.js' %}"></script>
-    
-    <!-- Primary Meta Tags -->
-    <title>مقالات تخصصی نصب و تعمیر کولرگازی | نصب فیکس</title>
-    <meta name="title" content="مقالات تخصصی نصب و تعمیر کولرگازی | نصب فیکس">
-    <meta name="description" content="مجموعه مقالات تخصصی در زمینه نصب و تعمیر کولرگازی، داکت اسپیلت و سیستم‌های تهویه مطبوع. راهنمای کامل برای انتخاب، نصب و نگهداری کولرگازی">
-    <meta name="keywords" content="مقالات کولرگازی, راهنمای نصب کولرگازی, تعمیر کولرگازی, نگهداری کولرگازی, مقالات داکت اسپیلت, راهنمای نصب داکت اسپیلت, نصب کولرگازی در شمال تهران, نصب کولرگازی در جنوب تهران, نصب کولرگازی در شرق تهران, نصب کولرگازی در غرب تهران, نصب کولرگازی در مرکز تهران, نصب کولرگازی در اطراف تهران, تعمیر کولرگازی در شمال تهران, تعمیر کولرگازی در جنوب تهران, تعمیر کولرگازی در شرق تهران, تعمیر کولرگازی در غرب تهران, تعمیر کولرگازی در مرکز تهران, تعمیر کولرگازی در اطراف تهران">
-    <meta name="author" content="نصب فیکس">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="Persian">
-    <meta name="revisit-after" content="1 days">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nasbfix.ir/article/">
-    <meta property="og:title" content="مقالات تخصصی نصب و تعمیر کولرگازی | نصب فیکس">
-    <meta property="og:description" content="مجموعه مقالات تخصصی در زمینه نصب و تعمیر کولرگازی، داکت اسپیلت و سیستم‌های تهویه مطبوع. راهنمای کامل برای انتخاب، نصب و نگهداری کولرگازی">
-    <meta property="og:image" content="https://nasbfix.ir/static/img/logo-nasbfix.png">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://nasbfix.ir/article/">
-    <meta property="twitter:title" content="مقالات تخصصی نصب و تعمیر کولرگازی | نصب فیکس">
-    <meta property="twitter:description" content="مجموعه مقالات تخصصی در زمینه نصب و تعمیر کولرگازی، داکت اسپیلت و سیستم‌های تهویه مطبوع. راهنمای کامل برای انتخاب، نصب و نگهداری کولرگازی">
-    <meta property="twitter:image" content="https://nasbfix.ir/static/img/logo-nasbfix.png">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://nasbfix.ir/article/">
-    
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/jpg" href="{% static 'img/logo-nasbfix.png' %}"/>
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Blog",
-      "name": "مقالات تخصصی نصب فیکس",
-      "description": "مجموعه مقالات تخصصی در زمینه نصب و تعمیر کولرگازی",
-      "url": "https://nasbfix.ir/article/",
-      "publisher": {
-        "@type": "Organization",
-        "name": "نصب فیکس",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://nasbfix.ir/static/img/logo-nasbfix.png"
-        }
-      },
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "شمال تهران",
-          "description": "مقالات تخصصی نصب و تعمیر کولرگازی در شمال تهران"
-        },
-        {
-          "@type": "City",
-          "name": "جنوب تهران",
-          "description": "مقالات تخصصی نصب و تعمیر کولرگازی در جنوب تهران"
-        },
-        {
-          "@type": "City",
-          "name": "شرق تهران",
-          "description": "مقالات تخصصی نصب و تعمیر کولرگازی در شرق تهران"
-        },
-        {
-          "@type": "City",
-          "name": "غرب تهران",
-          "description": "مقالات تخصصی نصب و تعمیر کولرگازی در غرب تهران"
-        },
-        {
-          "@type": "City",
-          "name": "مرکز تهران",
-          "description": "مقالات تخصصی نصب و تعمیر کولرگازی در مرکز تهران"
-        },
-        {
-          "@type": "City",
-          "name": "اطراف تهران",
-          "description": "مقالات تخصصی نصب و تعمیر کولرگازی در اطراف تهران"
-        }
-      ],
-      "blogPost": [
-        {% for article in articles %}
-        {
-          "@type": "BlogPosting",
-          "headline": "{{ article.title }}",
-          "description": "{{ article.sections.first.content|truncatechars:160|striptags }}",
-          "url": "https://nasbfix.ir/article/{{ article.slug }}/",
-          "datePublished": "{{ article.created_at|date:'c' }}",
-          "dateModified": "{{ article.updated_at|date:'c' }}"
-        }{% if not forloop.last %},{% endif %}
-        {% endfor %}
-      ]
+{% extends 'base.html' %}
+
+{% block meta_tags %}
+<!-- Primary Meta Tags -->
+<title>مقالات تخصصی نصب و تعمیر کولرگازی | نصب فیکس</title>
+<meta name="title" content="مقالات تخصصی نصب و تعمیر کولرگازی | نصب فیکس">
+<meta name="description" content="مجموعه مقالات تخصصی در زمینه نصب و تعمیر کولرگازی، داکت اسپیلت و سیستم‌های تهویه مطبوع. راهنمای کامل برای انتخاب، نصب و نگهداری کولرگازی">
+<meta name="keywords" content="مقالات کولرگازی, راهنمای نصب کولرگازی, تعمیر کولرگازی, نگهداری کولرگازی, مقالات داکت اسپیلت, راهنمای نصب داکت اسپیلت, نصب کولرگازی در شمال تهران, نصب کولرگازی در جنوب تهران, نصب کولرگازی در شرق تهران, نصب کولرگازی در غرب تهران, نصب کولرگازی در مرکز تهران, نصب کولرگازی در اطراف تهران, تعمیر کولرگازی در شمال تهران, تعمیر کولرگازی در جنوب تهران, تعمیر کولرگازی در شرق تهران, تعمیر کولرگازی در غرب تهران, تعمیر کولرگازی در مرکز تهران, تعمیر کولرگازی در اطراف تهران">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nasbfix.ir/article/">
+<meta property="og:title" content="مقالات تخصصی نصب و تعمیر کولرگازی | نصب فیکس">
+<meta property="og:description" content="مجموعه مقالات تخصصی در زمینه نصب و تعمیر کولرگازی، داکت اسپیلت و سیستم‌های تهویه مطبوع. راهنمای کامل برای انتخاب، نصب و نگهداری کولرگازی">
+<meta property="og:image" content="https://nasbfix.ir/static/img/logo-nasbfix.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://nasbfix.ir/article/">
+<meta property="twitter:title" content="مقالات تخصصی نصب و تعمیر کولرگازی | نصب فیکس">
+<meta property="twitter:description" content="مجموعه مقالات تخصصی در زمینه نصب و تعمیر کولرگازی، داکت اسپیلت و سیستم‌های تهویه مطبوع. راهنمای کامل برای انتخاب، نصب و نگهداری کولرگازی">
+<meta property="twitter:image" content="https://nasbfix.ir/static/img/logo-nasbfix.png">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://nasbfix.ir/article/">
+{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "مقالات تخصصی نصب فیکس",
+  "description": "مجموعه مقالات تخصصی در زمینه نصب و تعمیر کولرگازی",
+  "url": "https://nasbfix.ir/article/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "نصب فیکس",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nasbfix.ir/static/img/logo-nasbfix.png"
     }
-    </script>
-    <script type="application/ld+json">
+  },
+  "areaServed": [
     {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "نصب فیکس",
-      "url": "https://nasbfix.ir/",
-      "logo": "https://nasbfix.ir/static/img/logo-nasbfix.png"
+      "@type": "City",
+      "name": "شمال تهران",
+      "description": "مقالات تخصصی نصب و تعمیر کولرگازی در شمال تهران"
+    },
+    {
+      "@type": "City",
+      "name": "جنوب تهران",
+      "description": "مقالات تخصصی نصب و تعمیر کولرگازی در جنوب تهران"
+    },
+    {
+      "@type": "City",
+      "name": "شرق تهران",
+      "description": "مقالات تخصصی نصب و تعمیر کولرگازی در شرق تهران"
+    },
+    {
+      "@type": "City",
+      "name": "غرب تهران",
+      "description": "مقالات تخصصی نصب و تعمیر کولرگازی در غرب تهران"
+    },
+    {
+      "@type": "City",
+      "name": "مرکز تهران",
+      "description": "مقالات تخصصی نصب و تعمیر کولرگازی در مرکز تهران"
+    },
+    {
+      "@type": "City",
+      "name": "اطراف تهران",
+      "description": "مقالات تخصصی نصب و تعمیر کولرگازی در اطراف تهران"
     }
-    </script>
-</head>
-<body>
+  ],
+  "blogPost": [
+    {% for article in articles %}
+    {
+      "@type": "BlogPosting",
+      "headline": "{{ article.title }}",
+      "description": "{{ article.sections.first.content|truncatechars:160|striptags }}",
+      "url": "https://nasbfix.ir/article/{{ article.slug }}/",
+      "datePublished": "{{ article.created_at|date:'c' }}",
+      "dateModified": "{{ article.updated_at|date:'c' }}"
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<body onload="hideLoader()">
+    <div id="loader-wrapper">
+        <img src="{% static 'img/logo-nasbfix.png' %}" alt="لوگوی نئون" class="logo-loader-neon">
+        <p class="loading-text">در حال بارگذاری...</p>
+    </div>
     <header class="header">
         <section class="meno">
             <div class="meno-berger d-none">
@@ -204,19 +187,16 @@
             <p>این سایت توسط <span>تیم برنامه نویسی روموساپ</span> ساخته شده است</p>
         </section>
     </footer>
-    
-    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'js/all.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/script.js' %}"></script>
-    <script>
+</body>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
     function showFullArticle(btn) {
         var card = btn.closest('.article-content');
         card.querySelector('.article-summary').style.display = 'none';
         card.querySelector('.article-full').style.display = 'block';
         btn.style.display = 'none';
     }
-    </script>
-</body>
-</html> 
+</script>
+{% endblock %} 

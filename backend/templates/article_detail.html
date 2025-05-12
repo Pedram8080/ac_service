@@ -1,83 +1,74 @@
-<!DOCTYPE html>
-<html lang="fa-IR" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}?v=20240510">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20240510">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="{% static 'js/all.js' %}"></script>
-    
-    <!-- Primary Meta Tags -->
-    <title>{{ article.title }} | مقالات تخصصی نصب و تعمیر کولرگازی | نصب فیکس</title>
-    <meta name="title" content="{{ article.title }} | مقالات تخصصی نصب و تعمیر کولرگازی | نصب فیکس">
-    <meta name="description" content="{{ article.sections.first.content|truncatechars:160|striptags }} | مقالات تخصصی نصب و تعمیر کولرگازی، داکت اسپیلت و سیستم‌های تهویه مطبوع">
-    <meta name="keywords" content="{{ article.title }}, مقالات کولرگازی, راهنمای نصب کولرگازی, تعمیر کولرگازی, نگهداری کولرگازی, مقالات داکت اسپیلت, راهنمای نصب داکت اسپیلت, نصب کولرگازی در شمال تهران, نصب کولرگازی در جنوب تهران, نصب کولرگازی در شرق تهران, نصب کولرگازی در غرب تهران, نصب کولرگازی در مرکز تهران, نصب کولرگازی در اطراف تهران">
-    <meta name="author" content="نصب فیکس">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="Persian">
-    <meta name="revisit-after" content="1 days">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://nasbfix.ir/article/{{ article.slug }}/">
-    <meta property="og:title" content="{{ article.title }} | مقالات تخصصی نصب و تعمیر کولرگازی | نصب فیکس">
-    <meta property="og:description" content="{{ article.sections.first.content|truncatechars:160|striptags }} | مقالات تخصصی نصب و تعمیر کولرگازی، داکت اسپیلت و سیستم‌های تهویه مطبوع">
-    {% if article.sections.first.image %}
-    <meta property="og:image" content="https://nasbfix.ir{{ article.sections.first.image.url }}">
-    {% else %}
-    <meta property="og:image" content="https://nasbfix.ir/static/img/logo-nasbfix.png">
-    {% endif %}
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://nasbfix.ir/article/{{ article.slug }}/">
-    <meta property="twitter:title" content="{{ article.title }} | مقالات تخصصی نصب و تعمیر کولرگازی | نصب فیکس">
-    <meta property="twitter:description" content="{{ article.sections.first.content|truncatechars:160|striptags }} | مقالات تخصصی نصب و تعمیر کولرگازی، داکت اسپیلت و سیستم‌های تهویه مطبوع">
-    {% if article.sections.first.image %}
-    <meta property="twitter:image" content="https://nasbfix.ir{{ article.sections.first.image.url }}">
-    {% else %}
-    <meta property="twitter:image" content="https://nasbfix.ir/static/img/logo-nasbfix.png">
-    {% endif %}
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://nasbfix.ir/article/{{ article.slug }}/">
-    
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/jpg" href="{% static 'img/logo-nasbfix.png' %}"/>
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "{{ article.title }}",
-      "description": "{{ article.sections.first.content|truncatechars:160|striptags }}",
-      "image": {% if article.sections.first.image %}"https://nasbfix.ir{{ article.sections.first.image.url }}"{% else %}"https://nasbfix.ir/static/img/logo-nasbfix.png"{% endif %},
-      "author": {
-        "@type": "Organization",
-        "name": "نصب فیکس",
-        "url": "https://nasbfix.ir/"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "نصب فیکس",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://nasbfix.ir/static/img/logo-nasbfix.png"
-        }
-      },
-      "datePublished": "{{ article.created_at|date:'c' }}",
-      "dateModified": "{{ article.updated_at|date:'c' }}",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://nasbfix.ir/article/{{ article.slug }}/"
-      }
+{% extends 'base.html' %}
+
+{% block meta_tags %}
+<!-- Primary Meta Tags -->
+<title>{{ article.title }} | نصب فیکس</title>
+<meta name="title" content="{{ article.title }} | نصب فیکس">
+<meta name="description" content="{{ article.sections.first.content|truncatechars:160|striptags }}">
+<meta name="keywords" content="{{ article.title }}, نصب کولرگازی, تعمیر کولرگازی, نصب داکت اسپیلت, تعمیر داکت اسپیلت, نصب کولرگازی در شمال تهران, نصب کولرگازی در جنوب تهران, نصب کولرگازی در شرق تهران, نصب کولرگازی در غرب تهران, نصب کولرگازی در مرکز تهران, نصب کولرگازی در اطراف تهران">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nasbfix.ir/article/{{ article.slug }}/">
+<meta property="og:title" content="{{ article.title }} | نصب فیکس">
+<meta property="og:description" content="{{ article.sections.first.content|truncatechars:160|striptags }}">
+<meta property="og:image" content="https://nasbfix.ir/static/img/logo-nasbfix.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://nasbfix.ir/article/{{ article.slug }}/">
+<meta property="twitter:title" content="{{ article.title }} | نصب فیکس">
+<meta property="twitter:description" content="{{ article.sections.first.content|truncatechars:160|striptags }}">
+<meta property="twitter:image" content="https://nasbfix.ir/static/img/logo-nasbfix.png">
+
+<!-- Article Specific Meta Tags -->
+<meta property="article:published_time" content="{{ article.created_at|date:'c' }}">
+<meta property="article:modified_time" content="{{ article.updated_at|date:'c' }}">
+<meta property="article:section" content="مقالات تخصصی نصب و تعمیر کولرگازی">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://nasbfix.ir/article/{{ article.slug }}/">
+{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ article.title }}",
+  "description": "{{ article.sections.first.content|truncatechars:160|striptags }}",
+  "image": "https://nasbfix.ir/static/img/logo-nasbfix.png",
+  "author": {
+    "@type": "Organization",
+    "name": "نصب فیکس",
+    "url": "https://nasbfix.ir"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "نصب فیکس",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nasbfix.ir/static/img/logo-nasbfix.png"
     }
-    </script>
-</head>
-<body>
+  },
+  "datePublished": "{{ article.created_at|date:'c' }}",
+  "dateModified": "{{ article.updated_at|date:'c' }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nasbfix.ir/article/{{ article.slug }}/"
+  },
+  "articleSection": "مقالات تخصصی نصب و تعمیر کولرگازی",
+  "keywords": "{{ article.title }}, نصب کولرگازی, تعمیر کولرگازی, نصب داکت اسپیلت, تعمیر داکت اسپیلت"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<body onload="hideLoader()">
+    <div id="loader-wrapper">
+        <img src="{% static 'img/logo-nasbfix.png' %}" alt="لوگوی نئون" class="logo-loader-neon">
+        <p class="loading-text">در حال بارگذاری...</p>
+    </div>
     <header class="header">
         <section class="meno">
             <div class="meno-berger d-none">
@@ -178,4 +169,10 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/script.js' %}"></script>
 </body>
-</html> 
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    // ... existing scripts ...
+</script>
+{% endblock %} 
