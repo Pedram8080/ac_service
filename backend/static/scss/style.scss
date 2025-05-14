@@ -405,10 +405,10 @@ body{
                         font-size: 20px;
                         font-family: "font-titr";
                         text-shadow: 1px 1px 5px black;
-                        padding: 0;
-                        margin: 0;
+                        padding: 0 !important;
+                        margin: 0 !important;
                         display: inline-block;
-                        margin-bottom: 15px;
+                        // margin-bottom: 5px !important;
                         line-height: 1.5;
                         @media(max-width:1000px){
                             font-size: 18px;
@@ -419,8 +419,9 @@ body{
                     }
                     >button{
                         text-align: center;
-                        margin-bottom: 5px;
+                        // margin-bottom: 5px !important;
                         font-size: 13px;
+                        margin: 15px 0 0 0 !important;
                         color: white !important;
                         background-color: rgb(255, 56, 56);
                         padding: 5px 10px !important;
@@ -533,23 +534,19 @@ body{
         &-box{
             background-color: white;
             border-radius: 20px;
-            box-shadow: 1px 1px 10px red , -1px -1px 10px white;
+            box-shadow: 1px 1px 10px gray;
+            border: 1px solid gray;
             position: relative;
-            width: 300px !important;
+            width: 280px !important;
             border-radius: 10px;
-            padding: 20px;
-            margin: 25px;
+            margin: 15px;
             &-img{
                 width: 100%;
                 height: 200px;
                 overflow: hidden;
-                margin-bottom: 20px;
                 border-radius: 10px;
                 position: relative;
                 transition: all 0.5s;
-                &:hover img {
-                    transform: scale(1.5);
-                }
                 img{
                     width: 100%;
                     height: 200px;
@@ -557,32 +554,59 @@ body{
                     transition: all 0.5s;
                 }
             }
-            &-moshtary{
-                margin-bottom: 20px;
-                border-radius: 10px;
-                border: 1px solid red;
-                padding: 10px;
-            }
-            &-tozihat{
-                margin-bottom: 20px;
-                border-radius: 10px;
-                border: 1px solid red;
-                padding: 10px;
-            }
-            &-coment{
-                margin-bottom: 20px;
-                border-radius: 10px;
-                border: 1px solid red;
-                padding: 10px;
-                .main-nemoune-box-about{
-                    margin-top: 5px;
+            &-icon{
+                position: absolute;
+                left: 50%;
+                top: 160px;
+                transform: translateX(-50%);
+                background-color: rgb(182, 182, 182);
+                color: white;
+                width: 90px;
+                height: 90px;
+                border-radius: 50%;
+                text-align: center;
+                align-content: center;
+                display: block;
+                border: 5px solid white;
+                i{
+                    font-size: 30px !important;
+                    font-weight: 700 !important;
                 }
             }
-            &-icon{
-                color: red;
-                margin-left: 5px;
-                i{
-                    margin-left: 5px;
+            &-moshtary{
+                text-align: center;
+                &-esm{
+                    font-size: 15px;
+                    margin-top: 55px;
+                    margin-bottom: 5px;
+                    font-weight: 600;
+                }
+                &-shomare{
+                    color: gray;
+                }
+            }
+            &-tozihat{
+                text-align: center;
+                h3{
+                    font-size: 16px !important;
+                    font-weight: 600;
+                    margin-top: 15px;
+                    margin-bottom: 20px;
+                }
+            }
+            &-coment{
+                text-align: right;
+                padding: 15px 10px;
+                border-top: 1px solid gray;
+                :nth-child(1){
+                    font-size: 15px;
+                    margin-bottom: 5px;
+                    i{
+                        margin-left: 5px;
+                    }
+                }
+                :nth-child(2){
+                    font-size: 12px;
                 }
             }
         }
@@ -772,7 +796,7 @@ body{
         
     }
     &-khadamat{
-        padding: 100px 20px;
+        padding: 80px 20px;
         @media(max-width:550px){
             padding: 50px 10px;
         }
@@ -780,155 +804,219 @@ body{
             font-size: 25px;
             font-family: "font-titr";
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
             @media(max-width:550px){
                 font-size: 20px;
             }
         }
         &-box{
             display: grid;
-            grid-template-areas: 'khedmat1 khedmat2 khedmat3 khedmat4';
+            grid-template-columns: auto auto auto auto;
             justify-content: center;
-            gap: 20px;
-            @media(max-width:1100px){
-                grid-template-areas: 'khedmat1 khedmat2' 'khedmat3 khedmat4';
+            gap: 30px;
+            @media(max-width:1150px){
+                grid-template-columns: auto auto ;
             }
-            @media(max-width:550px){
-                gap: 10px;
+            @media(max-width:600px){
+                grid-template-columns: auto ;
             }
-            @media(max-width:430px){
-                grid-template-areas: 'khedmat1' 'khedmat2' 'khedmat3' 'khedmat4';
-            }
-            &-img{
-                text-align: center;
-                img{
-                    width: 200px !important;
-                    height: 150px !important;
+            .book {
+                position: relative;
+                border-radius: 10px;
+                width: 250px;
+                height: 300px;
+                background-color: whitesmoke;
+                box-shadow: 1px 1px 12px gray;
+                transform: preserve-3d;
+                perspective: 2000px;
+                display: flex;
+                align-items: center;
+                color: #000;
+                >p{
+                    font-size: 15px;
+                    font-family: "font-matn";                
+                    padding: 10px 10px 10px 35px;
+
+                }
+                .cover {
+                    top: 0;
+                    position: absolute;
+                    background-color: white;
+                    width: 100%;
+                    height: 100%;
                     border-radius: 10px;
-                    @media(max-width:550px){
-                        width: 150px !important;
-                        height: 100px !important;
+                    cursor: pointer;
+                    transition: all 0.5s;
+                    transform-origin: 0;
+                    box-shadow: 1px 1px 12px gray;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    padding: 10px;
+                    align-items: center;
+                    >img{
+                        width: 100%;
+                        height: 200px !important;
+                        border-radius: 10px;
                     }
-                }
+                    >h3{
+                        font-size: 15px;
+                        font-family: "font-matn";
+                        text-shadow: 5px 5px 15px rgb(255, 131, 131);
+                        font-weight: 600;
+                        color: red;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    >p{
+                        font-size: 12px;
+                        font-family: "font-matn";
+                        color: white;
+                        padding: 5px 10px;
+                        border-radius: 5px;
+                    }
+                  }
             }
-            &-titr{
-                font-size: 15px;
-                margin: 20px 0;
+              
+            .book:hover .cover{
+                -webkit-transition: all 0.5s;
+                transition: all 0.5s;
+                -webkit-transform: rotatey(-80deg);
+                -ms-transform: rotatey(-80deg);
+                transform: rotatey(-80deg);
             }
-            &-matn{
-                font-size: 14px;
-                margin: 10px 0;
-                text-align: center;
-                color: gray;
-            }
-            &-khedmat1{
-                grid-area: khedmat1;
-                border: 2px solid var(--ghermez);
-                border-radius: 10px;
-                text-align: center;
-                padding: 40px 10px;
-                width: 250px;
-                @media(max-width:550px){
-                    padding: 30px 5px;
-                    width: 200px;
-                }
-            }
-            &-khedmat2{
-                grid-area: khedmat2;
-                border: 2px solid var(--ghermez);
-                border-radius: 10px;
-                text-align: center;
-                padding: 40px 10px;
-                width: 250px;
-                @media(max-width:550px){
-                    padding: 30px 5px;
-                    width: 200px;
-                }
-            }
-            &-khedmat3{
-                grid-area: khedmat3;
-                border: 2px solid var(--ghermez);
-                border-radius: 10px;
-                text-align: center;
-                padding: 40px 10px;
-                width: 250px;
-                @media(max-width:550px){
-                    padding: 30px 5px;
-                    width: 200px;
-                }
-            }
-            &-khedmat4{
-                grid-area: khedmat4;
-                border: 2px solid var(--ghermez);
-                border-radius: 10px;
-                text-align: center;
-                padding: 40px 10px;
-                width: 250px;
-                @media(max-width:550px){
-                    padding: 30px 5px;
-                    width: 200px;
-                }
+            .book.open .cover {
+                -webkit-transition: all 0.5s;
+                transition: all 0.5s;
+                -webkit-transform: rotatey(-80deg);
+                -ms-transform: rotatey(-80deg);
+                transform: rotatey(-80deg);
             }
         }
     }
     &-berand{
-        padding: 100px 0;
+        padding: 70px 0;
         background-color: var(--tousy);
         h2{
             text-align: center;
             font-family: "font-titr";
             font-size: 25px;
-            margin-bottom: 20px;
             color: white;
             margin-bottom: 50px;
             @media(max-width:950px){
-                font-size: 20px;
-            }
-            @media(max-width:500px){
-                font-size: 15px;
-
+                font-size: 18px;
             }
         }
         &-box{
-            display: grid;
-            grid-template-areas: 'item1 item7 item3' 'item4 item5 item6' '. item2 .';
-            justify-content: center;
-            text-align: center;
-            gap: 30px;
-            padding-bottom: 20px;
-            @media(max-width:500px){
-                grid-template-areas: 'item1 item7' 'item3 item4' 'item5 item6' 'item2 item2';
-                text-align: center;
-            }
-            img{
-                width: 100px !important;
-                height: 60px !important;
-                border: 1px solid red;
-                border-radius: 10px;
-                padding: 5px;
-                background-color: white;
-            }
-            &-item1{
-                grid-area: item1;
-            }
-            &-item2{
-                grid-area: item2;
-            }
-            &-item3{
-                grid-area: item3;
-            }
-            &-item4{
-                grid-area: item4;
-            }
-            &-item5{
-                grid-area: item5;
-            }
-            &-item6{
-                grid-area: item6;
-            }
-            &-item7{
-                grid-area: item7;
-            }
+            @keyframes autoRun3d {
+                from {
+                  transform: perspective(1000px) rotateY(-360deg);
+                }
+                to {
+                  transform: perspective(1000px) rotateY(0deg);
+                }
+              }
+              
+              @keyframes animateBrightness {
+                10% {
+                  filter: brightness(1);
+                }
+                50% {
+                  filter: brightness(0.1);
+                }
+                90% {
+                  filter: brightness(1);
+                }
+              }
+              
+              .card-3d {
+                position: relative;
+                margin-top: 10px;
+                height: 100px;
+                width: 500px;
+                transform-style: preserve-3d;
+                transform: perspective(1000px);
+                animation: autoRun3d 20s linear infinite;
+                will-change: transform;
+              }
+              
+              .card-3d div {
+                position: absolute;
+                width: 85px;
+                height: 85px;
+                background-color: rgb(199, 199, 199);
+                border: solid 2px lightgray;
+                border-radius: 0.5rem;
+                top: 50%;
+                left: 50%;
+                transform-origin: center center;
+                animation: animateBrightness 20s linear infinite;
+                transition-duration: 200ms;
+                will-change: transform, filter;
+                >img{
+                    width: 100% !important;
+                    height: 100% !important;
+                    object-fit: fill;
+                } 
+              }
+              
+              .card-3d:hover {
+                animation-play-state: paused !important;
+              }
+              
+              .card-3d:hover div {
+                animation-play-state: paused !important;
+              }
+              
+              .card-3d div:nth-child(1) {
+                transform: translate(-50%, -50%) rotateY(0deg) translateZ(150px);
+                animation-delay: -0s;
+              }
+              
+              .card-3d div:nth-child(2) {
+                transform: translate(-50%, -50%) rotateY(36deg) translateZ(150px);
+                animation-delay: -2s;
+              }
+              
+              .card-3d div:nth-child(3) {
+                transform: translate(-50%, -50%) rotateY(72deg) translateZ(150px);
+                animation-delay: -4s;
+              }
+              
+              .card-3d div:nth-child(4) {
+                transform: translate(-50%, -50%) rotateY(108deg) translateZ(150px);
+                animation-delay: -6s;
+              }
+              
+              .card-3d div:nth-child(5) {
+                transform: translate(-50%, -50%) rotateY(144deg) translateZ(150px);
+                animation-delay: -8s;
+              }
+              
+              .card-3d div:nth-child(6) {
+                transform: translate(-50%, -50%) rotateY(180deg) translateZ(150px);
+                animation-delay: -10s;
+              }
+              
+              .card-3d div:nth-child(7) {
+                transform: translate(-50%, -50%) rotateY(216deg) translateZ(150px);
+                animation-delay: -12s;
+              }
+              
+              .card-3d div:nth-child(8) {
+                transform: translate(-50%, -50%) rotateY(252deg) translateZ(150px);
+                animation-delay: -14s;
+              }
+              
+              .card-3d div:nth-child(9) {
+                transform: translate(-50%, -50%) rotateY(288deg) translateZ(150px);
+                animation-delay: -16s;
+              }
+              
+              .card-3d div:nth-child(10) {
+                transform: translate(-50%, -50%) rotateY(324deg) translateZ(150px);
+                animation-delay: -18s;
+              }
         }
     }
     &-soal{
@@ -961,8 +1049,11 @@ body{
                 background-color: var(--tousy);
                 padding: 15px;
                 color: white;
-                @media(max-width:750px){
-                    font-size: 12px;
+                h3{
+                    font-size: 15px;
+                    @media(max-width:750px){
+                        font-size: 12px;
+                    }
                 }
             }
             .javab{
@@ -981,6 +1072,11 @@ body{
                 }
             }
         }
+        .faq-section{}
+        .section-title{}
+        .faq-container{}
+        .faq-team{}
+
     }
     
 }
@@ -1373,3 +1469,69 @@ body{
         margin: 30px 0; 
     }
 }
+
+.book {
+    position: relative;
+    border-radius: 10px;
+    width: 220px;
+    height: 300px;
+    background-color: whitesmoke;
+    -webkit-box-shadow: 1px 1px 12px #000;
+    box-shadow: 1px 1px 12px #000;
+    -webkit-transform: preserve-3d;
+    -ms-transform: preserve-3d;
+    transform: preserve-3d;
+    -webkit-perspective: 2000px;
+    perspective: 2000px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    color: #000;
+  }
+  
+  .book-cover {
+    top: 0;
+    position: absolute;
+    background-color: lightgray;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transform-origin: 0;
+    -ms-transform-origin: 0;
+    transform-origin: 0;
+    -webkit-box-shadow: 1px 1px 12px #000;
+    box-shadow: 1px 1px 12px #000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  
+  .book:hover .book-cover{
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transform: rotatey(-80deg);
+    -ms-transform: rotatey(-80deg);
+    transform: rotatey(-80deg);
+  }
+  .book.open .book-cover {
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transform: rotatey(-80deg);
+    -ms-transform: rotatey(-80deg);
+    transform: rotatey(-80deg);
+  }
