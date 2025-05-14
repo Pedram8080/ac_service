@@ -1269,10 +1269,10 @@ body{
     width: 10px;
 }
 ::-webkit-scrollbar-track{
-    background-color: black;
+    background-color: rgb(201, 201, 201);
 }
 ::-webkit-scrollbar-thumb{
-    background-color: var(--ghermez);
+    background-color: rgb(66, 66, 66);
     border-radius: 10px;
 }
 
