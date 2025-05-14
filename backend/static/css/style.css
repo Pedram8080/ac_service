@@ -261,13 +261,7 @@ body p {
 .main-banner {
   position: relative !important;
   width: 100% !important;
-  height: 650px !important;
-  position: relative;
-  background-image: url(../img/khadamat-nasb-tamir-koulergazy.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  clip-path: polygon(100% 0, 100% 85%, 50% 100%, 0 85%, 0 0);
+  height: 90vh !important;
 }
 .main-banner::after {
   content: "";
@@ -277,76 +271,137 @@ body p {
   top: 0;
   right: 0;
   background-color: black;
-  opacity: 0.8;
+  opacity: 0.4;
+}
+.main-banner-video {
+  position: relative;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden;
+}
+.main-banner-video > video {
+  position: relative;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  object-fit: cover;
 }
 .main-banner-title {
-  margin-top: 120px;
   z-index: 1;
   color: white;
-  position: relative;
+  position: absolute;
   text-align: center;
+  top: 35%;
+  text-shadow: 5px 5px 5px black;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  padding: 10px 20px;
+  border: 1px solid white;
 }
 .main-banner-title h1 {
-  font-size: 50px;
+  font-size: 40px;
   font-family: "font-titr";
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
   .main-banner-title h1 {
-    font-size: 35px;
+    font-size: 35px !important;
+  }
+}
+@media (max-width: 850px) {
+  .main-banner-title h1 {
+    font-size: 25px !important;
   }
 }
 @media (max-width: 450px) {
   .main-banner-title h1 {
-    font-size: 25px;
+    font-size: 20px !important;
   }
 }
 .main-banner-title h2 {
   font-family: "font-matn";
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 500;
 }
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
   .main-banner-title h2 {
-    font-size: 25px;
+    font-size: 20px !important;
+  }
+}
+@media (max-width: 850px) {
+  .main-banner-title h2 {
+    font-size: 17px !important;
   }
 }
 @media (max-width: 450px) {
   .main-banner-title h2 {
-    font-size: 18px;
+    font-size: 15px !important;
   }
 }
 .main-banner-amar {
   margin-top: 100px;
-  z-index: 101;
+  z-index: 1;
+  position: absolute;
+  text-align: center;
+  align-content: center;
+  top: 45%;
+  right: 50%;
+  transform: translateX(50%);
 }
 .main-banner-amar-box {
-  border: 2px solid white;
+  border: 1px solid white;
   border-radius: 10px;
   text-align: center;
   width: 120px;
   padding: 20px 0;
   color: white;
   margin: 0 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-shadow: 5px 5px 5px black;
+  font-size: 15px;
 }
-@media (max-width: 500px) {
+@media (max-width: 1000px) {
   .main-banner-amar-box {
     width: 90px;
+    padding: 10px 0;
+  }
+}
+@media (max-width: 450px) {
+  .main-banner-amar-box {
+    width: 70px;
     padding: 10px 0;
   }
 }
 .main-banner-amar-box p {
   font-family: "font-titr";
   margin: 10px 0;
+  text-shadow: 5px 5px 5px black;
 }
-@media (max-width: 500px) {
+@media (max-width: 1000px) {
   .main-banner-amar-box p {
     font-size: 12px;
     margin: 5px 0;
   }
 }
+@media (max-width: 450px) {
+  .main-banner-amar-box p {
+    font-size: 10px;
+  }
+}
 .main-banner-amar-box p i {
   font-size: 25px;
+  text-shadow: 5px 5px 5px black;
+}
+@media (max-width: 1000px) {
+  .main-banner-amar-box p i {
+    font-size: 18px;
+  }
+}
+@media (max-width: 450px) {
+  .main-banner-amar-box p i {
+    font-size: 15px;
+  }
 }
 .main-manategh {
   position: relative;
