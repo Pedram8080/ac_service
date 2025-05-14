@@ -42,15 +42,9 @@ services:
       sh -c "python manage.py migrate &&
              python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - type: bind
-        source: ./backend
-        target: /code
-      - type: bind
-        source: ./backend/staticfiles
-        target: /code/staticfiles
-      - type: bind
-        source: ./backend/media
-        target: /code/media
+      - ./backend:/code
+      - ./backend/staticfiles:/code/staticfiles
+      - ./backend/media:/code/media
     environment:
       - DEBUG=1
       - SECRET_KEY=django-insecure-w@p+fa&&omp^oa7&n68==+0@4^+lert43yw8v8yjhrxip821po
@@ -63,6 +57,7 @@ services:
     depends_on:
       - db
     restart: always
+
   nginx:
     image: nginx:latest
     ports:
@@ -73,6 +68,7 @@ services:
       - ./backend/media:/media
     depends_on:
       - web
+
 volumes:
   postgres_data:
     name: ac_service_postgres_data
