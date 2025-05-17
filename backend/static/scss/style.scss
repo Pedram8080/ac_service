@@ -422,12 +422,21 @@ body{
                     width: 250px !important;
                     height: 120px !important;
                 }
-                >img{
-                    width: 100% !important;
-                    height: 100% !important;
-                    border-radius: 10px;
-                    opacity: 0.2;
-                    object-fit: fill;
+                picture{
+                    source{
+                        width: 100% !important;
+                        height: 100% !important;
+                        border-radius: 10px;
+                        opacity: 0.2;
+                        object-fit: fill;
+                    }
+                    img{
+                        width: 100% !important;
+                        height: 100% !important;
+                        border-radius: 10px;
+                        opacity: 0.2;
+                        object-fit: fill;
+                    }
                 }
                 &-about{
                     border-radius: 10px;

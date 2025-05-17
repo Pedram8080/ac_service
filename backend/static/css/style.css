@@ -481,7 +481,14 @@ body p {
     height: 120px !important;
   }
 }
-.main-manategh-box-item > img {
+.main-manategh-box-item picture source {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 10px;
+  opacity: 0.2;
+  object-fit: fill;
+}
+.main-manategh-box-item picture img {
   width: 100% !important;
   height: 100% !important;
   border-radius: 10px;
