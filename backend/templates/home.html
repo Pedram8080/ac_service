@@ -48,6 +48,23 @@
                 <video autoplay loop muted playsinline>
                     <source src="{% static 'img/video-tamir-koulergazy-lebas-abi2.mp4' %}" type="video/mp4">
                 </video>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                      const video = document.querySelector('video');
+
+                      function tryPlayVideo() {
+                        if (video) {
+                          video.play().catch(error => {
+                            console.log("Autoplay failed:", error);
+                          });
+                        }
+                    }
+                    tryPlayVideo();
+                    document.addEventListener('click', tryPlayVideo, { once: true });
+                    document.addEventListener('touchstart', tryPlayVideo, { once: true });
+                    document.addEventListener('scroll', tryPlayVideo, { once: true });
+                    });
+                </script>
             </div>
             <div class="main-banner-title align-self-center d-block">
                 <h1>نصب و تعمیر کولرگازی در تهران</h1>
