@@ -72,6 +72,11 @@ body p {
   color: #555;
   font-weight: bold;
 }
+#content {
+  display: none;
+  padding: 40px;
+  text-align: center;
+}
 .header {
   position: fixed;
   top: 0;
