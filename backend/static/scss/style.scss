@@ -1040,13 +1040,13 @@ body{
                 }
               }
               
-              .card-3d:hover {
-                animation-play-state: paused !important;
-              }
+            //   .card-3d:hover {
+            //     animation-play-state: paused !important;
+            //   }
               
-              .card-3d:hover div {
-                animation-play-state: paused !important;
-              }
+            //   .card-3d:hover div {
+            //     animation-play-state: paused !important;
+            //   }
               
               .card-3d div:nth-child(1) {
                 transform: translate(-50%, -50%) rotateY(0deg) translateZ(150px);

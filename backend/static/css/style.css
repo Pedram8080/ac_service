@@ -1121,12 +1121,12 @@ body p {
   height: 100% !important;
   object-fit: fill;
 }
-.main-berand-box .card-3d:hover {
+/* .main-berand-box .card-3d:hover {
   animation-play-state: paused !important;
 }
 .main-berand-box .card-3d:hover div {
   animation-play-state: paused !important;
-}
+} */
 .main-berand-box .card-3d div:nth-child(1) {
   transform: translate(-50%, -50%) rotateY(0deg) translateZ(150px);
   animation-delay: 0s;
