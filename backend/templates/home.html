@@ -506,21 +506,26 @@
             books.forEach(book => {
               const cover = book.querySelector('.cover');
           
-              // کلیک روی جلد: فقط همون کتاب باز شه
               cover.addEventListener('click', function (e) {
                 e.stopPropagation();
-                // اول همه‌ی کتاب‌ها رو ببند
-                books.forEach(b => b.classList.remove('open'));
-                // بعد فقط همین یکی رو باز کن
-                book.classList.add('open');
+          
+                // اگه همین کتاب بازه، با کلیک روش بسته‌اش کن
+                if (book.classList.contains('open')) {
+                  book.classList.remove('open');
+                } else {
+                  // همه کتاب‌های دیگه رو ببند
+                  books.forEach(b => b.classList.remove('open'));
+                  // همین یکی رو باز کن
+                  book.classList.add('open');
+                }
               });
             });
           
-            // کلیک روی بیرون: همه جلدها بسته بشن
+            // اگه روی جای دیگه‌ای کلیک شد، همه رو ببند
             document.addEventListener('click', function () {
               books.forEach(b => b.classList.remove('open'));
             });
-        </script>
+          </script>
         <section class="main-berand w-100" id="brand">
             <h2>ما به چه برند ها و شرکت هایی خدمات میدیم؟</h2>
             <div class="main-berand-box d-flex justify-content-center">
