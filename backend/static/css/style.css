@@ -74,8 +74,6 @@ body p {
 }
 #content {
   display: none;
-  padding: 40px;
-  text-align: center;
 }
 .header {
   position: fixed;
