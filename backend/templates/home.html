@@ -73,39 +73,22 @@
             <div class="main-banner-amar d-flex justify-content-center">
                 <div class="main-banner-amar-box text-center">
                     <p><i class="fa-solid fa-clock-rotate-left"></i></p>
-                    <p><span class="counter" data-target="10">0</span>+</p>
+                    <p><span id="experience-counter">0</span>+</p>
                     <p>سال سابقه</p>
                 </div>
                 <div class="main-banner-amar-box text-center">
                     <p><i class="fa-solid fa-list-check"></i></p>
-                    <p><span class="counter" data-target="2000">0</span>+</p>
+                    <p><span id="projects-counter">0</span>+</p>
                     <p>پروژه انجام شده</p>
                 </div>
                 <div class="main-banner-amar-box text-center">
                     <p><i class="fa-regular fa-face-smile"></i></p>
-                    <p><span class="counter" data-target="95">0</span>%</p>
+                    <p><span id="satisfaction-counter">0</span>%</p>
                     <p>رضایت مشتری</p>
                 </div>
             </div>
         </section>
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          document.querySelectorAll('.counter').forEach(counter => {
-            const animate = () => {
-              const target = +counter.getAttribute('data-target');
-              const current = +counter.innerText.replace(/\D/g, '') || 0;
-              const increment = (target === 10) ? 1 : Math.ceil(target / 50);
-              if (current < target) {
-                counter.innerText = current + increment > target ? target : current + increment;
-                setTimeout(animate, (target === 10) ? 120 : 60);
-              } else {
-                counter.innerText = target;
-              }
-            };
-            animate();
-          });
-        });
-        </script>
+        <script src="{% static 'js/script.js' %}"></script>
         <section class="main-manategh">
             <h2>مناطق تحت پوشش ما در تهران:</h2>
             <p>ما در تمام نقاط تهران و اطراف تهران خدمات نصب و تعمیر کولرگازی را انجام میدهیم فقط کافیه با شماره های داخل سایت تماس بگیرین یا با انتخاب منطقه خود از اینجا درخواست خود را ثبت کنید. </p>
