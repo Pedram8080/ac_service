@@ -99,7 +99,7 @@
                     </picture>
                     <div class="main-manategh-box-item-about">
                         <h2>درخواست نصب و تعمیر کولرگازی در شمال تهران</h2>
-                        <button class="btn-shadow" type="button" href="{% url 'home' %}#darkhast">ثبت درخواست</button>
+                        <button class="btn-shadow" type="button" onclick="window.location.href='{% url 'home' %}#darkhast'">ثبت درخواست</button>
                     </div>
                 </div>
                 <div class="main-manategh-box-item">
@@ -109,7 +109,7 @@
                     </picture>
                     <div class="main-manategh-box-item-about">
                         <h2>درخواست نصب و تعمیر کولرگازی در جنوب تهران</h2>
-                        <button class="btn-shadow" type="button" href="{% url 'home' %}#darkhast">ثبت درخواست</button>
+                        <button class="btn-shadow" type="button" onclick="window.location.href='{% url 'home' %}#darkhast'">ثبت درخواست</button>
                     </div>
                 </div>
                 <div class="main-manategh-box-item">
@@ -119,7 +119,7 @@
                     </picture>
                     <div class="main-manategh-box-item-about">
                         <h2>درخواست نصب و تعمیر کولرگازی در شرق تهران</h2>
-                        <button class="btn-shadow" type="button" href="{% url 'home' %}#darkhast">ثبت درخواست</button>
+                        <button class="btn-shadow" type="button" onclick="window.location.href='{% url 'home' %}#darkhast'">ثبت درخواست</button>
                     </div>
                 </div>
                 <div class="main-manategh-box-item">
@@ -129,7 +129,7 @@
                     </picture>
                     <div class="main-manategh-box-item-about">
                         <h2>درخواست نصب و تعمیر کولرگازی در غرب تهران</h2>
-                        <button class="btn-shadow" type="button" href="{% url 'home' %}#darkhast">ثبت درخواست</button>
+                        <button class="btn-shadow" type="button" onclick="window.location.href='{% url 'home' %}#darkhast'">ثبت درخواست</button>
                     </div>
                 </div>
                 <div class="main-manategh-box-item">
@@ -139,7 +139,7 @@
                     </picture>
                     <div class="main-manategh-box-item-about">
                         <h2>درخواست نصب و تعمیر کولرگازی در مرکز تهران</h2>
-                        <button class="btn-shadow" type="button" href="{% url 'home' %}#darkhast">ثبت درخواست</button>
+                        <button class="btn-shadow" type="button" onclick="window.location.href='{% url 'home' %}#darkhast'">ثبت درخواست</button>
                     </div>
                 </div>
                 <div class="main-manategh-box-item">
@@ -149,7 +149,7 @@
                     </picture>
                     <div class="main-manategh-box-item-about">
                         <h2>درخواست نصب و تعمیر کولرگازی در اطراف تهران</h2>
-                        <button class="btn-shadow" type="button" href="{% url 'home' %}#darkhast">ثبت درخواست</button>
+                        <button class="btn-shadow" type="button" onclick="window.location.href='{% url 'home' %}#darkhast'">ثبت درخواست</button>
                     </div>
                 </div>
             </div>
@@ -181,8 +181,8 @@
                 <div class="main-nemoune-box col-4">
                     <div class="main-nemoune-box-img">
                         <picture>
-                            <source srcset="img/nasb-kolergazy-istade-green.webp" type="image/webp">
-                            <img src="img/nasb-kolergazy-istade-green.jpg" alt="نصب کولرگازی گرین با قیمت مناسب ، نصب کولرگازی ایستاده گرین ، نصب کولرگازی گرین ، تعمیر کولرگازی گرین" loading="lazy">
+                            <source srcset="{% static 'img/nasb-kolergazy-istade-green.webp' %}" type="image/webp">
+                            <img src="{% static 'img/nasb-kolergazy-istade-green.jpg' %}" alt="نصب کولرگازی گرین با قیمت مناسب ، نصب کولرگازی ایستاده گرین ، نصب کولرگازی گرین ، تعمیر کولرگازی گرین" loading="lazy">
                         </picture>
                     </div>
                     <p class="main-nemoune-box-icon"><i class="fa-regular fa-user"></i></p>
@@ -201,8 +201,8 @@
                 <div class="main-nemoune-box col-4">
                     <div class="main-nemoune-box-img">
                         <picture>
-                            <source srcset="img/nasb-kolergazi-lg.webp" type="image/webp">
-                            <img src="img/nasb-kolergazi-lg.jpg" alt="نصب کولرگازی گرین با قیمت مناسب ، نصب کولرگازی گرین ، تعمیر کولرگازی گرین" loading="lazy">
+                            <source srcset="{% static 'img/nasb-kolergazi-lg.webp' %}" type="image/webp">
+                            <img src="{% static 'img/nasb-kolergazi-lg.jpg' %}" alt="نصب کولرگازی گرین با قیمت مناسب ، نصب کولرگازی گرین ، تعمیر کولرگازی گرین" loading="lazy">
                         </picture>
                     </div>
                     <p class="main-nemoune-box-icon"><i class="fa-regular fa-user"></i></p>
@@ -221,8 +221,8 @@
                 <div class="main-nemoune-box col-4">
                     <div class="main-nemoune-box-img">
                         <picture>
-                            <source srcset="img/nasb-kolergazy-iranradiator.webp" type="image/webp">
-                            <img src="img/nasb-kolergazy-iranradiator.jpg" alt="نصب کولرگازی ایران رادیاتور با قیمت مناسب ، نصب کولرگازی ایران رادیاتور ، تعمیر کولرگازی ایران رادیاتور" loading="lazy">
+                            <source srcset="{% static 'img/nasb-kolergazy-iranradiator.webp' %}" type="image/webp">
+                            <img src="{% static 'img/nasb-kolergazy-iranradiator.jpg' %}" alt="نصب کولرگازی ایران رادیاتور با قیمت مناسب ، نصب کولرگازی ایران رادیاتور ، تعمیر کولرگازی ایران رادیاتور" loading="lazy">
                         </picture>
                     </div>
                     <p class="main-nemoune-box-icon"><i class="fa-regular fa-user"></i></p>
@@ -241,8 +241,8 @@
                 <div class="main-nemoune-box col-4">
                     <div class="main-nemoune-box-img">
                         <picture>
-                            <source srcset="img/nasb-kolergazy-general.webp" type="image/webp">
-                            <img src="img/nasb-kolergazy-general.jpg" alt="نصب کولرگازی جنرال با قیمت مناسب ، نصب کولرگازی جنرال ، تعمیر کولرگازی جنرال" loading="lazy">
+                            <source srcset="{% static 'img/nasb-kolergazy-general.webp' %}" type="image/webp">
+                            <img src="{% static 'img/nasb-kolergazy-general.jpg' %}" alt="نصب کولرگازی جنرال با قیمت مناسب ، نصب کولرگازی جنرال ، تعمیر کولرگازی جنرال" loading="lazy">
                         </picture>
                     </div>
                     <p class="main-nemoune-box-icon"><i class="fa-regular fa-user"></i></p>
@@ -261,8 +261,8 @@
                 <div class="main-nemoune-box col-4">
                     <div class="main-nemoune-box-img">
                         <picture>
-                            <source srcset="img/nasb-kolergazy-iranradiator-2.webp" type="image/webp">
-                            <img src="img/nasb-kolergazy-iranradiator-2.jpg" alt="نصب کولرگازی ایران رادیاتور با قیمت مناسب ، نصب کولرگازی ایران رادیاتور ، تعمیر کولرگازی ایران رادیاتور" loading="lazy">
+                            <source srcset="{% static 'img/nasb-kolergazy-iranradiator-2.webp' %}" type="image/webp">
+                            <img src="{% static 'img/nasb-kolergazy-iranradiator-2.jpg' %}" alt="نصب کولرگازی ایران رادیاتور با قیمت مناسب ، نصب کولرگازی ایران رادیاتور ، تعمیر کولرگازی ایران رادیاتور" loading="lazy">
                         </picture>
                     </div>
                     <p class="main-nemoune-box-icon"><i class="fa-regular fa-user"></i></p>
@@ -281,8 +281,8 @@
                 <div class="main-nemoune-box col-4">
                     <div class="main-nemoune-box-img">
                         <picture>
-                            <source srcset="img/nasb-kolergazy-iranradiator-3.webp" type="image/webp">
-                            <img src="img/nasb-kolergazy-iranradiator-3.jpg" alt="نصب کولرگازی ایران رادیاتور با قیمت مناسب ، نصب کولرگازی ایران رادیاتور ، تعمیر کولرگازی ایران رادیاتور" loading="lazy">
+                            <source srcset="{% static 'img/nasb-kolergazy-iranradiator-3.webp' %}" type="image/webp">
+                            <img src="{% static 'img/nasb-kolergazy-iranradiator-3.jpg' %}" alt="نصب کولرگازی ایران رادیاتور با قیمت مناسب ، نصب کولرگازی ایران رادیاتور ، تعمیر کولرگازی ایران رادیاتور" loading="lazy">
                         </picture>
                     </div>
                     <p class="main-nemoune-box-icon"><i class="fa-regular fa-user"></i></p>
@@ -301,8 +301,8 @@
                 <div class="main-nemoune-box col-4">
                     <div class="main-nemoune-box-img">
                         <picture>
-                            <source srcset="img/nasb-kolergazi-hisense.webp" type="image/webp">
-                            <img src="img/nasb-kolergazi-hisense.jpg" alt="نصب کولرگازی هایسنس با قیمت مناسب ، نصب کولرگازی هایسنس ، تعمیر کولرگازی هایسنس" loading="lazy">
+                            <source srcset="{% static 'img/nasb-kolergazi-hisense.webp' %}" type="image/webp">
+                            <img src="{% static 'img/nasb-kolergazi-hisense.jpg' %}" alt="نصب کولرگازی هایسنس با قیمت مناسب ، نصب کولرگازی هایسنس ، تعمیر کولرگازی هایسنس" loading="lazy">
                         </picture>
                     </div>
                     <p class="main-nemoune-box-icon"><i class="fa-regular fa-user"></i></p>
@@ -457,8 +457,8 @@
                     <p>کولرگازی دیواری یکی از رایج‌ترین سیستم‌های سرمایشی و گرمایشی برای منازل، دفاتر کار و فضاهای کوچک تا متوسط هست که با عملکرد کم‌صدا و مصرف بهینه، هوای مطلوب رو در کمترین زمان فراهم می‌کنه</p>
                     <div class="cover">
                         <picture>
-                            <source srcset="img/nasb-koulergazy.webp" type="image/webp">
-                            <img src="img/nasb-koulergazy.jpg" alt="کولرگازی،نصب کولرگازی،کولرگازی دیواری" loading="lazy">
+                            <source srcset="{% static 'img/nasb-koulergazy.webp' %}" type="image/webp">
+                            <img src="{% static 'img/nasb-koulergazy.jpg' %}" alt="کولرگازی،نصب کولرگازی،کولرگازی دیواری" loading="lazy">
                         </picture>
                         <h3>نصب کولرگازی دیواری</h3>
                         <p class="btn-danger btn">توضیحات</p>
@@ -468,8 +468,8 @@
                     <p>داکت اسپیلت مناسب برای سرمایش و گرمایش چندین فضا به صورت هم‌زمانه، معمولاً در خانه‌های بزرگ، ویلاها یا دفاتر با چند اتاق استفاده می‌شه. این سیستم ظاهری یکپارچه داره و بدون نیاز به پنل‌های متعدد، کل فضا رو تحت پوشش قرار می‌ده</p>
                     <div class="cover">
                         <picture>
-                            <source srcset="img/nasb-dakt-espilet.webp" type="image/webp">
-                            <img src="img/nasb-dakt-espilet.jpg" alt="داکت اسپیلت،نصب داکت اسپیلت" loading="lazy">
+                            <source srcset="{% static 'img/nasb-dakt-espilet.webp' %}" type="image/webp">
+                            <img src="{% static 'img/nasb-dakt-espilet.jpg' %}" alt="داکت اسپیلت،نصب داکت اسپیلت" loading="lazy">
                         </picture>
                         <h3>نصب داکت اسپیلت</h3>
                         <p class="btn-danger btn">توضیحات</p>
@@ -479,8 +479,8 @@
                     <p>کولرهای گازی در اثر کارکرد مداوم یا نصب غیراصولی دچار خرابی می‌شن؛ با تعمیر اصولی، می‌شه عمر مفید دستگاه رو افزایش داد و از هزینه‌های اضافی جلوگیری کرد</p>
                     <div class="cover">
                         <picture>
-                            <source srcset="img/tamir-koulergazy.webp" type="image/webp">
-                            <img src="img/tamir-koulergazy.jpg" alt="تعمیر کولرگازی،تعمیر کمپرسور کولرگازی،تعمیر پنل کولرگازی،تعمیر کولرگازی ایستاده،تعمیر داکت اسپیلت" loading="lazy">
+                            <source srcset="{% static 'img/tamir-koulergazy.webp' %}" type="image/webp">
+                            <img src="{% static 'img/tamir-koulergazy.jpg' %}" alt="تعمیر کولرگازی،تعمیر کمپرسور کولرگازی،تعمیر پنل کولرگازی،تعمیر کولرگازی ایستاده،تعمیر داکت اسپیلت" loading="lazy">
                         </picture>
                         <h3>تعمیر انواع کولرگازی</h3>
                         <p class="btn-danger btn">توضیحات</p>
@@ -490,8 +490,8 @@
                     <p>کولرهای ایستاده بیشتر در سالن‌ها، فروشگاه‌ها، مساجد، یا مکان‌هایی با نیاز به سرمایش قوی استفاده می‌شن. قدرت بالا و پوشش‌دهی وسیع از ویژگی‌های مهم این دستگاه‌هاست</p>
                     <div class="cover">
                         <picture>
-                            <source srcset="img/nasb-koulergazy-istade.webp" type="image/webp">
-                            <img src="img/nasb-koulergazy-istade.jpg" alt="نصب کولرگازی ایستاده،کولرگازی ایستاده" loading="lazy">
+                            <source srcset="{% static 'img/nasb-koulergazy-istade.webp' %}" type="image/webp">
+                            <img src="{% static 'img/nasb-koulergazy-istade.jpg' %}" alt="نصب کولرگازی ایستاده،کولرگازی ایستاده" loading="lazy">
                         </picture>
                         <h3>نصب کولرگازی ایستاده</h3>
                         <p class="btn-danger btn">توضیحات</p>
@@ -526,62 +526,62 @@
                 <div class="card-3d">
                     <div>
                         <picture>
-                            <source srcset="img/logo-gree.webp" type="image/webp">
-                            <img src="img/logo-gree.png" alt="گری،کولرگازی گری-نصب کولرگازی گری،تعمیر کولرگازی گری" loading="lazy">
+                            <source srcset="{% static 'img/logo-gree.webp' %}" type="image/webp">
+                            <img src="{% static 'img/logo-gree.png' %}" alt="گری،کولرگازی گری-نصب کولرگازی گری،تعمیر کولرگازی گری" loading="lazy">
                         </picture>
                     </div>
                     <div>
                         <picture>
-                            <source srcset="img/logo-iran-radiyator.webp" type="image/webp">
-                            <img src="img/logo-iran-radiyator.png" alt="کولرگازی ایران رادیاتور،نصب کولرگازی ایران رادیاتور،ایران رادیاتور،تعمیر کولرگازی ایران رادیاتور" loading="lazy">
+                            <source srcset="{% static 'img/logo-iran-radiyator.webp' %}" type="image/webp">
+                            <img src="{% static 'img/logo-iran-radiyator.png' %}" alt="کولرگازی ایران رادیاتور،نصب کولرگازی ایران رادیاتور،ایران رادیاتور،تعمیر کولرگازی ایران رادیاتور" loading="lazy">
                         </picture>
                     </div>
                     <div>
                         <picture>
-                            <source srcset="img/logo-hisense.webp" type="image/webp">
-                            <img src="img/logo-hisense.png" alt="کولرگازی هایسنس،نصب کولرگازی هایسنس،هایسنس،تعمیر کولرگازی هایسنس" loading="lazy">
+                            <source srcset="{% static 'img/logo-hisense.webp' %}" type="image/webp">
+                            <img src="{% static 'img/logo-hisense.png' %}" alt="کولرگازی هایسنس،نصب کولرگازی هایسنس،هایسنس،تعمیر کولرگازی هایسنس" loading="lazy">
                         </picture>
                     </div>
                     <div>
                         <picture>
-                            <source srcset="img/logo-green.webp" type="image/webp">
-                            <img src="img/logo-green.png" alt="گرین،کولرگازی گرین،نصب کولرگازی گرین،تعمیر کولرگازی گرین" loading="lazy">
+                            <source srcset="{% static 'img/logo-green.webp' %}" type="image/webp">
+                            <img src="{% static 'img/logo-green.png' %}" alt="گرین،کولرگازی گرین،نصب کولرگازی گرین،تعمیر کولرگازی گرین" loading="lazy">
                         </picture>
                     </div>
                     <div>
                         <picture>
-                            <source srcset="img/logo-lg.webp" type="image/webp">
-                            <img src="img/logo-lg.png" alt="الجی،کولرگازی الجی،نصب کولرگازی الجی،تعمیر کولرگازی الجی" loading="lazy">
+                            <source srcset="{% static 'img/logo-lg.webp' %}" type="image/webp">
+                            <img src="{% static 'img/logo-lg.png' %}" alt="الجی،کولرگازی الجی،نصب کولرگازی الجی،تعمیر کولرگازی الجی" loading="lazy">
                         </picture>
                     </div>
                     <div>
                         <picture>
-                            <source srcset="img/logo-aux.webp" type="image/webp">
-                            <img src="img/logo-aux.png" alt="ایوایکس،کولرگازی ایوایکس،نصب کولرگازی ایوایکس،تعمیر کولرگازی ایوایکس" loading="lazy">
+                            <source srcset="{% static 'img/logo-aux.webp' %}" type="image/webp">
+                            <img src="{% static 'img/logo-aux.png' %}" alt="ایوایکس،کولرگازی ایوایکس،نصب کولرگازی ایوایکس،تعمیر کولرگازی ایوایکس" loading="lazy">
                         </picture>
                     </div>
                     <div>
                         <picture>
-                            <source srcset="img/logo-samsung.webp" type="image/webp">
-                            <img src="img/logo-samsung.png" alt="سامسونگ،کولرگازی سامسونگ،نصب کولرگازی سامسونگ،تعمیر کولرگازی سامسونگ" loading="lazy">
+                            <source srcset="{% static 'img/logo-samsung.webp' %}" type="image/webp">
+                            <img src="{% static 'img/logo-samsung.png' %}" alt="سامسونگ،کولرگازی سامسونگ،نصب کولرگازی سامسونگ،تعمیر کولرگازی سامسونگ" loading="lazy">
                         </picture>
                     </div>
                     <div>
                         <picture>
-                            <source srcset="img/logo-evvoli.webp" type="image/webp">
-                            <img src="img/logo-evvoli.png" alt="ایوولی،کولرگازی ایوولی،نصب کولرگازی ایوولی،تعمیر کولرگازی ایوولی" loading="lazy">
+                            <source srcset="{% static 'img/logo-evvoli.webp' %}" type="image/webp">
+                            <img src="{% static 'img/logo-evvoli.png' %}" alt="ایوولی،کولرگازی ایوولی،نصب کولرگازی ایوولی،تعمیر کولرگازی ایوولی" loading="lazy">
                         </picture>
                     </div>
                     <div>
                         <picture>
-                            <source srcset="img/logo-tcl.webp" type="image/webp">
-                            <img src="img/logo-tcl.jpg" alt="تی سی ال،کولرگازی تی سی ال-نصب کولرگازی تی سی ال،تعمیر کولرگازی تی سی ال" loading="lazy">
+                            <source srcset="{% static 'img/logo-tcl.webp' %}" type="image/webp">
+                            <img src="{% static 'img/logo-tcl.jpg' %}" alt="تی سی ال،کولرگازی تی سی ال-نصب کولرگازی تی سی ال،تعمیر کولرگازی تی سی ال" loading="lazy">
                         </picture>
                     </div>
                     <div>
                         <picture>
-                            <source srcset="img/logo-general.webp" type="image/webp">
-                            <img src="img/logo-general.png" alt="جنرال،کولرگازی جنرال-نصب کولرگازی جنرال،تعمیر کولرگازی جنرال" loading="lazy">
+                            <source srcset="{% static 'img/logo-general.webp' %}" type="image/webp">
+                            <img src="{% static 'img/logo-general.png' %}" alt="جنرال،کولرگازی جنرال-نصب کولرگازی جنرال،تعمیر کولرگازی جنرال" loading="lazy">
                         </picture>
                     </div>
                   </div>
