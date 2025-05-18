@@ -97,7 +97,7 @@
               const increment = (target === 10) ? 1 : Math.ceil(target / 50);
               if (current < target) {
                 counter.innerText = current + increment > target ? target : current + increment;
-                setTimeout(animate, (target === 10) ? 120 : 20);
+                setTimeout(animate, (target === 10) ? 120 : 60);
               } else {
                 counter.innerText = target;
               }
