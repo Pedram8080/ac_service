@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'service',
     'django.contrib.sitemaps',
+    'compressor',
 ]
 
 MIDDLEWARE = [
@@ -145,3 +146,11 @@ LOGOUT_REDIRECT_URL = '/panel/login/'
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = 10485760  # 10MB
 FILE_UPLOAD_MAX_MEMORY_SIZE = 10485760  # 10MB
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+]
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True
