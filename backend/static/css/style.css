@@ -12,11 +12,13 @@
 
 @font-face {
   font-family: "font-matn";
-  src: url(../font/IRANSansWeb_Medium.ttf);
+  src: url(../font/IRANSansWeb-Medium.woff2);
+  font-display: swap;
 }
 @font-face {
   font-family: "font-titr";
-  src: url(../font/BTitrBd.ttf);
+  src: url(../font/BTitrBold.woff2);
+  font-display: swap;
 }
 body {
   font-family: "font-matn";
