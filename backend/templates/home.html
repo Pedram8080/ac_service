@@ -94,10 +94,10 @@
             const animate = () => {
               const target = +counter.getAttribute('data-target');
               const current = +counter.innerText.replace(/\D/g, '') || 0;
-              const increment = Math.ceil(target / 50);
+              const increment = (target === 10) ? 1 : Math.ceil(target / 50);
               if (current < target) {
                 counter.innerText = current + increment > target ? target : current + increment;
-                setTimeout(animate, 20);
+                setTimeout(animate, (target === 10) ? 120 : 20);
               } else {
                 counter.innerText = target;
               }
