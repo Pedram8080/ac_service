@@ -1145,31 +1145,11 @@ body{
     width: 100% !important;
     position: relative;
     &-social{
-        background-color: #e8e8e8;
         padding: 40px 0;
-        align-content: center;
-        justify-content: center;
-        >h2{
-            font-family: "font-titr";
-            font-size: 25px;
-            margin-bottom: 30px;
-            color: black;
-            text-align: center;
-            @media(max-width:750px){
-                font-size: 15px;
-            }
-        }
-        .footer-social-back{
-            justify-content: center;
-            align-content: center;
-            align-items: center;
-            img{
-                text-align: center;
-                display: block;
-                justify-content: center;
-                align-content: center;
-            }
-        }
+        position: fixed;
+        bottom: 0px;
+        right: 10px;
+        z-index: 10001;
         .holographic-stack {
             display: flex;
             justify-content: center;
@@ -1179,24 +1159,34 @@ body{
           }
           
           .holographic-icon {
+            background-color: white;
+            border-radius: 50%;
             position: relative;
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             transform-style: preserve-3d;
+            @media (max-width:800px){
+                width: 50px;
+                height: 50px;
+            }
           }
           
           .holographic-icon svg {
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             position: relative;
             z-index: 3;
             transition: all 0.3s ease;
             filter: drop-shadow(0 0 5px currentColor);
+            @media (max-width:800px){
+                width: 25px;
+                height: 25px;
+            }
           }
           
           .holographic-ring {
@@ -1242,21 +1232,6 @@ body{
             transition:
               opacity 0.3s ease,
               transform 0.3s ease;
-          }
-          
-          .holographic-icon.github {
-            color: #00e213;
-          }
-          
-          .holographic-icon.github:hover {
-            color: #0cc90c;
-            transform: translateY(-10px) rotateX(20deg);
-          }
-          
-          .holographic-icon.github:hover .holographic-ring {
-            border-color: #32c90c;
-            border-top-color: transparent;
-            border-bottom-color: transparent;
           }
           
           .holographic-icon.instagram {
