@@ -881,6 +881,7 @@ body{
                 display: flex;
                 align-items: center;
                 color: #000;
+                cursor: pointer;
                 >p{
                     font-size: 15px;
                     font-family: "font-matn";                
@@ -903,6 +904,7 @@ body{
                     justify-content: space-between;
                     padding: 10px;
                     align-items: center;
+                    //update-start-3
                     picture{
                         source{
                             width: 100%;
@@ -915,6 +917,7 @@ body{
                             border-radius: 10px;
                         }
                     }
+                    //update-end-3
                     >h3{
                         font-size: 15px;
                         font-family: "font-matn";
@@ -934,13 +937,13 @@ body{
                   }
             }
               
-            .book:hover .cover{
-                -webkit-transition: all 0.5s;
-                transition: all 0.5s;
-                -webkit-transform: rotatey(-80deg);
-                -ms-transform: rotatey(-80deg);
-                transform: rotatey(-80deg);
-            }
+            // .book:hover .cover{
+            //     -webkit-transition: all 0.5s;
+            //     transition: all 0.5s;
+            //     -webkit-transform: rotatey(-80deg);
+            //     -ms-transform: rotatey(-80deg);
+            //     transform: rotatey(-80deg);
+            // }
             .book.open .cover {
                 -webkit-transition: all 0.5s;
                 transition: all 0.5s;

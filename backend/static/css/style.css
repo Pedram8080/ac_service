@@ -969,6 +969,7 @@ body p {
   display: flex;
   align-items: center;
   color: #000;
+  cursor: pointer;
 }
 .main-khadamat-box .book > p {
   font-size: 15px;
@@ -1017,13 +1018,6 @@ body p {
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
-}
-.main-khadamat-box .book:hover .cover {
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  -webkit-transform: rotatey(-80deg);
-  -ms-transform: rotatey(-80deg);
-  transform: rotatey(-80deg);
 }
 .main-khadamat-box .book.open .cover {
   -webkit-transition: all 0.5s;
