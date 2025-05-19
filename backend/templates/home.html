@@ -159,19 +159,19 @@
             <h2>چرا نصب فیکس را انتخاب کنیم؟</h2>
             <div class="main-chera-box">
                 <div class="main-chera-box-item">
-                    <span><i class="fa-solid fa-award"></i></span>
+                    <img src="img/nasb-koulergazy-ba-garanty-nasb.gif" alt="نصب کولرگازی با گارانتی نصب ، نصب کولرگازی ، گارانتی نصب کولرگازی ، تعمیر کولرگازی با گارانتی نصب ، تعمیر کولرگازی">
                     <p>گارانتی نصب </p>
                 </div>
                 <div class="main-chera-box-item">
-                    <span><i class="fa-solid fa-hand-holding-dollar"></i></span>
+                    <img src="img/nasb-koulergazy-ba-gheymat-monaseb.gif" alt="نصب کولرگازی با کمترین قیمت ، نصب کولرگازی ، تعمیر کولرگازی با کمترین قیمت ، تعمیر کولرگازی">
                     <p>قیمت منصفانه</p>
                 </div>
                 <div class="main-chera-box-item">
-                    <span><i class="fa-regular fa-clock"></i></span>
+                    <img src="img/nasb-koulergazy-dar-kamtarin-zaman.gif" alt="نصب سریع کولرگازی ، نصب کولرگازی ، تعمیر سریع کولرگازی ، تعمیر کولرگازی">
                     <p>کمترین زمان</p>
                 </div>
                 <div class="main-chera-box-item">
-                    <span><i class="fa-solid fa-house-circle-check"></i></span>
+                    <img src="img/nasb-koulergazy-namayandegi-rasmi.gif" alt="نمایندگی نصب کولرگازی ، نمایندگی ایران رادیاتور ، نمایندگی تعمیر کولرگازی">
                     <p>نمایندگی رسمی</p>
                 </div>
             </div>
@@ -501,29 +501,28 @@
             </div>
         </section>
         <script>
-            const books = document.querySelectorAll('.book');
+            document.addEventListener("DOMContentLoaded", () => {
+              const books = document.querySelectorAll(".book");
           
-            books.forEach(book => {
-              const cover = book.querySelector('.cover');
+              // کلیک روی هر کتاب
+              books.forEach(book => {
+                book.addEventListener("click", e => {
+                  e.stopPropagation();
           
-              cover.addEventListener('click', function (e) {
-                e.stopPropagation();
-          
-                // اگه همین کتاب بازه، با کلیک روش بسته‌اش کن
-                if (book.classList.contains('open')) {
-                  book.classList.remove('open');
-                } else {
-                  // همه کتاب‌های دیگه رو ببند
-                  books.forEach(b => b.classList.remove('open'));
-                  // همین یکی رو باز کن
-                  book.classList.add('open');
-                }
+                  // اگر باز بود => ببند، اگر بسته بود => همه رو ببند بعد باز کن اینو
+                  if (book.classList.contains("open")) {
+                    book.classList.remove("open");
+                  } else {
+                    books.forEach(b => b.classList.remove("open"));
+                    book.classList.add("open");
+                  }
+                });
               });
-            });
           
-            // اگه روی جای دیگه‌ای کلیک شد، همه رو ببند
-            document.addEventListener('click', function () {
-              books.forEach(b => b.classList.remove('open'));
+              // کلیک روی هر جای صفحه غیر کتاب => همه کتاب‌ها بسته بشن
+              document.addEventListener("click", () => {
+                books.forEach(book => book.classList.remove("open"));
+              });
             });
           </script>
         <section class="main-berand w-100" id="brand">
