@@ -6,6 +6,7 @@ class ArticleSectionInline(admin.StackedInline):
     model = ArticleSection
     extra = 1
     fields = ('title', 'slug', 'content', 'image', 'order')
+    readonly_fields = ('slug',)
 
 
 class ArticleImageInline(admin.TabularInline):
@@ -34,3 +35,4 @@ class ArticleAdmin(admin.ModelAdmin):
     list_filter = ('is_active', 'created_at')
     fields = ('title', 'slug', 'image', 'is_active')
     inlines = [ArticleSectionInline, ArticleImageInline]
+    readonly_fields = ('slug',)

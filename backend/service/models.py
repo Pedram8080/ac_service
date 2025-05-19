@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.utils.text import slugify
+from autoslug import AutoSlugField
 
 
 class Request(models.Model):
@@ -37,7 +38,7 @@ class ServiceRequest(models.Model):
 class ArticleSection(models.Model):
     article = models.ForeignKey('Article', on_delete=models.CASCADE, related_name='sections')
     title = models.CharField(max_length=200, verbose_name='عنوان بخش')
-    slug = models.SlugField(max_length=200, unique=True, allow_unicode=True, verbose_name='اسلاگ بخش', blank=True)
+    slug = AutoSlugField(populate_from='title', unique=True, allow_unicode=True, verbose_name='اسلاگ بخش', always_update=False)
     content = models.TextField(verbose_name='محتوا')
     image = models.ImageField(upload_to='articles/sections/', verbose_name='تصویر بخش', null=True, blank=True)
     order = models.PositiveIntegerField(default=0, verbose_name='ترتیب')
@@ -59,7 +60,7 @@ class ArticleSection(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=200, verbose_name='عنوان مقاله')
-    slug = models.SlugField(max_length=200, unique=True, allow_unicode=True, verbose_name='اسلاگ', blank=True)
+    slug = AutoSlugField(populate_from='title', unique=True, allow_unicode=True, verbose_name='اسلاگ', always_update=False)
     image = models.ImageField(upload_to='articles/', verbose_name='تصویر مقاله', null=True, blank=True)
     is_active = models.BooleanField(default=True, verbose_name='فعال')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ ایجاد')
