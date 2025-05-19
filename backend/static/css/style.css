@@ -601,40 +601,6 @@ body p {
     margin-top: 40px;
   }
 }
-.main-chera-box span {
-  font-size: 25px;
-  width: 80px !important;
-  height: 80px !important;
-  align-content: center;
-  color: white;
-  background-color: red;
-  border-radius: 50%;
-  display: inline-block;
-  margin-bottom: 20px;
-}
-@media (max-width: 1100px) {
-  .main-chera-box span {
-    font-size: 20px;
-    width: 65px !important;
-    height: 65px !important;
-  }
-}
-@media (max-width: 700px) {
-  .main-chera-box span {
-    width: 60px !important;
-    height: 60px !important;
-  }
-}
-.main-chera-box p {
-  font-size: 20px;
-  border-radius: 10px;
-  color: white;
-}
-@media (max-width: 1100px) {
-  .main-chera-box p {
-    font-size: 15px;
-  }
-}
 .main-chera-box-item {
   background-color: var(--tousy);
   border-radius: 10px;
@@ -650,6 +616,20 @@ body p {
   .main-chera-box-item {
     width: 140px;
     padding: 20px 0;
+  }
+}
+.main-chera-box-item img {
+  width: 100px;
+  height: auto;
+}
+.main-chera-box-item p {
+  font-size: 20px;
+  border-radius: 10px;
+  color: white;
+}
+@media (max-width: 1100px) {
+  .main-chera-box-item p {
+    font-size: 15px;
   }
 }
 .main-nemoune {
