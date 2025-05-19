@@ -4,3 +4,4 @@ psycopg2-binary==2.9.9
 Pillow==10.2.0
 requests==2.31.0
 django-compressor
+django-autoslug==1.9.8
