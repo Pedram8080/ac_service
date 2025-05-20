@@ -1872,3 +1872,17 @@ body p {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-secondary);
 }
+
+.fixed-instagram {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  /* Responsive for mobile */
+}
+@media (max-width: 600px) {
+  .fixed-instagram {
+    bottom: 16px;
+    right: 16px;
+  }
+}
