@@ -1156,6 +1156,9 @@ body{
             align-items: center;
             gap: 30px;
             perspective: 1000px;
+            a{
+                display: block !important;
+            }
           }
           
           .holographic-icon {
