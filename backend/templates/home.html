@@ -45,26 +45,67 @@
     <main class="main" id="content" style="display:none;">
         <section class="main-banner w-100 d-flex flex-column">
             <div class="main-banner-video">
-                <video autoplay loop muted playsinline>
-                    <source src="{% static 'img/video-tamir-koulergazy-lebas-abi2.mp4' %}" type="video/mp4">
-                </video>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                      const video = document.querySelector('video');
-
-                      function tryPlayVideo() {
-                        if (video) {
-                          video.play().catch(error => {
-                            console.log("Autoplay failed:", error);
-                          });
-                        }
-                    }
-                    tryPlayVideo();
-                    document.addEventListener('click', tryPlayVideo, { once: true });
-                    document.addEventListener('touchstart', tryPlayVideo, { once: true });
-                    document.addEventListener('scroll', tryPlayVideo, { once: true });
+                <video
+                id="lazy-banner-video"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="none"
+                poster="{% static 'img/video-thumbnail.jpg' %}"
+              >
+                <!-- اولویت با WebP -->
+                <source
+                  data-src="{% static 'img/video-tamir-koulergazy-lebas-abi2.webp' %}"
+                  type="video/webp"
+                />
+                <!-- fallback به MP4 -->
+                <source
+                  data-src="{% static 'img/video-tamir-koulergazy-lebas-abi2.mp4' %}"
+                  type="video/mp4"
+                />
+                مرورگر شما از ویدیو پشتیبانی نمی‌کند.
+              </video>
+              <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                  const video = document.getElementById("lazy-banner-video");
+                  const sources = video.querySelectorAll("source");
+              
+                  function tryPlayVideo() {
+                    video.play().catch((err) => {
+                      console.warn("Autoplay failed:", err);
                     });
-                </script>
+                  }
+              
+                  function loadVideoSources() {
+                    sources.forEach(source => {
+                      source.src = source.dataset.src;
+                    });
+                    video.load();
+                    tryPlayVideo();
+              
+                    // تلاش دوباره بعد از تعامل کاربر (در صورت نیاز)
+                    document.addEventListener("click", tryPlayVideo, { once: true });
+                    document.addEventListener("touchstart", tryPlayVideo, { once: true });
+                    document.addEventListener("scroll", tryPlayVideo, { once: true });
+                  }
+              
+                  if ("IntersectionObserver" in window) {
+                    const observer = new IntersectionObserver((entries, observer) => {
+                      entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                          loadVideoSources();
+                          observer.unobserve(video);
+                        }
+                      });
+                    });
+                    observer.observe(video);
+                  } else {
+                    // مرورگرهای قدیمی
+                    loadVideoSources();
+                  }
+                });
+              </script>
             </div>
             <div class="main-banner-title align-self-center d-block">
                 <h1>نصب و تعمیر کولرگازی در تهران</h1>
