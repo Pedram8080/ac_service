@@ -1853,6 +1853,7 @@ body p {
   display: block;
   border-radius: 10px;
   transition: all 0.5s;
+  box-shadow: 2px 2px 10px gray, -2px -2px 10px gray;
   cursor: pointer;
 }
 @media (max-width: 1200px) {
