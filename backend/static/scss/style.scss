@@ -1613,11 +1613,22 @@ body{
     @media(max-width:700px){
         padding: 0 30px;
     }
-    &-titr{
+    h1{
+        text-align: center;
+        font-size: 35px;
+        font-family: "font-titr";
+        display: block;
         margin-top: 100px;
+        @media(max-width:700px){
+            margin-top: 70px;
+            font-size: 25px;
+        }
+    }
+    &-titr{
+        margin-top: 0px;
         margin-bottom: 50px;
         @media(max-width:700px){
-            margin-top: 80px;
+            margin-top: 30px;
             margin-bottom: 30px;
         }
         span{
@@ -1628,7 +1639,7 @@ body{
                 font-size: 15px;
             }
         }
-        h1{
+        h2{
             text-align: right;
             font-size: 30px;
             font-family: "font-titr";

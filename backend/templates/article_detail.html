@@ -108,9 +108,10 @@
     <main class="main">
         {% for section in article.sections.all %}
         <div class="main-article-detail">
+            <h1>سرتیتر اصلی(با سرتیتر رو مقاله یکی باشد)</h1>
             <div class="main-article-detail-titr">
                 <span><i class="fa-solid fa-tag"></i></span>
-                <h1>{{ section.title }}</h1>
+                <h2>{{ section.title }}</h2>
             </div>
             <div class="main-article-detail-text">
                 <p>{{ section.content|linebreaks }}</p>
