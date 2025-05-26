@@ -1728,11 +1728,14 @@ body p {
   font-size: 35px;
   font-family: "font-titr";
   display: block;
-  margin-top: 100px;
+  width: 100%;
+  background-color: rgb(214, 214, 214);
+  margin: 0;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 @media (max-width: 700px) {
   .article-titr-asli-dakheli {
-    margin-top: 70px;
     font-size: 25px;
   }
 }
@@ -1752,12 +1755,10 @@ body p {
   }
 }
 .main-article-detail-titr {
-  margin-top: 40px;
   margin-bottom: 50px;
 }
 @media (max-width: 700px) {
   .main-article-detail-titr {
-    margin-top: 30px;
     margin-bottom: 30px;
   }
 }
