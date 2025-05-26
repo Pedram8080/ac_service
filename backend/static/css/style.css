@@ -1736,13 +1736,26 @@ body p {
     padding: 0 30px;
   }
 }
-.main-article-detail-titr {
+.main-article-detail h1 {
+  text-align: center;
+  font-size: 35px;
+  font-family: "font-titr";
+  display: block;
   margin-top: 100px;
+}
+@media (max-width: 700px) {
+  .main-article-detail h1 {
+    margin-top: 70px;
+    font-size: 25px;
+  }
+}
+.main-article-detail-titr {
+  margin-top: 0px;
   margin-bottom: 50px;
 }
 @media (max-width: 700px) {
   .main-article-detail-titr {
-    margin-top: 80px;
+    margin-top: 30px;
     margin-bottom: 30px;
   }
 }
@@ -1756,14 +1769,14 @@ body p {
     font-size: 15px;
   }
 }
-.main-article-detail-titr h1 {
+.main-article-detail-titr h2 {
   text-align: right;
   font-size: 30px;
   font-family: "font-titr";
   display: inline;
 }
 @media (max-width: 700px) {
-  .main-article-detail-titr h1 {
+  .main-article-detail-titr h2 {
     font-size: 20px;
   }
 }
