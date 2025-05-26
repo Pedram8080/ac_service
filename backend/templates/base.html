@@ -185,14 +185,7 @@
     {% endblock %}
     
     {% block extra_head %}{% endblock %}
-    <script>
-      setTimeout(function () {
-        const loader = document.getElementById("loader-wrapper");
-        const content = document.getElementById("content");
-        if (loader) loader.style.display = "none";
-        if (content) content.style.display = "block";
-      }, 1000); // لودر فقط ۱ ثانیه نمایش داده میشه
-    </script>
+    
     <script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js"></script>
     <script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="usQVzrUSEqU8iN" async></script>
 
