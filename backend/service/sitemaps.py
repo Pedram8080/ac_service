@@ -1,6 +1,7 @@
 from django.contrib.sitemaps import Sitemap
 from .models import Article
 
+
 class ArticleSitemap(Sitemap):
     changefreq = "weekly"
     priority = 0.8
@@ -12,4 +13,4 @@ class ArticleSitemap(Sitemap):
         return obj.updated_at
 
     def location(self, obj):
-        return f"/article/{obj.slug}/" 
+        return f"/article/{obj.slug}/"
