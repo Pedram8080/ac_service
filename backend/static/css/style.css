@@ -523,7 +523,7 @@ body p {
     padding: 12px;
   }
 }
-.main-manategh-box-item-about > h2 {
+.main-manategh-box-item-about > h3 {
   color: white;
   font-size: 20px;
   font-family: "font-titr";
@@ -534,12 +534,12 @@ body p {
   line-height: 1.5;
 }
 @media (max-width: 1000px) {
-  .main-manategh-box-item-about > h2 {
+  .main-manategh-box-item-about > h3 {
     font-size: 18px;
   }
 }
 @media (max-width: 600px) {
-  .main-manategh-box-item-about > h2 {
+  .main-manategh-box-item-about > h3 {
     font-size: 15px;
   }
 }
@@ -1180,11 +1180,11 @@ body p {
   padding: 15px;
   color: white;
 }
-.main-soal-box button h3 {
+.main-soal-box button strong {
   font-size: 15px;
 }
 @media (max-width: 750px) {
-  .main-soal-box button h3 {
+  .main-soal-box button strong {
     font-size: 12px;
   }
 }
@@ -1723,7 +1723,25 @@ body p {
   text-align: center;
 }
 
+.article-titr-asli-dakheli {
+  text-align: center;
+  font-size: 35px;
+  font-family: "font-titr";
+  display: block;
+  width: 100%;
+  background-color: rgb(214, 214, 214);
+  margin: 0;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+@media (max-width: 700px) {
+  .article-titr-asli-dakheli {
+    font-size: 25px;
+  }
+}
+
 .main-article-detail {
+  background-color: rgb(214, 214, 214);
   padding: 0 100px;
 }
 @media (max-width: 1200px) {
@@ -1736,26 +1754,11 @@ body p {
     padding: 0 30px;
   }
 }
-.main-article-detail h1 {
-  text-align: center;
-  font-size: 35px;
-  font-family: "font-titr";
-  display: block;
-  margin-top: 100px;
-}
-@media (max-width: 700px) {
-  .main-article-detail h1 {
-    margin-top: 70px;
-    font-size: 25px;
-  }
-}
 .main-article-detail-titr {
-  margin-top: 0px;
   margin-bottom: 50px;
 }
 @media (max-width: 700px) {
   .main-article-detail-titr {
-    margin-top: 30px;
     margin-bottom: 30px;
   }
 }
@@ -1796,6 +1799,7 @@ body p {
   margin: 30px 0;
   display: block;
   justify-self: center;
+  box-shadow: 2px 2px 10px gray, -2px -2px 10px gray;
 }
 @media (max-width: 1200px) {
   .main-article-detail img {
@@ -1836,6 +1840,7 @@ body p {
 }
 .main-article-detail-album-box {
   display: grid;
+  margin-top: 30px;
   grid-template-columns: auto auto auto;
   justify-content: center;
   gap: 20px;
@@ -1862,11 +1867,11 @@ body p {
 .main-article-detail-album-box-img img {
   width: 100% !important;
   height: 100% !important;
+  box-shadow: 2px 2px 10px gray, -2px -2px 10px gray;
   object-fit: fill;
   display: block;
   border-radius: 10px;
   transition: all 0.5s;
-  box-shadow: 2px 2px 10px gray, -2px -2px 10px gray;
   cursor: pointer;
 }
 @media (max-width: 1200px) {
