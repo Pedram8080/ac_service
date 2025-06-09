@@ -523,7 +523,7 @@ body p {
     padding: 12px;
   }
 }
-.main-manategh-box-item-about > h2 {
+.main-manategh-box-item-about > h3 {
   color: white;
   font-size: 20px;
   font-family: "font-titr";
@@ -534,12 +534,12 @@ body p {
   line-height: 1.5;
 }
 @media (max-width: 1000px) {
-  .main-manategh-box-item-about > h2 {
+  .main-manategh-box-item-about > h3 {
     font-size: 18px;
   }
 }
 @media (max-width: 600px) {
-  .main-manategh-box-item-about > h2 {
+  .main-manategh-box-item-about > h3 {
     font-size: 15px;
   }
 }
@@ -1180,11 +1180,11 @@ body p {
   padding: 15px;
   color: white;
 }
-.main-soal-box button h3 {
+.main-soal-box button strong {
   font-size: 15px;
 }
 @media (max-width: 750px) {
-  .main-soal-box button h3 {
+  .main-soal-box button strong {
     font-size: 12px;
   }
 }
