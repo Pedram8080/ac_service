@@ -1728,14 +1728,13 @@ body p {
   font-size: 35px;
   font-family: "font-titr";
   display: block;
-  width: 100%;
-  background-color: rgb(214, 214, 214);
-  margin: 0;
   padding-top: 50px;
-  padding-bottom: 50px;
+  background-color: rgb(214, 214, 214);
+  margin: 0 !important;
 }
 @media (max-width: 700px) {
   .article-titr-asli-dakheli {
+    padding-top: 15px;
     font-size: 25px;
   }
 }
@@ -1743,6 +1742,7 @@ body p {
 .main-article-detail {
   background-color: rgb(214, 214, 214);
   padding: 0 100px;
+  margin: 0 !important;
 }
 @media (max-width: 1200px) {
   .main-article-detail {
@@ -1755,10 +1755,13 @@ body p {
   }
 }
 .main-article-detail-titr {
-  margin-bottom: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin: 0 !important;
 }
 @media (max-width: 700px) {
   .main-article-detail-titr {
+    margin-top: 30px;
     margin-bottom: 30px;
   }
 }
@@ -1777,6 +1780,7 @@ body p {
   font-size: 30px;
   font-family: "font-titr";
   display: inline;
+  margin: 0 !important;
 }
 @media (max-width: 700px) {
   .main-article-detail-titr h2 {
@@ -1827,7 +1831,8 @@ body p {
   }
 }
 .main-article-detail-album {
-  margin: 40px 0 20px 0;
+  padding: 40px 0 20px 0;
+  background-color: rgb(214, 214, 214);
 }
 .main-article-detail-album h2 {
   font-size: 20px;
