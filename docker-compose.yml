@@ -8,13 +8,10 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./backend:/code
-      - ./backend/staticfiles:/code/staticfiles
-      - ./backend/media:/code/media
-      - ./backend/db.sqlite3:/code/db.sqlite3
     environment:
       - DEBUG=1
       - SECRET_KEY=django-insecure-w@p+fa&&omp^oa7&n68==+0@4^+lert43yw8v8yjhrxip821po
-      - ALLOWED_HOSTS=localhost,127.0.0.1,159.69.87.39,nasbfix.ir
+      - ALLOWED_HOSTS=localhost,127.0.0.1,159.69.87.39,nasbfix.ir,171.22.27.104
     restart: always
 
   nginx:
