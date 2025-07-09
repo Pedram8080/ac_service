@@ -18,10 +18,12 @@ services:
     image: nginx:latest
     ports:
       - "8080:80"
+      - "443:443"
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./backend/staticfiles:/static
       - ./backend/media:/media
+      - /etc/letsencrypt:/etc/letsencrypt:ro
     depends_on:
       - web
 
