@@ -48,44 +48,47 @@
 {% endblock %}
 
 {% block content %}
-<!-- Header Section -->
-<header class="header">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">
-                <img src="{% static 'img/logo-nasbfix.png' %}" alt="نصب فیکس" class="logo">
-            </a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home' %}">صفحه اصلی</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'about' %}">درباره ما</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'article' %}">مقالات</a>
-                    </li>
-                </ul>
-                
+    <div id="loader-wrapper">
+        <img src="{% static 'img/logo-nasbfix.png' %}" alt="لوگوی نئون" class="logo-loader-neon">
+        <p class="loading-text">در حال بارگذاری...</p>
+    </div>
+    <header class="header">
+        <section class="meno">
+            <div class="meno-berger d-none">
+                <button class="meno-berger-btn navbar-toggler" type="button" data-toggle="collapse" data-target="#berger" aria-controls="berger" aria-expanded="false" aria-label="toggle nav">
+                    <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
+                </button>
+            </div>
+            <nav class="meno-nav navbar navbar-expand nav-pills d-flex justify-content-between">
+                <div class="meno-nav-khali d-none"></div>
+                <div class="meno-nav-logo">
+                    <a href="{% url 'home' %}" class="navbar-brand d-block">نصب فیکس</a>
+                </div>
+                <div class="meno-nav-item d-flex">
+                    <a href="{% url 'home' %}#darkhast" class="nav-link nav-item d-block meno-nav-item">درخواست نصب و تعمیر</a>
+                    <a href="{% url 'about' %}" class="nav-link nav-item d-block meno-nav-item active">درباره ما</a>
+                    <a href="{% url 'home' %}#tekrar" class="nav-link nav-item d-block meno-nav-item">سوالات پر تکرار</a>
+                    <a href="{% url 'article' %}" class="nav-link nav-item d-block meno-nav-item">مقالات</a>
+                </div>
+                <div class="meno-nav-tamas">
+                    <button type="button" class="d-flex">
+                        <a href="tel:09122343204">09122343204</a>
+                        <span><i class="fa-solid fa-phone"></i></span>
+                    </button>
+                </div>
+            </nav>
+            <div class="meno-berger-box collapse navbar-collapse" id="berger">
                 <div class="navbar-nav">
-                    <a href="tel:09122343204" class="nav-link phone-number">
-                        <i class="fas fa-phone"></i>
-                        09122343204
-                    </a>
+                    <a href="{% url 'home' %}#darkhast" class="nav-link nav-item">درخواست نصب و تعمیر</a>
+                    <a href="{% url 'about' %}" class="nav-link nav-item active">درباره ما</a>
+                    <a href="{% url 'home' %}#tekrar" class="nav-link nav-item">سوالات پر تکرار</a>
+                    <a href="{% url 'article' %}" class="nav-link nav-item">مقالات</a>
                 </div>
             </div>
-        </div>
-    </nav>
-</header>
+        </section>
+    </header>
 
-<!-- Main Content -->
-<main class="about-page">
+    <main class="main main-back about-page">
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
@@ -268,26 +271,31 @@
 <style>
 .about-page {
     font-family: 'IRANSans', sans-serif;
+    padding-top: 20px;
 }
 
 .hero-section {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 80px 0;
-    margin-bottom: 60px;
+    padding: 60px 0;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    margin: 20px;
 }
 
 .hero-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 20px;
     font-family: 'BTitr', serif;
+    text-align: center;
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 30px;
     opacity: 0.9;
+    text-align: center;
 }
 
 .hero-stats {
@@ -334,8 +342,10 @@
 }
 
 .about-company {
-    padding: 80px 0;
+    padding: 40px 0;
     background-color: #f8f9fa;
+    margin: 20px;
+    border-radius: 15px;
 }
 
 .feature-card {
@@ -371,7 +381,8 @@
 }
 
 .services-section {
-    padding: 80px 0;
+    padding: 40px 0;
+    margin: 20px;
 }
 
 .service-item {
@@ -418,8 +429,10 @@
 }
 
 .brands-section {
-    padding: 80px 0;
+    padding: 40px 0;
     background-color: #f8f9fa;
+    margin: 20px;
+    border-radius: 15px;
 }
 
 .brands-grid {
@@ -455,7 +468,8 @@
 }
 
 .contact-section {
-    padding: 80px 0;
+    padding: 40px 0;
+    margin: 20px;
 }
 
 .contact-info {
@@ -504,16 +518,16 @@
 
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
     .hero-stats {
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
     }
     
     .section-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
     .contact-info {
@@ -521,7 +535,22 @@
     }
     
     .brands-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    
+    .hero-section,
+    .about-company,
+    .services-section,
+    .brands-section,
+    .contact-section {
+        margin: 10px;
+    }
+    
+    .feature-card,
+    .service-item,
+    .brand-item,
+    .contact-item {
+        margin-bottom: 20px;
     }
 }
 </style>
