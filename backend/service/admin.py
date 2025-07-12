@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Request, ServiceRequest, Article, ArticleSection, ArticleImage
+from .models import ServiceRequest, Article, ArticleSection, ArticleImage
 
 
 class ArticleSectionInline(admin.StackedInline):
@@ -13,13 +13,6 @@ class ArticleImageInline(admin.TabularInline):
     model = ArticleImage
     extra = 1
     fields = ('image',)
-
-
-@admin.register(Request)
-class RequestAdmin(admin.ModelAdmin):
-    list_display = ('name', 'phone', 'service_type', 'created_at')
-    search_fields = ('name', 'phone')
-    list_filter = ('service_type', 'created_at')
 
 
 @admin.register(ServiceRequest)
