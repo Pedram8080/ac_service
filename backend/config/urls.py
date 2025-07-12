@@ -10,7 +10,7 @@ import os
 from django.contrib.sitemaps.views import sitemap
 from django.contrib.sitemaps import Sitemap
 from service.models import ServiceRequest
-from service.sitemaps import ArticleSitemap
+from service.sitemaps import ArticleSitemap, StaticViewSitemap
 
 
 class ServiceSitemap(Sitemap):
@@ -25,6 +25,7 @@ class ServiceSitemap(Sitemap):
 
 
 sitemaps = {
+    'static': StaticViewSitemap,
     'services': ServiceSitemap,
     'articles': ArticleSitemap,
 }
