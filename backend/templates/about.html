@@ -1,0 +1,528 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta_tags %}
+<!-- Primary Meta Tags -->
+<title>درباره ما | نصب فیکس | نمایندگی رسمی ایران رادیاتور</title>
+<meta name="title" content="درباره ما | نصب فیکس | نمایندگی رسمی ایران رادیاتور">
+<meta name="description" content="درباره نصب فیکس - تیم فنی با 10 سال سابقه در زمینه نصب و تعمیر کولرگازی. نمایندگی رسمی ایران رادیاتور با بیش از 2000 پروژه موفق در تهران.">
+<meta name="keywords" content="درباره نصب فیکس, نمایندگی ایران رادیاتور, تیم فنی کولرگازی, سابقه نصب فیکس, خدمات کولرگازی تهران">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nasbfix.ir/about/">
+<meta property="og:title" content="درباره ما | نصب فیکس | نمایندگی رسمی ایران رادیاتور">
+<meta property="og:description" content="درباره نصب فیکس - تیم فنی با 10 سال سابقه در زمینه نصب و تعمیر کولرگازی. نمایندگی رسمی ایران رادیاتور با بیش از 2000 پروژه موفق در تهران.">
+<meta property="og:image" content="https://nasbfix.ir/static/img/logo-nasbfix.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://nasbfix.ir/about/">
+<meta property="twitter:title" content="درباره ما | نصب فیکس | نمایندگی رسمی ایران رادیاتور">
+<meta property="twitter:description" content="درباره نصب فیکس - تیم فنی با 10 سال سابقه در زمینه نصب و تعمیر کولرگازی. نمایندگی رسمی ایران رادیاتور با بیش از 2000 پروژه موفق در تهران.">
+<meta property="twitter:image" content="https://nasbfix.ir/static/img/logo-nasbfix.png">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://nasbfix.ir/about/">
+{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "درباره نصب فیکس",
+  "description": "درباره تیم فنی نصب فیکس با 10 سال سابقه در زمینه نصب و تعمیر کولرگازی",
+  "url": "https://nasbfix.ir/about/",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "نصب فیکس",
+    "description": "نمایندگی رسمی ایران رادیاتور با 10 سال سابقه در زمینه نصب و تعمیر کولرگازی",
+    "foundingDate": "2014",
+    "numberOfEmployees": "15",
+    "areaServed": "تهران",
+    "serviceType": "نصب و تعمیر کولرگازی"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<!-- Header Section -->
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'img/logo-nasbfix.png' %}" alt="نصب فیکس" class="logo">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">صفحه اصلی</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'about' %}">درباره ما</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'article' %}">مقالات</a>
+                    </li>
+                </ul>
+                
+                <div class="navbar-nav">
+                    <a href="tel:09122343204" class="nav-link phone-number">
+                        <i class="fas fa-phone"></i>
+                        09122343204
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Main Content -->
+<main class="about-page">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">درباره نصب فیکس</h1>
+                    <p class="hero-subtitle">تیم فنی متخصص با 10 سال سابقه در زمینه نصب و تعمیر کولرگازی</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">سال سابقه</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">2000+</span>
+                            <span class="stat-label">پروژه موفق</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">رضایت مشتری</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="{% static 'img/nasb-koulergazy.jpg' %}" alt="تیم نصب فیکس" class="hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Company Section -->
+    <section class="about-company">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">درباره شرکت نصب فیکس</h2>
+                    <p class="section-description">
+                        نصب فیکس با بیش از 10 سال تجربه در زمینه نصب و تعمیر کولرگازی، یکی از معتبرترین شرکت‌های فعال در این حوزه در تهران است. 
+                        ما به عنوان نمایندگی رسمی ایران رادیاتور، خدمات تخصصی و با کیفیت را به مشتریان خود ارائه می‌دهیم.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>نمایندگی رسمی</h3>
+                        <p>نمایندگی رسمی ایران رادیاتور با مجوزهای معتبر و گارانتی رسمی</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>تیم متخصص</h3>
+                        <p>تیم فنی مجرب و متخصص با تجربه بالا در نصب و تعمیر انواع کولرگازی</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>خدمات 24/7</h3>
+                        <p>ارائه خدمات اضطراری و تعمیرات در کمترین زمان ممکن</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title text-center">خدمات ما</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="service-item">
+                        <h3><i class="fas fa-install"></i> نصب کولرگازی</h3>
+                        <ul>
+                            <li>نصب انواع کولرگازی اسپلیت</li>
+                            <li>نصب داکت اسپیلت</li>
+                            <li>نصب کولرگازی سقفی</li>
+                            <li>نصب کولرگازی کاستی</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-item">
+                        <h3><i class="fas fa-wrench"></i> تعمیر کولرگازی</h3>
+                        <ul>
+                            <li>تعمیر انواع کولرگازی</li>
+                            <li>سرویس و نگهداری</li>
+                            <li>تعمیرات اضطراری</li>
+                            <li>بازدید و مشاوره رایگان</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="brands-section">
+        <div class="container">
+            <h2 class="section-title text-center">برندهای تحت پوشش</h2>
+            <div class="brands-grid">
+                <div class="brand-item">
+                    <img src="{% static 'img/logo-iran-radiyator.png' %}" alt="ایران رادیاتور">
+                    <span>ایران رادیاتور</span>
+                </div>
+                <div class="brand-item">
+                    <img src="{% static 'img/logo-samsung.png' %}" alt="سامسونگ">
+                    <span>سامسونگ</span>
+                </div>
+                <div class="brand-item">
+                    <img src="{% static 'img/logo-lg.png' %}" alt="ال جی">
+                    <span>ال جی</span>
+                </div>
+                <div class="brand-item">
+                    <img src="{% static 'img/logo-hisense.png' %}" alt="هایسنس">
+                    <span>هایسنس</span>
+                </div>
+                <div class="brand-item">
+                    <img src="{% static 'img/logo-gree.png' %}" alt="گری">
+                    <span>گری</span>
+                </div>
+                <div class="brand-item">
+                    <img src="{% static 'img/logo-general.png' %}" alt="جنرال">
+                    <span>جنرال</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">تماس با ما</h2>
+                    <p class="section-description">
+                        برای دریافت مشاوره رایگان و درخواست خدمات، با ما تماس بگیرید
+                    </p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>تلفن تماس</h4>
+                                <a href="tel:09122343204">09122343204</a>
+                                <a href="tel:09389956061">09389956061</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>منطقه فعالیت</h4>
+                                <p>شمال، جنوب، شرق، غرب، مرکز و اطراف تهران</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>ساعات کاری</h4>
+                                <p>شنبه تا پنجشنبه: 8 صبح تا 8 شب</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block extra_head %}
+<style>
+.about-page {
+    font-family: 'IRANSans', sans-serif;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 80px 0;
+    margin-bottom: 60px;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: 'BTitr', serif;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.hero-image {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #333;
+    font-family: 'BTitr', serif;
+}
+
+.section-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.about-company {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.feature-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.services-section {
+    padding: 80px 0;
+}
+
+.service-item {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    height: 100%;
+}
+
+.service-item h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.service-item h3 i {
+    color: #667eea;
+}
+
+.service-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.service-item ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-right: 20px;
+}
+
+.service-item ul li:before {
+    content: "✓";
+    color: #28a745;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+}
+
+.brands-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.brand-item {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.brand-item:hover {
+    transform: translateY(-5px);
+}
+
+.brand-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.brand-item span {
+    font-weight: bold;
+    color: #333;
+}
+
+.contact-section {
+    padding: 80px 0;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.contact-item {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-item i {
+    font-size: 2rem;
+    color: #667eea;
+}
+
+.contact-item h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.contact-item a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+.contact-item p {
+    color: #666;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .brands-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+</style>
+{% endblock %} 
