@@ -44,6 +44,10 @@ def home(request):
     return render(request, 'home.html')
 
 
+def about(request):
+    return render(request, 'about.html')
+
+
 @login_required
 def request_panel_view(request):
     try:
