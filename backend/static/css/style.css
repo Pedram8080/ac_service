@@ -1901,7 +1901,9 @@ body p {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-secondary);
 }
-
+.ertebat{
+  margin: 130px 0;
+}
 .ertebat-header {
   position: relative;
   margin-bottom: 20px;
